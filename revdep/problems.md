@@ -60,8 +60,8 @@ Version: 0.5.0
     Running the tests in ‘tests/testthat.R’ failed.
     Last 13 lines of output:
       
-      testthat results ================================================================
-      OK: 58 SKIPPED: 0 FAILED: 9
+      ══ testthat results  ═══════════════════════════════════════════════════════════
+      OK: 30 SKIPPED: 3 FAILED: 9
       1. Failure: .convert_time correctly parses string (@test_data.R#7) 
       2. Failure: .convert_time correctly parses string (@test_data.R#11) 
       3. Failure: .convert_time correctly parses string (@test_data.R#13) 
@@ -84,29 +84,6 @@ Version: 0.5.0
 # alphavantager
 
 Version: 0.1.0
-
-## Newly fixed
-
-*   checking tests ...
-    ```
-     ERROR
-    Running the tests in ‘tests/testthat.R’ failed.
-    Last 13 lines of output:
-      > library(testthat)
-      > library(alphavantager)
-      > 
-      > test_check("alphavantager")
-      1. Error: call SECTOR (@test_av_get.R#38) --------------------------------------
-      missing value where TRUE/FALSE needed
-      1: av_get(symbol, av_fun) at testthat/test_av_get.R:38
-      
-      testthat results ================================================================
-      OK: 11 SKIPPED: 0 FAILED: 1
-      1. Error: call SECTOR (@test_av_get.R#38) 
-      
-      Error: testthat unit tests failed
-      Execution halted
-    ```
 
 ## In both
 
@@ -149,14 +126,6 @@ Version: 1.2.1
 *   checking re-building of vignette outputs ... WARNING
     ```
     ...
-    Building 1to5kb upstream of TSS...
-    Building intergenic...
-    Building 5UTRs...
-    Building 3UTRs...
-    Building exons...
-    Building introns...
-    Building intron exon boundaries...
-    snapshotDate(): 2017-04-25
     Building CpG islands...
     loading from cache '/home/muelleki//.AnnotationHub/5086'
     Building CpG shores...
@@ -167,6 +136,14 @@ Version: 1.2.1
     `summarise_each()` is deprecated.
     Use `summarise_all()`, `summarise_at()` or `summarise_if()` instead.
     To map `funs` over a selection of variables, use `summarise_at()`
+    Warning in subset_order_tbl(tbl = annotated_random, col = "annot.type",  :
+      There are elements in col_order that are not present in the corresponding column. Check for typos, or this could be a result of 0 tallies.
+    Warning in bind_rows_(x, .id) :
+      Unequal factor levels: coercing to character
+    Warning in bind_rows_(x, .id) :
+      binding character and factor vector, coercing into character vector
+    Warning in bind_rows_(x, .id) :
+      binding character and factor vector, coercing into character vector
     Error: processing vignette 'annotatr-vignette.Rmd' failed with diagnostics:
     path for html_dependency not found: 
     Execution halted
@@ -195,7 +172,7 @@ Version: 0.2.4
 
 # archivist
 
-Version: 2.1.2
+Version: 2.2
 
 ## In both
 
@@ -231,15 +208,15 @@ Version: 2.0.2.2
      ERROR
     Running the tests in ‘tests/testthat.R’ failed.
     Last 13 lines of output:
-      Actual value: "Unknown column `tree` "
+      Expected match: "All select\\(\\) inputs must resolve to integer column positions|\"tree\": must resolve to integer column positions, not string|Strings must match column names. Unkown columns: tree|Strings must match column names. Unknown columns: tree"
+      Actual message: "Unknown column `tree` "
       
+      ── 2. Failure: assert_rows breaks appropriately (@test-assertions.R#334)  ──────
+      `assert_rows(mtcars, rowSums, in_set(0, 1, 2), vs, am, "tree")` threw an error with unexpected message.
+      Expected match: "All select\\(\\) inputs must resolve to integer column positions|\"tree\": must resolve to integer column positions, not string|Strings must match column names. Unkown columns: tree|Strings must match column names. Unknown columns: tree"
+      Actual message: "Unknown column `tree` "
       
-      2. Failure: assert_rows breaks appropriately (@test-assertions.R#334) ----------
-      error$message does not match "All select\\(\\) inputs must resolve to integer column positions|\"tree\": must resolve to integer column positions, not string|Strings must match column names. Unkown columns: tree|Strings must match column names. Unknown columns: tree".
-      Actual value: "Unknown column `tree` "
-      
-      
-      testthat results ================================================================
+      ══ testthat results  ═══════════════════════════════════════════════════════════
       OK: 374 SKIPPED: 0 FAILED: 2
       1. Failure: assert breaks appropriately (@test-assertions.R#232) 
       2. Failure: assert_rows breaks appropriately (@test-assertions.R#334) 
@@ -274,13 +251,12 @@ Version: 0.1.6
       > library(testthat)
       > test_check("backtestGraphics")
       Loading required package: backtestGraphics
-      1. Failure: stat_calculation function (@test_stat_calculation.R#8) -------------
+      ── 1. Failure: stat_calculation function (@test_stat_calculation.R#8)  ─────────
       Failed the test for calculating summary statistics not equal to `truth.1`.
       Component "pnl": Component "pnl.drawdown": Component "start": Attributes: < Component "levels": 1 string mismatch >
       Component "pnl": Component "pnl.drawdown": Component "start": 1 string mismatch
       
-      
-      testthat results ================================================================
+      ══ testthat results  ═══════════════════════════════════════════════════════════
       OK: 9 SKIPPED: 0 FAILED: 1
       1. Failure: stat_calculation function (@test_stat_calculation.R#8) 
       
@@ -288,17 +264,30 @@ Version: 0.1.6
       Execution halted
     ```
 
-# ballr
-
-Version: 0.1.0
-
-## In both
-
-*   checking dependencies in R code ... NOTE
+*   checking re-building of vignette outputs ... NOTE
     ```
-    Namespaces in Imports field not imported from:
-      ‘XML’ ‘devtools’ ‘ggplot2’ ‘scales’
-      All declared Imports should be used.
+    ...
+    See the inputenc package documentation for explanation.
+    Type  H <return>  for immediate help.
+    ! Package inputenc Error: Unicode char ⁵ (U+2075)
+    (inputenc)                not set up for use with LaTeX.
+    
+    See the inputenc package documentation for explanation.
+    Type  H <return>  for immediate help.
+    ! Package inputenc Error: Unicode char ⁷ (U+2077)
+    (inputenc)                not set up for use with LaTeX.
+    
+    See the inputenc package documentation for explanation.
+    Type  H <return>  for immediate help.
+    ! Package inputenc Error: Unicode char ⁶ (U+2076)
+    (inputenc)                not set up for use with LaTeX.
+    
+    See the inputenc package documentation for explanation.
+    Type  H <return>  for immediate help.
+    ! Package inputenc Error: Unicode char ⁶ (U+2076)
+    (inputenc)                not set up for use with LaTeX
+    Calls: buildVignettes -> texi2pdf -> texi2dvi
+    Execution halted
     ```
 
 # banR
@@ -306,28 +295,6 @@ Version: 0.1.0
 Version: 0.2.0
 
 ## In both
-
-*   checking tests ...
-    ```
-     ERROR
-    Running the tests in ‘tests/testthat.R’ failed.
-    Last 13 lines of output:
-      1. Error: Geocode tbl works  (@test_geocodetbl.R#16) ---------------------------
-      The API sent back an error 503
-      1: expect_is(object = banR::geocode_tbl(tbl = table_test, adresse = x, code_postal = y), 
-             class = "tbl_df") at testthat/test_geocodetbl.R:16
-      2: klass(object)
-      3: paste(class(x), collapse = "/")
-      4: banR::geocode_tbl(tbl = table_test, adresse = x, code_postal = y)
-      5: stop("The API sent back an error ", httr::status_code(query_results))
-      
-      testthat results ================================================================
-      OK: 6 SKIPPED: 0 FAILED: 1
-      1. Error: Geocode tbl works  (@test_geocodetbl.R#16) 
-      
-      Error: testthat unit tests failed
-      Execution halted
-    ```
 
 *   checking dependencies in R code ... NOTE
     ```
@@ -492,34 +459,6 @@ Version: 1.0.1
     Execution halted
     ```
 
-# biomartr
-
-Version: 0.5.2
-
-## In both
-
-*   checking tests ...
-    ```
-     ERROR
-    Running the tests in ‘tests/testthat.R’ failed.
-    Last 13 lines of output:
-             download_url, "' currently available?", call. = FALSE)
-      
-      trying URL 'ftp://ftp.ncbi.nlm.nih.gov/genomes/GENOME_REPORTS/overview.txt'
-      Content type 'unknown' length 2921997 bytes (2.8 MB)
-      ==================================================
-      trying URL 'ftp://ftp.ncbi.nlm.nih.gov/genomes/genbank/metagenomes/assembly_summary.txt'
-      Content type 'unknown' length 362999 bytes (354 KB)
-      ==================================================
-      testthat results ================================================================
-      OK: 40 SKIPPED: 0 FAILED: 1
-      1. Error: The getAssemblyStats() downloads assembly stats file and reads raw
-                input: NCBI Genbank .. (@test-getAssemblyStats.R#34) 
-      
-      Error: testthat unit tests failed
-      Execution halted
-    ```
-
 # biotmle
 
 Version: 1.0.4
@@ -555,15 +494,15 @@ Version: 1.0
 
 # bmlm
 
-Version: 1.3.3
+Version: 1.3.5
 
 ## In both
 
 *   checking installed package size ... NOTE
     ```
-      installed size is 32.9Mb
+      installed size is 32.8Mb
       sub-directories of 1Mb or more:
-        libs  32.6Mb
+        libs  32.5Mb
     ```
 
 *   checking dependencies in R code ... NOTE
@@ -583,34 +522,6 @@ Version: 0.1
       installed size is  8.9Mb
       sub-directories of 1Mb or more:
         data   8.7Mb
-    ```
-
-# bomrang
-
-Version: 0.0.8
-
-## In both
-
-*   checking tests ...
-    ```
-     ERROR
-    Running the tests in ‘tests/testthat.R’ failed.
-    Last 13 lines of output:
-      [2055] "IDE00437.201711152040.tif" "IDE00437.201711152050.tif"
-      [2057] "IDE00437.201711152100.tif" "IDE00437.201711152110.tif"
-      [2059] "IDE00437.201711152120.tif" "IDE00437.201711152130.tif"
-      [2061] "IDE00437.201711152140.tif" "IDE00437.201711152150.tif"
-      2. Error: get_available_imagery functions properly (@test-get_satellite_imagery.R#21) 
-      argument is of length zero
-      1: get_satellite_imagery(product_id = "IDE00425", scans = 1, cache = TRUE) at testthat/test-get_satellite_imagery.R:21
-      
-      testthat results ================================================================
-      OK: 102 SKIPPED: 0 FAILED: 2
-      1. Error: caching utils list files in cache and delete when asked (@test-check_cache.R#47) 
-      2. Error: get_available_imagery functions properly (@test-get_satellite_imagery.R#21) 
-      
-      Error: testthat unit tests failed
-      Execution halted
     ```
 
 # bossMaps
@@ -634,9 +545,9 @@ Version: 0.1.0
 
 *   checking installed package size ... NOTE
     ```
-      installed size is  6.5Mb
+      installed size is  6.6Mb
       sub-directories of 1Mb or more:
-        libs   6.1Mb
+        libs   6.2Mb
     ```
 
 # brazilmaps
@@ -676,8 +587,8 @@ Version: 0.4.0
       18: stopc("Unsupported index type: ", class(j)[[1L]])
       19: abort(paste0(...))
       
-      testthat results ================================================================
-      OK: 359 SKIPPED: 0 FAILED: 1
+      ══ testthat results  ═══════════════════════════════════════════════════════════
+      OK: 350 SKIPPED: 4 FAILED: 1
       1. Error: Columns without names are renamed (@test_cleanup_data.R#72) 
       
       Error: testthat unit tests failed
@@ -699,56 +610,9 @@ Version: 0.4.0
 
 *   checking installed package size ... NOTE
     ```
-      installed size is 28.9Mb
+      installed size is 28.8Mb
       sub-directories of 1Mb or more:
         libs  28.7Mb
-    ```
-
-# broom
-
-Version: 0.4.2
-
-## In both
-
-*   checking examples ... ERROR
-    ```
-    ...
-    +   f2 <- Finance[1:300, "hml"] - rf
-    +   f3 <- Finance[1:300, "smb"] - rf
-    +   h <- cbind(f1, f2, f3)
-    +   res2 <- gmm(z ~ f1 + f2 + f3, x = h)
-    +   
-    +   td2 <- tidy(res2, conf.int = TRUE)
-    +   td2
-    +   
-    +   # coefficient plot
-    +   td2 %>%
-    +     mutate(variable = reorder(variable, estimate)) %>%
-    +     ggplot(aes(estimate, variable)) +
-    +     geom_point() +
-    +     geom_errorbarh(aes(xmin = conf.low, xmax = conf.high)) +
-    +     facet_wrap(~ term) +
-    +     geom_vline(xintercept = 0, color = "red", lty = 2)
-    + }
-    Error in `colnames<-`(`*tmp*`, value = c("conf.low", "conf.high")) : 
-      attempt to set 'colnames' on an object with less than two dimensions
-    Calls: tidy -> tidy.gmm -> process_lm -> colnames<-
-    Execution halted
-    ```
-
-*   checking tests ...
-    ```
-     ERROR
-    Running the tests in ‘tests/test-all.R’ failed.
-    Complete output:
-      > library(testthat)
-      > test_check("broom")
-      Loading required package: broom
-      Error in lahman_df() : could not find function "lahman_df"
-      Calls: test_check ... with_reporter -> force -> source_file -> eval -> eval -> tbl
-      testthat results ================================================================
-      OK: 621 SKIPPED: 0 FAILED: 0
-      Execution halted
     ```
 
 # bsam
@@ -810,18 +674,6 @@ Version: 0.2.2
 *   checking dependencies in R code ... NOTE
     ```
     Namespace in Imports field not imported from: ‘markdown’
-      All declared Imports should be used.
-    ```
-
-# canvasXpress
-
-Version: 1.17.4
-
-## In both
-
-*   checking dependencies in R code ... NOTE
-    ```
-    Namespace in Imports field not imported from: ‘magrittr’
       All declared Imports should be used.
     ```
 
@@ -1103,7 +955,7 @@ Version: 1.4.0
 
 # clustermq
 
-Version: 0.8.0
+Version: 0.8.2.1
 
 ## In both
 
@@ -1238,18 +1090,6 @@ Version: 1.10.0
     Package unavailable to check Rd xrefs: ‘clValid’
     ```
 
-# CollapseLevels
-
-Version: 0.1.0
-
-## In both
-
-*   checking dependencies in R code ... NOTE
-    ```
-    Namespace in Imports field not imported from: ‘magrittr’
-      All declared Imports should be used.
-    ```
-
 # collapsibleTree
 
 Version: 0.1.6
@@ -1260,46 +1100,6 @@ Version: 0.1.6
     ```
     Packages which this enhances but not available for checking:
       ‘knitr’ ‘shiny’
-    ```
-
-# comtradr
-
-Version: 0.1.0
-
-## Newly fixed
-
-*   checking re-building of vignette outputs ... WARNING
-    ```
-    Error in re-building vignettes:
-      ...
-    Quitting from lines 93-97 (comtradr-vignette.Rmd) 
-    Error: processing vignette 'comtradr-vignette.Rmd' failed with diagnostics:
-    too few arguments
-    Execution halted
-    ```
-
-## In both
-
-*   checking tests ...
-    ```
-     ERROR
-    Running the tests in ‘tests/testthat.R’ failed.
-    Last 13 lines of output:
-      1. Error: correct api vals given: 1 reporter, 2 partners, all trade directions, annual, only shrimp (@test-ct_search.R#51) 
-      too few arguments
-      1: ct_search(reporters = "USA", partners = c("Germany", "Thailand"), trade_direction = "exports", 
-             freq = "annual", start_date = "2011-01-01", end_date = "2015-01-01", commod_codes = shrimp_codes) at testthat/test-ct_search.R:51
-      2: execute_api_request(url)
-      3: stop(sprintf("Comtrade API request failed, with status code [%s]\n%s", httr::status_code(res)), 
-             call. = FALSE)
-      4: sprintf("Comtrade API request failed, with status code [%s]\n%s", httr::status_code(res))
-      
-      testthat results ================================================================
-      OK: 51 SKIPPED: 0 FAILED: 1
-      1. Error: correct api vals given: 1 reporter, 2 partners, all trade directions, annual, only shrimp (@test-ct_search.R#51) 
-      
-      Error: testthat unit tests failed
-      Execution halted
     ```
 
 # congressbr
@@ -1313,37 +1113,25 @@ Version: 0.1.1
       Note: found 1 marked UTF-8 string
     ```
 
+# Countr
+
+Version: 3.4.1
+
+## In both
+
+*   checking installed package size ... NOTE
+    ```
+      installed size is  9.3Mb
+      sub-directories of 1Mb or more:
+        doc    1.9Mb
+        libs   6.5Mb
+    ```
+
 # countyfloods
 
 Version: 0.1.0
 
 ## In both
-
-*   checking re-building of vignette outputs ... WARNING
-    ```
-    ...
-    The following objects are masked from 'package:stats':
-    
-        filter, lag
-    
-    The following objects are masked from 'package:base':
-    
-        intersect, setdiff, setequal, union
-    
-    `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
-    To use this package, you must install the hurricaneexposuredata
-    package. To install that package, run
-    `install.packages('hurricaneexposuredata',
-    repos='https://geanders.github.io/drat/', type='source')`. See the
-    `hurricaneexposure` vignette for more details.
-    To use this function, you must have the `hurricaneexposuredata`
-    package installed. See the `hurricaneexposure` package vignette
-    for more details.
-    Quitting from lines 311-313 (countyflood.Rmd) 
-    Error: processing vignette 'countyflood.Rmd' failed with diagnostics:
-    there is no package called 'hurricaneexposuredata'
-    Execution halted
-    ```
 
 *   checking dependencies in R code ... NOTE
     ```
@@ -1360,6 +1148,19 @@ Version: 0.1.0
 *   checking data for non-ASCII characters ... NOTE
     ```
       Note: found 1 marked UTF-8 string
+    ```
+
+# covTestR
+
+Version: 0.1.2
+
+## In both
+
+*   checking installed package size ... NOTE
+    ```
+      installed size is  8.1Mb
+      sub-directories of 1Mb or more:
+        libs   8.0Mb
     ```
 
 # CRANsearcher
@@ -1382,9 +1183,9 @@ Version: 2.1.1
 
 *   checking installed package size ... NOTE
     ```
-      installed size is  7.1Mb
+      installed size is  7.4Mb
       sub-directories of 1Mb or more:
-        libs   6.5Mb
+        libs   6.8Mb
     ```
 
 # crosswalkr
@@ -1523,31 +1324,9 @@ Version: 1.2.2
 
 # d3r
 
-Version: 0.7.0
+Version: 0.7.1
 
 ## In both
-
-*   checking tests ...
-    ```
-     ERROR
-    Running the tests in ‘tests/testthat.R’ failed.
-    Last 13 lines of output:
-      Failed with error:  'there is no package called 'V8''
-      2. Error: d3_v8 has d3 (@test_v8.R#9) ------------------------------------------
-      The V8 package must be installed for this function.  Please install.packages('V8').
-      1: expect_identical(d3_v8()$get("global.d3.version"), d3_dep_v4()$version) at testthat/test_v8.R:9
-      2: identical(object, expected)
-      3: d3_v8()
-      4: stop("The V8 package must be installed for this function.  Please install.packages('V8').")
-      
-      testthat results ================================================================
-      OK: 11 SKIPPED: 3 FAILED: 2
-      1. Error: d3-jetpack on latest release (@test_deps.R#47) 
-      2. Error: d3_v8 has d3 (@test_v8.R#9) 
-      
-      Error: testthat unit tests failed
-      Execution halted
-    ```
 
 *   checking package dependencies ... NOTE
     ```
@@ -1567,34 +1346,6 @@ Version: 0.2.0
       All declared Imports should be used.
     ```
 
-# dat
-
-Version: 0.3.0
-
-## In both
-
-*   checking tests ...
-    ```
-     ERROR
-    Running the tests in ‘tests/testthat.R’ failed.
-    Last 13 lines of output:
-      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-      tests/testthat/test-summarise.r:963:1: style: lines should not be more than 100 characters.
-        expect_identical(summarise(group_by(mtcars, cyl), x = n(), z = x)[2:3], tibble(x = c(11L, 7L, 14L), z = x))
-      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-      tests/testthat/test-summarise.r:987:1: style: lines should not be more than 100 characters.
-        expect_error(summarise(gdf, out = !! 1:5), "must be length 2 (the number of groups)", fixed = TRUE)
-      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-      
-      
-      testthat results ================================================================
-      OK: 108 SKIPPED: 0 FAILED: 1
-      1. Failure: Package Style (@test-lintr.R#5) 
-      
-      Error: testthat unit tests failed
-      Execution halted
-    ```
-
 # datadr
 
 Version: 0.8.6
@@ -1605,15 +1356,6 @@ Version: 0.8.6
     ```
     Package suggested but not available for checking: ‘Rhipe’
     ```
-
-# dataRetrieval
-
-Version: 2.7.3
-
-## In both
-
-*   R CMD check timed out
-    
 
 # datasus
 
@@ -1637,8 +1379,10 @@ Version: 0.4.0
         intersect, setdiff, setequal, union
     
     Quitting from lines 78-85 (Introduction_to_datasus.Rmd) 
+    Warning in is.factor(x) :
+      closing unused connection 5 (http://tabnet.datasus.gov.br/cgi/deftohtm.exe?sinasc/cnv/nvms.def)
     Error: processing vignette 'Introduction_to_datasus.Rmd' failed with diagnostics:
-    Timeout was reached: Connection timed out after 10000 milliseconds
+    Timeout was reached: Connection timed out after 10001 milliseconds
     Execution halted
     ```
 
@@ -1653,6 +1397,28 @@ Version: 0.4.0
 Version: 1.1.0
 
 ## In both
+
+*   checking tests ...
+    ```
+     ERROR
+    Running the tests in ‘tests/testthat.R’ failed.
+    Last 13 lines of output:
+      x[10]: "4         4.40        3.20         1.30       0.200 setosa "
+      y[10]: "4          4.4         3.2          1.3         0.2  setosa"
+      
+      ══ testthat results  ═══════════════════════════════════════════════════════════
+      OK: 382 SKIPPED: 10 FAILED: 5
+      1. Failure: ungrouped output (@test-output.R#14) 
+      2. Failure: ungrouped output (@test-output.R#14) 
+      3. Failure: ungrouped output (@test-output.R#14) 
+      4. Failure: ungrouped output (@test-output.R#14) 
+      5. Failure: ungrouped output (@test-output.R#14) 
+      
+      Error: testthat unit tests failed
+      In addition: Warning message:
+      call dbDisconnect() when finished working with a connection 
+      Execution halted
+    ```
 
 *   checking dependencies in R code ... NOTE
     ```
@@ -1767,34 +1533,6 @@ Version: 2.0.2
         libs   5.4Mb
     ```
 
-# describer
-
-Version: 0.2.0
-
-## In both
-
-*   checking tests ...
-    ```
-     ERROR
-    Running the tests in ‘tests/testthat.R’ failed.
-    Last 13 lines of output:
-      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-      tests/testthat/test-ts.R:8:1: style: lines should not be more than 80 characters.
-          "`.data` must be a data source, not a ts object, do you want `stats::filter()`?",
-      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-      tests/testthat/test-window.R:63:1: style: lines should not be more than 80 characters.
-        expect_error(order_by(NULL, !! 1L), "`call` must be a function call, not an integer vector")
-      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-      
-      
-      testthat results ================================================================
-      OK: 7 SKIPPED: 0 FAILED: 1
-      1. Failure: Package Style (@test-styling.R#4) 
-      
-      Error: testthat unit tests failed
-      Execution halted
-    ```
-
 # desctable
 
 Version: 0.1.0
@@ -1854,28 +1592,6 @@ Version: 0.1.0
 
 ## In both
 
-*   checking tests ...
-    ```
-     ERROR
-    Running the tests in ‘tests/testthat.R’ failed.
-    Last 13 lines of output:
-      4. Failure: detrending works (@test_detrend.R#29) ------------------------------------------------------------------------------------------------------------------------------------------------------
-      round(mean(brightness_pillars(corrected), na.rm = TRUE), 1) not equal to 2.1.
-      1/1 mismatches
-      [1] 1.9 - 2.1 == -0.2
-      
-      
-      testthat results ========================================================================================================================================================================================
-      OK: 54 SKIPPED: 0 FAILED: 4
-      1. Failure: myrpois works (@test-myrs.R#7) 
-      2. Failure: best_tau works (@test_best_tau.R#7) 
-      3. Failure: detrending works (@test_detrend.R#19) 
-      4. Failure: detrending works (@test_detrend.R#29) 
-      
-      Error: testthat unit tests failed
-      Execution halted
-    ```
-
 *   checking installed package size ... NOTE
     ```
       installed size is  6.8Mb
@@ -1891,7 +1607,7 @@ Version: 0.1.0
 
 # dexter
 
-Version: 0.5.1
+Version: 0.6.0
 
 ## In both
 
@@ -1912,6 +1628,60 @@ Version: 2.0.1
       sub-directories of 1Mb or more:
         doc    1.9Mb
         libs  25.2Mb
+    ```
+
+# DiagrammeR
+
+Version: 0.9.2
+
+## Newly broken
+
+*   checking examples ... ERROR
+    ```
+    ...
+    > #> 1  1    1  2 <NA>
+    > #> 2  2    2  3 <NA>
+    > #> 3  3    3  4 <NA>
+    > #> 4  4    4  5 <NA>
+    > 
+    > # Perform a traversal from the inner nodes
+    > # (`2` and `4`) to their adjacent nodes (`1`,
+    > # `3`, and `5`) while also applying the node
+    > # attribute `value` to target nodes; node `3`
+    > # will obtain a `value` of 10 since a traversal
+    > # to `3` will occur from `2` and `4` (and
+    > # multiple values passed will be summed)
+    > graph <-
+    +   graph %>%
+    +   trav_both(
+    +     copy_attrs_from = value,
+    +     agg = "sum")
+    Error in grouped_df_impl(data, unname(vars), drop) : 
+      Column `id` is unknown
+    Calls: %>% ... group_by.data.frame -> grouped_df -> grouped_df_impl -> .Call
+    Execution halted
+    ```
+
+*   checking tests ...
+    ```
+     ERROR
+    Running the tests in ‘tests/testthat.R’ failed.
+    Last 13 lines of output:
+      16: `[.tbl_df`(nodes, , 2)
+      17: check_names_df(j, x)
+      18: check_names_df.numeric(j, x)
+      19: stopc(pluralise_msg(paste0("Column index(es) must be at most ", length(x), " if positive, not "), 
+             j[pos_too_large]))
+      20: abort(paste0(...))
+      
+      ══ testthat results  ═══════════════════════════════════════════════════════════
+      OK: 1812 SKIPPED: 0 FAILED: 3
+      1. Error: copying values with `trav_both()` works (@test-traversals_copying_attr_vals.R#369) 
+      2. Error: copying values with `trav_in()` works (@test-traversals_copying_attr_vals.R#397) 
+      3. Error: copying values with `trav_out()` works (@test-traversals_copying_attr_vals.R#425) 
+      
+      Error: testthat unit tests failed
+      Execution halted
     ```
 
 # DiffBind
@@ -1955,6 +1725,38 @@ Version: 1.4.0
     structure’ in the ‘Writing R Extensions’ manual.
     ```
 
+# dissever
+
+Version: 0.2-1
+
+## In both
+
+*   checking re-building of vignette outputs ... WARNING
+    ```
+    ...
+        intersect, select, union
+    
+    The following objects are masked from 'package:stats':
+    
+        filter, lag
+    
+    The following objects are masked from 'package:base':
+    
+        intersect, setdiff, setequal, union
+    
+    
+    Attaching package: 'magrittr'
+    
+    The following object is masked from 'package:raster':
+    
+        extract
+    
+    Quitting from lines 53-92 (dissever-demo.Rmd) 
+    Error: processing vignette 'dissever-demo.Rmd' failed with diagnostics:
+    Required package is missing
+    Execution halted
+    ```
+
 # dotwhisker
 
 Version: 0.3.0
@@ -1964,6 +1766,33 @@ Version: 0.3.0
 *   checking Rd cross-references ... NOTE
     ```
     Package unavailable to check Rd xrefs: ‘arm’
+    ```
+
+# driftR
+
+Version: 1.0.0
+
+## In both
+
+*   checking dependencies in R code ... NOTE
+    ```
+    Namespaces in Imports field not imported from:
+      ‘ggplot2’ ‘readr’
+      All declared Imports should be used.
+    ```
+
+# dtwclust
+
+Version: 5.1.0
+
+## In both
+
+*   checking installed package size ... NOTE
+    ```
+      installed size is 11.5Mb
+      sub-directories of 1Mb or more:
+        doc    1.9Mb
+        libs   8.7Mb
     ```
 
 # ecoengine
@@ -2081,31 +1910,9 @@ Version: 2.2.1
 
 # epicontacts
 
-Version: 1.0.1
+Version: 1.1.0
 
 ## In both
-
-*   checking tests ...
-    ```
-     ERROR
-    Running the tests in ‘tests/testthat.R’ failed.
-    Last 13 lines of output:
-      testthat results ================================================================
-      OK: 146 SKIPPED: 0 FAILED: 14
-      1. Failure: graph3D produces json that is not null (@test_graph3D.R#12) 
-      2. Failure: graph3D errors as expected on bad annotation and group specification (@test_graph3D.R#38) 
-      3. Failure: graph3D errors as expected on bad annotation and group specification (@test_graph3D.R#41) 
-      4. Failure: graph3D errors as expected on bad annotation and group specification (@test_graph3D.R#44) 
-      5. Failure: graph3D errors as expected on bad annotation and group specification (@test_graph3D.R#47) 
-      6. Failure: graph3D object includes annotation (@test_graph3D.R#61) 
-      7. Failure: Printing objects works (@test_print.epicontacts.R#11) 
-      8. Failure: Plotting groups as color (@test_vis_epicontacts.R#24) 
-      9. Failure: Plotting groups as color (@test_vis_epicontacts.R#25) 
-      1. ...
-      
-      Error: testthat unit tests failed
-      Execution halted
-    ```
 
 *   checking dependencies in R code ... NOTE
     ```
@@ -2135,20 +1942,6 @@ Version: 0.4.0
 *   checking Rd cross-references ... NOTE
     ```
     Package unavailable to check Rd xrefs: ‘metafor’
-    ```
-
-# evaluator
-
-Version: 0.1.0
-
-## In both
-
-*   checking dependencies in R code ... NOTE
-    ```
-    Namespaces in Imports field not imported from:
-      ‘ggalt’ ‘pander’ ‘psych’
-      All declared Imports should be used.
-    Missing or unexported object: ‘purrr::by_row’
     ```
 
 # EventStudy
@@ -2227,20 +2020,20 @@ Version: 0.1.6
      ERROR
     Running the tests in ‘tests/testthat.R’ failed.
     Last 13 lines of output:
-      Computing t.test for each time bin...
-      Computing t.test for each time bin...
-      `mutate_each()` is deprecated.
-      Use `mutate_all()`, `mutate_at()` or `mutate_if()` instead.
-      To map `funs` over a selection of variables, use `mutate_at()`
-      Avg. window length in new data will be 5500
-      Performing Trackloss Analysis...
-      Will exclude trials whose trackloss proportion is greater than : 0.25
-      	...removed  33  trials.
-      Error in UseMethod("make_time_cluster_data") : 
-        no applicable method for 'make_time_cluster_data' applied to an object of class "data.frame"
-      Calls: test_check ... source_file -> eval -> eval -> make_time_cluster_data
-      testthat results ================================================================
-      OK: 38 SKIPPED: 0 FAILED: 0
+      Predictor:	 Target 
+      Formula:	 Prop ~ Target 
+      Runs of Significant Time Bins: 
+      Positive Run 1  ===== 
+      	Time:		 15900 - 21000 ── 1. Error: (unknown) (@test_cluster_analysis.R#143)  ─────────────────────────
+      no applicable method for 'make_time_cluster_data' applied to an object of class "data.frame"
+      1: make_time_cluster_data(response_time_by_ppt, predictor_column = "Sex", test = "boot_splines", 
+             within_subj = FALSE, smoother = "smooth.spline", alpha = 0.05) at testthat/test_cluster_analysis.R:143
+      
+      ══ testthat results  ═══════════════════════════════════════════════════════════
+      OK: 42 SKIPPED: 0 FAILED: 1
+      1. Error: (unknown) (@test_cluster_analysis.R#143) 
+      
+      Error: testthat unit tests failed
       Execution halted
     ```
 
@@ -2283,20 +2076,20 @@ Version: 1.6.0
     Also defined by 'filehash'
     Found more than one class "file" in cache; using the first, from namespace 'BiocGenerics'
     Also defined by 'filehash'
-    Preclustering resulted in 3326 gene groups (1.367 seconds elapsed)
-    Grouping resulted in 3140 gene groups (12.369 seconds elapsed)
-    Total time elapsed was 13.76 seconds
-    Presplitting resulted in 3161 gene groups (0.091 seconds elapsed)
+    Preclustering resulted in 3326 gene groups (0.565 seconds elapsed)
+    Grouping resulted in 3140 gene groups (5.363 seconds elapsed)
+    Total time elapsed was 5.934 seconds
+    Presplitting resulted in 3162 gene groups (0.034 seconds elapsed)
     Adding missing grouping variables: `org`, `contig`
-    Splitting resulted in 3602 gene groups (3 minutes and 23.428 seconds elapsed)
-    Adding missing grouping variables: `org`, `contig`
-    Adding missing grouping variables: `org`, `contig`
+    Splitting resulted in 3602 gene groups (1 minute and 34.043 seconds elapsed)
     Adding missing grouping variables: `org`, `contig`
     Adding missing grouping variables: `org`, `contig`
     Adding missing grouping variables: `org`, `contig`
     Adding missing grouping variables: `org`, `contig`
-    Merging resulted in 3414 gene groups (3.44 seconds elapsed)
-    Total time elapsed was 3 minutes and 26.959 seconds
+    Adding missing grouping variables: `org`, `contig`
+    Adding missing grouping variables: `org`, `contig`
+    Merging resulted in 3414 gene groups (2.011 seconds elapsed)
+    Total time elapsed was 1 minute and 36.088 seconds
     Error: processing vignette 'FindMyFriends_intro.Rmd' failed with diagnostics:
     path for html_dependency not found: 
     Execution halted
@@ -2317,65 +2110,17 @@ Version: 1.6.0
       See the note in ?`:::` about the use of this operator.
     ```
 
-# fingertipsR
-
-Version: 0.1.3
-
-## In both
-
-*   checking re-building of vignette outputs ... WARNING
-    ```
-    Error in re-building vignettes:
-      ...
-    pandoc: Could not find data file /usr/share/pandoc/data/templates/--highlight-style.html
-    Error: processing vignette 'lifeExpectancy.Rmd' failed with diagnostics:
-    pandoc document conversion failed with error 97
-    Execution halted
-    ```
-
-# flextable
+# flora
 
 Version: 0.3.0
 
 ## In both
 
-*   checking tests ...
+*   checking installed package size ... NOTE
     ```
-     ERROR
-    Running the tests in ‘tests/testthat.R’ failed.
-    Last 13 lines of output:
-      6: pmap_chr(x, function(image_src, width, height) {
-             format(external_img(src = image_src, width = width, height = height), type = type)
-         })
-      7: .f(image_src = .l[[c(1L, i)]], width = .l[[c(2L, i)]], height = .l[[c(3L, i)]], ...)
-      8: format(external_img(src = image_src, width = width, height = height), type = type)
-      9: external_img(src = image_src, width = width, height = height)
-      10: stopifnot(file.exists(src))
-      11: stop(msg, call. = FALSE, domain = NA)
-      
-      testthat results ================================================================
-      OK: 67 SKIPPED: 0 FAILED: 1
-      1. Error: images (@test-images.R#44) 
-      
-      Error: testthat unit tests failed
-      Execution halted
-    ```
-
-*   checking re-building of vignette outputs ... WARNING
-    ```
-    Error in re-building vignettes:
-      ...
-    Loading required package: officer
-    Quitting from lines 323-336 (format.Rmd) 
-    Error: processing vignette 'format.Rmd' failed with diagnostics:
-    file.exists(src) is not TRUE
-    Execution halted
-    ```
-
-*   checking dependencies in R code ... NOTE
-    ```
-    Namespace in Imports field not imported from: ‘magrittr’
-      All declared Imports should be used.
+      installed size is  6.5Mb
+      sub-directories of 1Mb or more:
+        R   6.3Mb
     ```
 
 # flowWorkspace
@@ -2426,11 +2171,11 @@ Version: 3.24.4
 
 *   checking installed package size ... NOTE
     ```
-      installed size is 108.0Mb
+      installed size is 108.2Mb
       sub-directories of 1Mb or more:
         doc       1.1Mb
         include   2.7Mb
-        lib      72.9Mb
+        lib      73.0Mb
         libs     30.6Mb
     ```
 
@@ -2491,32 +2236,36 @@ Version: 3.24.4
     GNU make is a SystemRequirements.
     ```
 
-# foghorn
+# fold
 
-Version: 0.4.4
+Version: 0.2.4
 
-## In both
+## Newly broken
 
-*   checking tests ...
+*   checking examples ... ERROR
     ```
-     ERROR
-    Running the tests in ‘tests/testthat.R’ failed.
-    Last 13 lines of output:
-      testthat results ================================================================
-      OK: 49 SKIPPED: 0 FAILED: 10
-      1.  Failure: output of summary cran results (@test-foghorn.R#176) 
-      2.  Failure: output of summary cran results (@test-foghorn.R#178) 
-      3.  Failure: output of summary cran results (@test-foghorn.R#189) 
-      4.  Failure: output of summary cran results (@test-foghorn.R#201) 
-      5.  Failure: output of summary cran results (@test-foghorn.R#213) 
-      6.  Failure: output of summary cran results (@test-foghorn.R#226) 
-      7.  Failure: output of summary cran results (@test-foghorn.R#233) 
-      8.  Failure: output of summary cran results (@test-foghorn.R#239) 
-      9.  Failure: output of show cran results (@test-foghorn.R#264) 
-      10. Failure: output of show cran results (@test-foghorn.R#266) 
-      
-      Error: testthat unit tests failed
-      Execution halted
+    ...
+    1   VARIABLE   META   ID   TIME
+    > 
+    > # another example
+    > x <- Theoph
+    > x %<>% mutate(
+    +   conc_LABEL = 'theophylline concentration',
+    +   conc_GUIDE = 'mg/L',
+    +   Time_LABEL = 'time since drug administration',
+    +   Time_GUIDE = 'hr',
+    +   Time_HALF = Time / 2 # to demonstrate variant attribute of key column
+    + )
+    > x %<>% fold(Subject, Time)
+    Warning in as.folded.data.frame(d, sort = sort, ...) :
+      removing unique values where keys are duplicated
+    > x %>% unfold %>% head
+    Warning in is.na(x$META) :
+      is.na() applied to non-(list or vector) of type 'NULL'
+    Error in y[sapply(y, function(i) nrow(i) > 0)] : 
+      invalid subscript type 'list'
+    Calls: %>% ... _fseq -> freduce -> <Anonymous> -> unfold -> unfold.folded
+    Execution halted
     ```
 
 # fourierin
@@ -2527,7 +2276,7 @@ Version: 0.2.2
 
 *   checking installed package size ... NOTE
     ```
-      installed size is  5.0Mb
+      installed size is  5.1Mb
       sub-directories of 1Mb or more:
         libs   4.5Mb
     ```
@@ -2583,10 +2332,10 @@ Version: 0.1.8
 
 *   checking installed package size ... NOTE
     ```
-      installed size is 11.1Mb
+      installed size is 11.4Mb
       sub-directories of 1Mb or more:
         doc    2.2Mb
-        libs   8.7Mb
+        libs   9.1Mb
     ```
 
 # ftDK
@@ -2606,12 +2355,37 @@ Version: 1.4.0
 
 ## In both
 
-*   checking package dependencies ... ERROR
+*   checking installed package size ... NOTE
     ```
-    Package required but not available: ‘EBImage’
-    
-    See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
-    manual.
+      installed size is 349.5Mb
+      sub-directories of 1Mb or more:
+        data  348.5Mb
+    ```
+
+*   checking R code for possible problems ... NOTE
+    ```
+    ...
+    identifyTimeMinArea: no visible global function definition for ‘points’
+    identifyTimeMinArea: no visible global function definition for ‘abline’
+    plotFeatureEvolution: no visible global function definition for ‘par’
+    plotFeatureEvolution: no visible binding for global variable ‘median’
+    plotFeatureEvolution: no visible binding for global variable ‘quantile’
+    plotFeatureEvolution: no visible global function definition for ‘plot’
+    plotFeatureEvolution: no visible global function definition for
+      ‘polygon’
+    plotFeatureEvolution: no visible global function definition for ‘rgb’
+    plotFeatureEvolution: no visible global function definition for ‘axis’
+    plotFeatureEvolution: no visible global function definition for ‘mtext’
+    plotFeatureEvolution: no visible global function definition for ‘title’
+    Undefined global functions or variables:
+      abline axis median mtext par plot points polygon predict quantile rgb
+      title
+    Consider adding
+      importFrom("grDevices", "rgb")
+      importFrom("graphics", "abline", "axis", "mtext", "par", "plot",
+                 "points", "polygon", "title")
+      importFrom("stats", "median", "predict", "quantile")
+    to your NAMESPACE file.
     ```
 
 # GA4GHclient
@@ -2625,7 +2399,7 @@ Version: 1.0.0
      ERROR
     Running the tests in ‘tests/testthat.R’ failed.
     Last 13 lines of output:
-      testthat results ================================================================
+      ══ testthat results  ═══════════════════════════════════════════════════════════
       OK: 129 SKIPPED: 0 FAILED: 15
       1. Error: getVariant works (@test-getVariant.R#8) 
       2. Error: getVariant asVCF=FALSE works (@test-getVariant.R#19) 
@@ -2701,9 +2475,9 @@ Version: 0.4.01
 
 *   checking installed package size ... NOTE
     ```
-      installed size is 58.6Mb
+      installed size is 58.8Mb
       sub-directories of 1Mb or more:
-        libs  58.2Mb
+        libs  58.4Mb
     ```
 
 # geex
@@ -2788,28 +2562,6 @@ Version: 1.5.5
 
 ## In both
 
-*   checking tests ...
-    ```
-     ERROR
-    Running the tests in ‘tests/testthat.R’ failed.
-    Last 13 lines of output:
-      
-      StartTag: invalid element name
-      Extra content at the end of the document
-      testthat results ================================================================
-      OK: 174 SKIPPED: 0 FAILED: 7
-      1. Error: download works (@test-download_result.R#8) 
-      2. Error: load result works (@test-download_result.R#14) 
-      3. Error: load result works from job id URL (@test-download_result.R#19) 
-      4. Error: download result works from job id URL (@test-download_result.R#24) 
-      5. Error: download result works from job (@test-download_result.R#29) 
-      6. Failure: error on url (@test-geoknife_utils.R#15) 
-      7. Error: you can set booleans as pass through (@test-webprocess_input.R#56) 
-      
-      Error: testthat unit tests failed
-      Execution halted
-    ```
-
 *   checking re-building of vignette outputs ... WARNING
     ```
     Error in re-building vignettes:
@@ -2848,7 +2600,7 @@ Version: 1.36.0
     
     Quitting from lines 273-277 (GEOmetadb.Rmd) 
     Error: processing vignette 'GEOmetadb.Rmd' failed with diagnostics:
-    Condition message must be a string
+    The dbplyr package is required to communicate with database backends.
     Execution halted
     ```
 
@@ -2877,35 +2629,14 @@ Version: 0.1.1
 
 ## In both
 
-*   checking tests ...
-    ```
-     ERROR
-    Running the tests in ‘tests/testthat.R’ failed.
-    Last 13 lines of output:
-      2. Error: no problems if no results (@test_query.R#26) -------------------------
-      HTTP failure: 401
-      1: geoparser_q(text_input = "no placename here") at testthat/test_query.R:26
-      2: lapply(text_input, total, key = key)
-      3: FUN(X[[i]], ...)
-      4: geoparser_check(temp)
-      5: stop("HTTP failure: ", status, call. = FALSE)
-      
-      testthat results ================================================================
-      OK: 3 SKIPPED: 0 FAILED: 2
-      1. Error: query returns a list of data.frames (@test_query.R#4) 
-      2. Error: no problems if no results (@test_query.R#26) 
-      
-      Error: testthat unit tests failed
-      Execution halted
-    ```
-
 *   checking re-building of vignette outputs ... WARNING
     ```
     Error in re-building vignettes:
       ...
-    Quitting from lines 34-37 (geoparser.Rmd) 
+    pandoc: Could not fetch http://www.ropensci.org/public_images/github_footer.png
+    TlsExceptionHostPort (HandshakeFailed Error_EOF) "www.ropensci.org" 80
     Error: processing vignette 'geoparser.Rmd' failed with diagnostics:
-    HTTP failure: 401
+    pandoc document conversion failed with error 67
     Execution halted
     ```
 
@@ -2970,93 +2701,17 @@ Version: 1.8.0
     to your NAMESPACE file.
     ```
 
-# getCRUCLdata
+# ggalluvial
 
-Version: 0.1.10
-
-## In both
-
-*   checking tests ...
-    ```
-     ERROR
-    Running the tests in ‘tests/testthat.R’ failed.
-    Last 13 lines of output:
-      6: .stopAsciiWriting(x)
-      7: raster(x@file@name)
-      8: raster(x@file@name)
-      9: .local(x, ...)
-      10: .rasterObjectFromFile(x, band = band, objecttype = "RasterLayer", ...)
-      11: .rasterFromASCIIFile(x, ...)
-      12: stop("\"NROWS\" not detected")
-      
-      testthat results ================================================================
-      OK: 107 SKIPPED: 0 FAILED: 2
-      1. Failure: cache directory is created if necessary (@test_caching.R#30) 
-      2. Error: caching utils list files in cache and delete when asked (@test_caching.R#46) 
-      
-      Error: testthat unit tests failed
-      Execution halted
-    ```
-
-# GetLattesData
-
-Version: 0.8
+Version: 0.5.0
 
 ## In both
 
-*   checking examples ... ERROR
+*   checking dependencies in R code ... NOTE
     ```
-    Running examples in ‘GetLattesData-Ex.R’ failed
-    The error most likely occurred in:
-    
-    > ### Name: gld_get_lattes_data
-    > ### Title: Downloads and reads Lattes data based on a vector of Lattes ids
-    > ### Aliases: gld_get_lattes_data
-    > 
-    > ### ** Examples
-    > 
-    > 
-    > l.out <- gld_get_lattes_data(id.vec = 'K4713546D3',
-    +                              field.qualis = 'ECONOMIA')
-    
-    Downloading file  /home/muelleki/tmp/Rtmp5NXsJR/K4713546D3_2017-11-16.zipWarning in utils::download.file(url = my.link, destfile = dest.file, quiet = T,  :
-      unable to resolve 'buscacv.cnpq.br'
-    Error in utils::download.file(url = my.link, destfile = dest.file, quiet = T,  : 
-      cannot open URL 'http://buscacv.cnpq.br/buscacv/rest/download/curriculo/K4713546D3'
-    Calls: gld_get_lattes_data -> sapply -> lapply -> FUN -> <Anonymous>
-    Execution halted
-    ```
-
-*   checking tests ...
-    ```
-     ERROR
-    Running the tests in ‘tests/testthat.R’ failed.
-    Last 13 lines of output:
-      4: identical(as.vector(object), TRUE)
-      5: as.vector(object)
-      6: gld_get_lattes_data("K4713546D3", folder.dl = "lattes files")
-      7: sapply(X = id.vec, FUN = gld_download_lattes_files, folder.dl = folder.dl)
-      8: lapply(X = X, FUN = FUN, ...)
-      9: FUN(X[[i]], ...)
-      10: utils::download.file(url = my.link, destfile = dest.file, quiet = T, mode = "wb", 
-             method = "internal")
-      
-      testthat results ================================================================
-      OK: 1 SKIPPED: 0 FAILED: 1
-      1. Error: Test of main function (@test_gld.R#5) 
-      
-      Error: testthat unit tests failed
-      Execution halted
-    ```
-
-*   checking re-building of vignette outputs ... WARNING
-    ```
-    Error in re-building vignettes:
-      ...
-    Quitting from lines 36-45 (gld_vignette-ReadLattes.Rmd) 
-    Error: processing vignette 'gld_vignette-ReadLattes.Rmd' failed with diagnostics:
-    cannot open URL 'http://buscacv.cnpq.br/buscacv/rest/download/curriculo/K4713546D3'
-    Execution halted
+    Namespaces in Imports field not imported from:
+      ‘alluvial’ ‘grid’
+      All declared Imports should be used.
     ```
 
 # ggalt
@@ -3103,6 +2758,17 @@ Version: 0.1
       All declared Imports should be used.
     ```
 
+# ggeffects
+
+Version: 0.3.0
+
+## In both
+
+*   checking Rd cross-references ... NOTE
+    ```
+    Package unavailable to check Rd xrefs: ‘ordinal’
+    ```
+
 # ggenealogy
 
 Version: 0.3.0
@@ -3122,14 +2788,14 @@ Version: 0.3.0
 
 # ggfan
 
-Version: 0.1.0
+Version: 0.1.1
 
 ## In both
 
 *   checking dependencies in R code ... NOTE
     ```
     Namespaces in Imports field not imported from:
-      ‘colorspace’ ‘grid’
+      ‘colorspace’ ‘grid’ ‘rstan’
       All declared Imports should be used.
     ```
 
@@ -3160,18 +2826,18 @@ Version: 0.4.1
      ERROR
     Running the tests in ‘tests/test-all.R’ failed.
     Last 13 lines of output:
-        expect_equal(class(res$max_g) , c("POSIXct", "POSIXt"))
-                                     ~^
+      8: eval_bare(dot$expr, dot$env)
+      9: lapply(seq(1:lags), .lag)
+      10: FUN(X[[i]], ...)
+      11: as.vector(lag(ts, k))
+      12: lag(ts, k)
+      13: bad_args("x", "must be a vector, not a ts object, do you want `stats::lag()`?")
+      14: glubort(fmt_args(args), ..., .envir = .envir)
+      15: .abort(text)
       
-      
-      testthat results ================================================================
-      OK: 1616 SKIPPED: 0 FAILED: 6
-      1. Failure: autoplot.aareg works for lung (@test-surv.R#220) 
-      2. Failure: autoplot.aareg works for lung (@test-surv.R#221) 
-      3. Failure: autoplot.aareg works for lung (@test-surv.R#222) 
-      4. Failure: autoplot.aareg works for lung (@test-surv.R#223) 
-      5. Error: gglagplot (@test-tslib.R#103) 
-      6. Failure: Code Lint (@test_lint.R#27) 
+      ══ testthat results  ═══════════════════════════════════════════════════════════
+      OK: 1442 SKIPPED: 9 FAILED: 1
+      1. Error: gglagplot (@test-tslib.R#103) 
       
       Error: testthat unit tests failed
       Execution halted
@@ -3284,28 +2950,6 @@ Version: 1.0
 
 ## In both
 
-*   checking tests ...
-    ```
-     ERROR
-    Running the tests in ‘tests/testthat.R’ failed.
-    Last 13 lines of output:
-      > 
-      > if (Sys.getenv("NOT_CRAN") == "true") {  # like global skip_on_cran
-      +   Sys.setenv("R_TESTS" = "")  # accroding to https://github.com/hadley/testthat/issues/144
-      +   test_check("ggraptR")
-      + }
-      
-      Initial plotError in file(filename, "r", encoding = encoding) : 
-        cannot open the connection
-      Calls: test_check ... source -> withVisible -> eval -> eval -> source -> file
-      In addition: Warning message:
-      In file(filename, "r", encoding = encoding) :
-        cannot open file '../../inst/ggraptR/functions/helper.R': No such file or directory
-      testthat results ================================================================
-      OK: 0 SKIPPED: 0 FAILED: 0
-      Execution halted
-    ```
-
 *   checking dependencies in R code ... NOTE
     ```
     Namespaces in Imports field not imported from:
@@ -3328,74 +2972,59 @@ Version: 0.4.3
     Package unavailable to check Rd xrefs: ‘plyr’
     ```
 
-# gistr
+# gQTLstats
 
-Version: 0.4.0
+Version: 1.8.0
 
 ## In both
+
+*   checking examples ... ERROR
+    ```
+    ...
+    
+        expand.grid
+    
+    Loading required package: IRanges
+    
+    Attaching package: ‘IRanges’
+    
+    The following object is masked from ‘package:BBmisc’:
+    
+        collapse
+    
+    Loading required package: GenomeInfoDb
+    Loading required package: doParallel
+    Loading required package: foreach
+    Loading required package: iterators
+    Error in dbDoQuery(reg, query) : 
+      Error in dbDoQuery. Error in rsqlite_send_query(conn@ptr, statement) : 
+      no such column: error_time
+     (SELECT job_id,submitted,started,done,CASE WHEN error IS NULL THEN done - started ELSE error_time - started END AS time_running,memory,started - submitted AS time_queued,error,error_time,node,batch_job_id,r_pid,seed FROM jklSVAD_chr17_expanded_jobs)
+    Calls: TransStore ... dbGetExpandedJobsTable -> dbSelectWithIds -> dbDoQuery -> stopf
+    Execution halted
+    ```
 
 *   checking tests ...
     ```
      ERROR
     Running the tests in ‘tests/test-all.R’ failed.
     Last 13 lines of output:
-      testthat results ================================================================
-      OK: 4 SKIPPED: 0 FAILED: 19
-      1. Error: commits works (@test-commits.R#7) 
-      2. Error: config options work (@test-commits.R#20) 
-      3. Error: delete returns NULL (@test-delete.R#10) 
-      4. Error: delete returns correct message (@test-delete.R#19) 
-      5. Error: embed returns correct string and is character (@test-embed.R#7) 
-      6. Error: fork works (@test-fork.R#7) 
-      7. Error: forks works (@test-fork.R#19) 
-      8. Error: gist works (@test-gist.R#7) 
-      9. Error: as.gist works - character gist ID input (@test-gist.R#13) 
-      1. ...
+      gQTLstats RUnit Tests - 1 test function, 1 error, 0 failures
+      ERROR in /home/muelleki/git/R/dplyr/revdep/checks/gQTLstats/new/gQTLstats.Rcheck/gQTLstats/unitTests/test_gQTLstats.R: Error while sourcing  /home/muelleki/git/R/dplyr/revdep/checks/gQTLstats/new/gQTLstats.Rcheck/gQTLstats/unitTests/test_gQTLstats.R : Error in dbDoQuery(reg, query) : 
+        Error in dbDoQuery. Error in rsqlite_send_query(conn@ptr, statement) : 
+        no such column: error_time
+       (SELECT job_id,submitted,started,done,CASE WHEN error IS NULL THEN done - started ELSE error_time - started END AS time_running,memory,started - submitted AS time_queued,error,error_time,node,batch_job_id,r_pid,seed FROM jklSVAD_chr17_expanded_jobs)
       
-      Error: testthat unit tests failed
+      Test files with failing tests
+      
+         test_gQTLstats.R 
+           /home/muelleki/git/R/dplyr/revdep/checks/gQTLstats/new/gQTLstats.Rcheck/gQTLstats/unitTests/test_gQTLstats.R 
+      
+      
+      Error in BiocGenerics:::testPackage("gQTLstats") : 
+        unit tests failed for package gQTLstats
       Execution halted
     ```
-
-# googlesheets
-
-Version: 0.2.2
-
-## In both
-
-*   checking tests ...
-    ```
-     ERROR
-    Running the tests in ‘tests/testthat.R’ failed.
-    Complete output:
-      > library(testthat)
-      > library(googlesheets)
-      > 
-      > if (identical(tolower(Sys.getenv("NOT_CRAN")), "true")) {
-      +   test_check("googlesheets")
-      + }
-      Error: Cannot read token from alleged .rds file:
-      googlesheets_token.rds
-      testthat results ================================================================
-      OK: 2 SKIPPED: 0 FAILED: 0
-      Execution halted
-    ```
-
-*   checking re-building of vignette outputs ... WARNING
-    ```
-    Error in re-building vignettes:
-      ...
-    Quitting from lines 37-41 (basic-usage.Rmd) 
-    Error: processing vignette 'basic-usage.Rmd' failed with diagnostics:
-    Cannot read token from alleged .rds file:
-    ../tests/testthat/googlesheets_token.rds
-    Execution halted
-    ```
-
-# gQTLstats
-
-Version: 1.8.0
-
-## In both
 
 *   checking whether the package can be unloaded cleanly ... WARNING
     ```
@@ -3611,20 +3240,6 @@ Version: 1.8.0
       ‘TxDb.Hsapiens.UCSC.hg19.knownGene’ ‘org.Hs.eg.db’
     ```
 
-# GRANBase
-
-Version: 1.6.5
-
-## In both
-
-*   checking package dependencies ... ERROR
-    ```
-    Package required but not available: ‘hexSticker’
-    
-    See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
-    manual.
-    ```
-
 # grasp2db
 
 Version: 1.0.0
@@ -3705,7 +3320,7 @@ Version: 1.0.0
 
 # grattan
 
-Version: 1.5.2.4
+Version: 1.5.2.5
 
 ## In both
 
@@ -3741,34 +3356,6 @@ Version: 1.2
     Extensions’ manual.
     ```
 
-# GSODR
-
-Version: 1.1.0
-
-## Newly broken
-
-*   checking tests ...
-    ```
-     ERROR
-    Running the tests in ‘tests/testthat.R’ failed.
-    Last 13 lines of output:
-             skip = skip, comment = comment, n_max = n_max, guess_max = guess_max, progress = progress)
-      4: read_connection(file)
-      5: open(con, "rb")
-      6: open.connection(con, "rb")
-      
-      testthat results ================================================================
-      OK: 50 SKIPPED: 0 FAILED: 4
-      1. Error: .download_files properly works, subsetting for country and
-                  agroclimatology works and .process_gz returns a data table (@test-process_gz.R#23) 
-      2. Error: reformat_GSOD file_list parameter reformats data properly (@test-reformat_GSOD.R#15) 
-      3. Error: Timeout options are reset on update_station_list() exit (@test-update_station_list.R#6) 
-      4. Error: update_station_list() downloads and imports proper file (@test-update_station_list.R#13) 
-      
-      Error: testthat unit tests failed
-      Execution halted
-    ```
-
 # gutenbergr
 
 Version: 0.1.3
@@ -3778,18 +3365,6 @@ Version: 0.1.3
 *   checking data for non-ASCII characters ... NOTE
     ```
       Note: found 13617 marked UTF-8 strings
-    ```
-
-# harrietr
-
-Version: 0.2.2
-
-## In both
-
-*   checking dependencies in R code ... NOTE
-    ```
-    Namespace in Imports field not imported from: ‘ggplot2’
-      All declared Imports should be used.
     ```
 
 # hdr
@@ -3825,6 +3400,34 @@ Version: 0.1
     Error: processing vignette 'undp_hdr.Rmd' failed with diagnostics:
     Failed to connect to ec2-52-1-168-42.compute-1.amazonaws.com port 80: Connection refused
     Execution halted
+    ```
+
+# hei
+
+Version: 0.1.0
+
+## In both
+
+*   checking tests ...
+    ```
+     ERROR
+    Running the tests in ‘tests/testthat.R’ failed.
+    Last 13 lines of output:
+      Processing SAS dataset DEMO_F 	 ..
+      Error in try(if (!year %in% yearchoices) stop("must use valid year choice")) : 
+        must use valid year choice
+      Error in day %in% daychoices : argument "day" is missing, with no default
+      Error in try(if (!year %in% yearchoices) stop("must use valid year choice")) : 
+        must use valid year choice
+      Error in try(if (!year %in% yearchoices) stop("must use valid year choice")) : 
+        must use valid year choice
+      Error in day %in% daychoices : argument "day" is missing, with no default
+      ══ testthat results  ═══════════════════════════════════════════════════════════
+      OK: 8 SKIPPED: 0 FAILED: 1
+      1. Error: (unknown) (@test_diet.R#5) 
+      
+      Error: testthat unit tests failed
+      Execution halted
     ```
 
 # hiAnnotator
@@ -3952,6 +3555,17 @@ Version: 1.0.0
     Execution halted
     ```
 
+# htmlTable
+
+Version: 1.11.1
+
+## In both
+
+*   checking Rd cross-references ... NOTE
+    ```
+    Package unavailable to check Rd xrefs: ‘pxweb’
+    ```
+
 # HTSSIP
 
 Version: 1.3.0
@@ -3963,18 +3577,18 @@ Version: 1.3.0
      ERROR
     Running the tests in ‘tests/testthat.R’ failed.
     Last 13 lines of output:
-      Sparsity threshold: 0.3 
-      Density window: 1.72-1.75 
-      Sparsity threshold: 0.2 
-      Density window: 1.72-1.75 
-      Sparsity threshold with the most rejected hypotheses: 0 
-      testthat results ================================================================
-      OK: 189 SKIPPED: 0 FAILED: 5
+      ══ testthat results  ═══════════════════════════════════════════════════════════
+      OK: 57 SKIPPED: 23 FAILED: 11
       1. Error: Beta diversity from a list of phyloseq objects (@test-BD_ordinations.R#2) 
       2. Error: Beta diversity from a list of phyloseq objects (parallel) (@test-BD_ordinations.R#9) 
-      3. Error: Make a data.frame for ordination plotting (parallel) (@test-BD_ordinations.R#20) 
-      4. Error: Plots created from phyloseq object (@test-BD_ordinations.R#46) 
-      5. Error: Plot comparing all (@test-BD_ordinations.R#70) 
+      3. Error: phyloseq sim (@test-HTSSIP_sim.R#59) 
+      4. Error: phyloseq sim w/ metadata (@test-HTSSIP_sim.R#75) 
+      5. Error: phyloseq sample_data can be converted to dataframe (@test-Util.R#10) 
+      6. Error: phyloseq tax_table can be converted to dataframe (@test-Util.R#18) 
+      7. Error: phyloseq otu_table can be converted to dataframe (@test-Util.R#25) 
+      8. Error: phyloseq-rep sample_data can be converted to dataframe (@test-Util.R#35) 
+      9. Error: phyloseq otu_table can be converted to dataframe (@test-Util.R#48) 
+      1. ...
       
       Error: testthat unit tests failed
       Execution halted
@@ -4025,7 +3639,7 @@ Version: 0.0.1
 
 # huxtable
 
-Version: 1.1.0
+Version: 1.2.0
 
 ## In both
 
@@ -4034,16 +3648,16 @@ Version: 1.1.0
      ERROR
     Running the tests in ‘tests/testthat.R’ failed.
     Last 13 lines of output:
-      4: withCallingHandlers(withVisible(code), warning = handle_warning, message = handle_message)
-      5: withVisible(code)
-      6: rmarkdown::render("table-tester-2.Rmd", quiet = TRUE, output_format = "pdf_document")
-      7: convert(output_file, run_citeproc)
-      8: pandoc_convert(utf8_input, pandoc_to, output_format$pandoc$from, output, citeproc, 
+      7: withVisible(code)
+      8: eval_bare(get_expr(quo), get_env(quo))
+      9: rmarkdown::render("table-tester-2.Rmd", quiet = TRUE, output_format = "pdf_document")
+      10: convert(output_file, run_citeproc)
+      11: pandoc_convert(utf8_input, pandoc_to, output_format$pandoc$from, output, citeproc, 
              output_format$pandoc$args, !quiet)
-      9: stop("pandoc document conversion failed with error ", result, call. = FALSE)
+      12: stop("pandoc document conversion failed with error ", result, call. = FALSE)
       
-      testthat results ================================================================
-      OK: 289 SKIPPED: 48 FAILED: 2
+      ══ testthat results  ═══════════════════════════════════════════════════════════
+      OK: 292 SKIPPED: 48 FAILED: 2
       1. Error: Row heights do not screw up LaTeX multicol (@test-with-pandoc.R#20) 
       2. Error: table-tester-2.Rmd renders without errors in LaTeX (@test-with-pandoc.R#27) 
       
@@ -4061,28 +3675,6 @@ Version: 1.1.0
 Version: 0.5
 
 ## In both
-
-*   checking tests ...
-    ```
-     ERROR
-    Running the tests in ‘tests/testthat.R’ failed.
-    Last 13 lines of output:
-      epsg (SRID):    NA
-      proj4string:    +proj=aea +lat_1=29.5 +lat_2=45.5 +lat_0=23 +lon_0=-96 +x_0=0 +y_0=0 +ellps=GRS80 +units=m +no_defs
-      Reading layer `NHDWaterbody_projected' from data source `/home/muelleki/.local/share/hydrolinks/unzip/NHD_H_0709_Shape.zip/NHDWaterbody_projected.shp' using driver `ESRI Shapefile'
-      Simple feature collection with 11444 features and 15 fields
-      geometry type:  POLYGON
-      dimension:      XY
-      bbox:           xmin: 440230.1 ymin: 2040969 xmax: 630976.5 ymax: 2330831
-      epsg (SRID):    NA
-      proj4string:    +proj=aea +lat_1=29.5 +lat_2=45.5 +lat_0=23 +lon_0=-96 +x_0=0 +y_0=0 +ellps=GRS80 +units=m +no_defs
-      testthat results ================================================================
-      OK: 8 SKIPPED: 0 FAILED: 1
-      1. Error: test PIP linking across different datasets (@test_lake_linking.R#25) 
-      
-      Error: testthat unit tests failed
-      Execution halted
-    ```
 
 *   checking dependencies in R code ... NOTE
     ```
@@ -4147,20 +3739,13 @@ Version: 1.0.0
 
 # idefix
 
-Version: 0.1.2
+Version: 0.2.2
 
 ## In both
 
-*   checking dependencies in R code ... NOTE
-    ```
-    Namespaces in Imports field not imported from:
-      ‘MASS’ ‘Rdpack’
-      All declared Imports should be used.
-    ```
-
 *   checking Rd cross-references ... NOTE
     ```
-    Packages unavailable to check Rd xrefs: ‘shiny’, ‘bayesm’, ‘ChoiceModelR’, ‘RSGHB’
+    Packages unavailable to check Rd xrefs: ‘bayesm’, ‘ChoiceModelR’, ‘RSGHB’
     ```
 
 # IHW
@@ -4189,7 +3774,7 @@ Version: 1.4.0
         alpha
     
     Warning: Removed 30633 rows containing missing values (geom_point).
-    Warning: Removed 13044 rows containing missing values (geom_point).
+    Warning: Removed 13193 rows containing missing values (geom_point).
     Error: processing vignette 'introduction_to_ihw.Rmd' failed with diagnostics:
     path for html_dependency not found: 
     Execution halted
@@ -4280,7 +3865,7 @@ Version: 0.40.2
 
 *   checking installed package size ... NOTE
     ```
-      installed size is 43.7Mb
+      installed size is 43.6Mb
       sub-directories of 1Mb or more:
         data      1.4Mb
         doc       4.9Mb
@@ -4289,65 +3874,11 @@ Version: 0.40.2
         libs     33.0Mb
     ```
 
-# imfr
-
-Version: 0.1.4
-
-## In both
-
-*   checking examples ... ERROR
-    ```
-    ...
-    > ### Aliases: imf_ids
-    > 
-    > ### ** Examples
-    > 
-    > imf_ids()
-    
-    Downloading: 860 B     
-    Downloading: 860 B     
-    Downloading: 860 B     
-    Downloading: 860 B     Request failed [404]. Retrying in 1 seconds...
-    
-    Downloading: 860 B     
-    Downloading: 860 B     
-    Downloading: 860 B     
-    Downloading: 860 B     Request failed [404]. Retrying in 1.5 seconds...
-    
-    Downloading: 860 B     
-    Downloading: 860 B     
-    Downloading: 860 B     
-    Downloading: 860 B     Error: data.imf.org appears to be down.
-    Execution halted
-    ```
-
 # incadata
 
 Version: 0.6.1
 
 ## In both
-
-*   checking tests ...
-    ```
-     ERROR
-    Running the tests in ‘tests/testthat.R’ failed.
-    Last 13 lines of output:
-      > test_check("incadata")
-      1. Failure: documents (@test-find_register.R#32) -------------------------------
-      `messages` does not match "2 files downloaded to".
-      Actual value: "1 files downloaded to /home/muelleki/tmp/Rtmp6Gv7wK/doc\n"
-      
-      
-      Using tempfile: /home/muelleki/tmp/Rtmp6Gv7wK/ex_data925d28731f65.csv2
-      [1] "ex_data925d28731f65.csv2"
-      file size: 1103 kb
-      testthat results ================================================================
-      OK: 49 SKIPPED: 0 FAILED: 1
-      1. Failure: documents (@test-find_register.R#32) 
-      
-      Error: testthat unit tests failed
-      Execution halted
-    ```
 
 *   checking data for non-ASCII characters ... NOTE
     ```
@@ -4368,7 +3899,7 @@ Version: 1.0.1
 
 # incR
 
-Version: 1.0.1
+Version: 1.0.2
 
 ## In both
 
@@ -4379,32 +3910,50 @@ Version: 1.0.1
       All declared Imports should be used.
     ```
 
-# influxdbr
+# InformativeCensoring
 
-Version: 0.14.0
+Version: 0.3.4
 
-## In both
+## Newly broken
 
 *   checking tests ...
     ```
      ERROR
     Running the tests in ‘tests/testthat.R’ failed.
     Last 13 lines of output:
-      testthat results ================================================================
-      OK: 0 SKIPPED: 0 FAILED: 12
-      1. Error: connection (@test_query.R#12) 
-      2. Error: single query no chunking (@test_query.R#24) 
-      3. Error: multiple query no chunking (@test_query.R#65) 
-      4. Error: single query with chunking (@test_query.R#84) 
-      5. Error: multiple query with chunking (@test_query.R#101) 
-      6. Error: multiple query with chunking and xts result (@test_query.R#118) 
-      7. Error: connection (@test_schema_exploration.R#12) 
-      8. Error: show commands (@test_schema_exploration.R#25) 
-      9. Error: connection (@test_write.R#12) 
-      1. ...
+      15: lapply(X = ans[index], FUN = FUN, ...)
+      16: FUN(X[[i]], ...)
+      17: FUN(data[x, , drop = FALSE], ...)
+      18: .imputeTimes(x, data[indices, ], event.model, censor.model, col.control, NN.control, 
+             time.dep = time.dep, ...)
+      19: data[, col.control$Id]
+      20: `[.data.frame`(data, , col.control$Id)
+      21: stop("undefined columns selected")
+      
+      ══ testthat results  ═══════════════════════════════════════════════════════════
+      OK: 516 SKIPPED: 0 FAILED: 1
+      1. Error: Sfn_time_dep (@test-scoreSystem.R#207) 
       
       Error: testthat unit tests failed
       Execution halted
+    ```
+
+*   checking re-building of vignette outputs ... WARNING
+    ```
+    Error in re-building vignettes:
+      ...
+    Loading required package: survival
+    
+    Attaching package: 'InformativeCensoring'
+    
+    The following object is masked from 'package:survival':
+    
+        cox.zph
+    
+    Quitting from lines 289-297 (risk_score_imputation_Hsu_2009.Rnw) 
+    Error: processing vignette 'risk_score_imputation_Hsu_2009.Rnw' failed with diagnostics:
+    undefined columns selected
+    Execution halted
     ```
 
 # inlabru
@@ -4440,34 +3989,6 @@ Version: 2.1.2
 *   checking Rd cross-references ... NOTE
     ```
     Package unavailable to check Rd xrefs: ‘INLA’
-    ```
-
-# internetarchive
-
-Version: 0.1.6
-
-## In both
-
-*   checking tests ...
-    ```
-     ERROR
-    Running the tests in ‘tests/testthat.R’ failed.
-    Last 13 lines of output:
-      > library(testthat)
-      > library(internetarchive)
-      > 
-      > test_check("internetarchive")
-      1. Failure: ia_metadata() returns a data frame (@test-files-download.R#32) -----
-      `meta` not equal to reference from `hecker_meta.rds`.
-      Different number of rows
-      
-      
-      testthat results ================================================================
-      OK: 21 SKIPPED: 0 FAILED: 1
-      1. Failure: ia_metadata() returns a data frame (@test-files-download.R#32) 
-      
-      Error: testthat unit tests failed
-      Execution halted
     ```
 
 # IONiseR
@@ -4579,9 +4100,77 @@ Version: 0.1.5
       Note: found 1 marked UTF-8 string
     ```
 
+# janitor
+
+Version: 0.3.0
+
+## In both
+
+*   checking examples ... ERROR
+    ```
+    Running examples in ‘janitor-Ex.R’ failed
+    The error most likely occurred in:
+    
+    > ### Name: adorn_crosstab
+    > ### Title: Add presentation formatting to a crosstabulation table.
+    > ### Aliases: adorn_crosstab
+    > 
+    > ### ** Examples
+    > 
+    > mtcars %>%
+    +  crosstab(gear, cyl) %>%
+    +  adorn_crosstab(denom = "all")
+    Error in list_to_tibble(x, validate) : object 'pasted' not found
+    Calls: %>% ... as_tibble -> as_tibble.data.frame -> list_to_tibble
+    Execution halted
+    ```
+
+*   checking tests ...
+    ```
+     ERROR
+    Running the tests in ‘tests/testthat.R’ failed.
+    Last 13 lines of output:
+      17: as_tibble.data.frame(repair_names(matrixToDataFrame(x)), ..., rownames = rownames)
+      18: list_to_tibble(x, validate)
+      
+      ══ testthat results  ═══════════════════════════════════════════════════════════
+      OK: 221 SKIPPED: 0 FAILED: 7
+      1. Error: default call is correct (@test-adorn-crosstab.R#11) 
+      2. Error: percentages are correct (@test-adorn-crosstab.R#21) 
+      3. Error: rounding is correct (@test-adorn-crosstab.R#39) 
+      4. Error: digits parameter is correct (@test-adorn-crosstab.R#64) 
+      5. Error: spacing is correct (@test-adorn-crosstab.R#86) 
+      6. Error: totals row and columns are correct (@test-adorn-crosstab.R#103) 
+      7. Error: Totals works with factor column (@test-adorn-crosstab.R#132) 
+      
+      Error: testthat unit tests failed
+      Execution halted
+    ```
+
+*   checking re-building of vignette outputs ... WARNING
+    ```
+    Error in re-building vignettes:
+      ...
+    
+    Attaching package: 'dplyr'
+    
+    The following objects are masked from 'package:stats':
+    
+        filter, lag
+    
+    The following objects are masked from 'package:base':
+    
+        intersect, setdiff, setequal, union
+    
+    Quitting from lines 128-131 (introduction.Rmd) 
+    Error: processing vignette 'introduction.Rmd' failed with diagnostics:
+    object 'pasted' not found
+    Execution halted
+    ```
+
 # jpmesh
 
-Version: 0.4.0
+Version: 1.0.1
 
 ## In both
 
@@ -4591,26 +4180,20 @@ Version: 0.4.0
       All declared Imports should be used.
     ```
 
+*   checking data for non-ASCII characters ... NOTE
+    ```
+      Note: found 176 marked UTF-8 strings
+    ```
+
 # jpndistrict
 
-Version: 0.2.0
+Version: 0.3.0
 
 ## In both
 
 *   checking data for non-ASCII characters ... NOTE
     ```
-      Note: found 188 marked UTF-8 strings
-    ```
-
-# kableExtra
-
-Version: 0.6.1
-
-## In both
-
-*   checking package dependencies ... NOTE
-    ```
-    Package suggested but not available for checking: ‘magick’
+      Note: found 502 marked UTF-8 strings
     ```
 
 # keyholder
@@ -4624,16 +4207,16 @@ Version: 0.1.1
      ERROR
     Running the tests in ‘tests/testthat.R’ failed.
     Last 13 lines of output:
-      20: map_lgl(df[keep_cols], is.list)
-      21: map_mold(.x, .f, logical(1), ...)
-      22: vapply(.x, .f, .mold, ..., USE.NAMES = FALSE)
-      23: df[keep_cols]
-      24: `[.keyed_df`(df, keep_cols)
-      25: `keys<-`(`*tmp*`, value = structure(list(vs = NA_real_, am = NA_real_), .Names = c("vs", 
+      18: map_lgl(df[keep_cols], is.list)
+      19: map_mold(.x, .f, logical(1), ...)
+      20: vapply(.x, .f, .mold, ..., USE.NAMES = FALSE)
+      21: df[keep_cols]
+      22: `[.keyed_df`(df, keep_cols)
+      23: `keys<-`(`*tmp*`, value = structure(list(vs = NA_real_, am = NA_real_), .Names = c("vs", 
          "am"), row.names = c(NA, -1L), class = c("tbl_df", "tbl", "data.frame")))
-      26: stop("Keys object should have the same number of rows as data.")
+      24: stop("Keys object should have the same number of rows as data.")
       
-      testthat results ================================================================
+      ══ testthat results  ═══════════════════════════════════════════════════════════
       OK: 308 SKIPPED: 0 FAILED: 1
       1. Error: distinct works (@test-keyed-df-one-tbl.R#298) 
       
@@ -4673,7 +4256,7 @@ Version: 0.2.0
 
 # labelled
 
-Version: 1.0.0
+Version: 1.0.1
 
 ## In both
 
@@ -4923,7 +4506,7 @@ Version: 1.0.1
 
 # mdsr
 
-Version: 0.1.4
+Version: 0.1.5
 
 ## In both
 
@@ -4934,15 +4517,9 @@ Version: 0.1.4
         data   5.4Mb
     ```
 
-*   checking dependencies in R code ... NOTE
-    ```
-    Namespace in Imports field not imported from: ‘tidyverse’
-      All declared Imports should be used.
-    ```
-
 *   checking data for non-ASCII characters ... NOTE
     ```
-      Note: found 2698 marked UTF-8 strings
+      Note: found 2694 marked UTF-8 strings
     ```
 
 # metagenomeFeatures
@@ -4975,6 +4552,32 @@ Version: 1.8.1
     to your NAMESPACE file.
     ```
 
+# MetamapsDB
+
+Version: 0.0.2
+
+## In both
+
+*   checking dependencies in R code ... NOTE
+    ```
+    Namespaces in Imports field not imported from:
+      ‘Matrix’ ‘shiny’
+      All declared Imports should be used.
+    ```
+
+# metaplot
+
+Version: 0.2.7
+
+## In both
+
+*   checking dependencies in R code ... NOTE
+    ```
+    Namespaces in Imports field not imported from:
+      ‘ggplot2’ ‘lazyeval’
+      All declared Imports should be used.
+    ```
+
 # MlBayesOpt
 
 Version: 0.3.3
@@ -4988,32 +4591,17 @@ Version: 0.3.3
       All declared Imports should be used.
     ```
 
-# mnis
+# mlbgameday
 
-Version: 0.2.7
+Version: 0.0.1
 
 ## In both
 
-*   checking tests ...
+*   checking dependencies in R code ... NOTE
     ```
-     ERROR
-    Running the tests in ‘tests/testthat-a.R’ failed.
-    Last 13 lines of output:
-      1. Failure: mnis_additional returns expected format (@test_additional.R#80) ----
-      `xi` has length 296, not length 285.
-      
-      
-      2. Failure: mnis_extra returns expected format (@test_extra.R#10) --------------
-      `xmnise` has length 192, not length 188.
-      
-      
-      testthat results ================================================================
-      OK: 97 SKIPPED: 0 FAILED: 2
-      1. Failure: mnis_additional returns expected format (@test_additional.R#80) 
-      2. Failure: mnis_extra returns expected format (@test_extra.R#10) 
-      
-      Error: testthat unit tests failed
-      Execution halted
+    Namespaces in Imports field not imported from:
+      ‘doParallel’ ‘iterators’ ‘parallel’
+      All declared Imports should be used.
     ```
 
 # modelr
@@ -5098,34 +4686,6 @@ Version: 0.5.0
     GNU make is a SystemRequirements.
     ```
 
-# monkeylearn
-
-Version: 0.1.3
-
-## In both
-
-*   checking tests ...
-    ```
-     ERROR
-    Running the tests in ‘tests/testthat.R’ failed.
-    Last 13 lines of output:
-             out$push(condition)
-             invokeRestart("muffleMessage")
-         })
-      4: monkeylearn_extract(request = c("  ", "I do not know what the horse is doing in the house"))
-      5: monkeylearn_check(output)
-      6: stop("HTTP failure: ", req$status_code, "\n", content(req)$detail, call. = FALSE)
-      
-      testthat results ================================================================
-      OK: 4 SKIPPED: 0 FAILED: 3
-      1. Error: monkeylearn_parse returns a data.frame with a data.frame as attribute (@test_output.R#7) 
-      2. Error: No error if no results from the extractor call (@test_output.R#55) 
-      3. Error: Blank texts are handled properly (@test_text_size.R#10) 
-      
-      Error: testthat unit tests failed
-      Execution halted
-    ```
-
 # monocle
 
 Version: 2.4.0
@@ -5183,7 +4743,7 @@ Version: 2.4.0
 
 # mosaic
 
-Version: 1.1.0
+Version: 1.1.1
 
 ## In both
 
@@ -5255,12 +4815,12 @@ Version: 0.8.10
     > 
     > idata
     # A tibble: 4 x 5
-         ID   end delta       add   GRP
-      <int> <dbl> <dbl>    <list> <dbl>
-    1     1    24     6 <dbl [3]>     1
-    2     2    48     6 <dbl [1]>     0
-    3     3    72     6 <dbl [1]>     1
-    4     4    96     6 <dbl [1]>     0
+         ID   end delta add         GRP
+      <int> <dbl> <dbl> <list>    <dbl>
+    1     1  24.0  6.00 <dbl [3]>  1.00
+    2     2  48.0  6.00 <dbl [1]>  0   
+    3     3  72.0  6.00 <dbl [1]>  1.00
+    4     4  96.0  6.00 <dbl [1]>  0   
     > 
     > l <- as_deslist(idata,"GRP")
     Error: distinct() does not support columns of type `list`
@@ -5274,34 +4834,6 @@ Version: 0.8.10
       installed size is  6.9Mb
       sub-directories of 1Mb or more:
         libs   5.7Mb
-    ```
-
-# mscstexta4r
-
-Version: 0.1.2
-
-## In both
-
-*   checking tests ...
-    ```
-     ERROR
-    Running the tests in ‘tests/testthat.R’ failed.
-    Last 13 lines of output:
-      > # quick notes:
-      > #   put all your tests in tests/testthat folder
-      > #   each test file should start with test and end in .R
-      > #   since we use secret API keys, don't run the tests on CRAN
-      > 
-      > library("testthat")
-      > 
-      > if (identical(tolower(Sys.getenv("NOT_CRAN")), "true")) {
-      +   library("mscstexta4r")
-      +   test_check("mscstexta4r")
-      + }
-      Error: mscstexta4r: could not load config info from Sys env nor from file
-      testthat results ================================================================
-      OK: 0 SKIPPED: 0 FAILED: 0
-      Execution halted
     ```
 
 # MSnID
@@ -5340,6 +4872,67 @@ Version: 1.10.0
 
 Version: 1.0.0
 
+## Newly broken
+
+*   checking examples ... ERROR
+    ```
+    ...
+    
+    > ns_climate %>% 
+    +   select_locations(sable_island = starts_with("SABLE"),
+    +                    nappan = starts_with("NAPPAN"), 
+    +                    baddeck = starts_with("BADDECK")) %>% 
+    +   select_params(ends_with("temp")) %>%
+    +   filter_data(month(date) == 6) %>% 
+    +   autoplot()
+    Warning: Unknown or uninitialised column: 'param'.
+    Warning: Unknown or uninitialised column: 'location'.
+    Warning: Unknown or uninitialised column: 'dataset'.
+    Not all values were found: SABLE ISLAND 6454, NAPPAN CDA 6414, BADDECK 6297
+    Warning: Unknown or uninitialised column: 'param'.
+    Warning: Unknown or uninitialised column: 'location'.
+    Warning: Unknown or uninitialised column: 'dataset'.
+    Warning: Unknown or uninitialised column: 'param'.
+    Warning: Unknown or uninitialised column: 'location'.
+    Warning: Unknown or uninitialised column: 'dataset'.
+    Error in long_plot_base(.data, ...) : .data contains no data
+    Calls: %>% ... autoplot -> autoplot.mudata -> long_ggplot -> long_plot_base
+    Execution halted
+    ```
+
+*   checking tests ...
+    ```
+     ERROR
+    Running the tests in ‘tests/test-all.R’ failed.
+    Last 13 lines of output:
+      OGR: Unsupported geometry type
+      ══ testthat results  ═══════════════════════════════════════════════════════════
+      OK: 830 SKIPPED: 0 FAILED: 9
+      1. Error: read/write JSON functions work (@test_mudata.io.R#141) 
+      2. Error: read/write directory functions work (@test_mudata.io.R#435) 
+      3. Failure: mudata objects subset properly (@test_mudata_subset.R#14) 
+      4. Failure: mudata objects subset properly (@test_mudata_subset.R#23) 
+      5. Failure: mudata objects subset properly (@test_mudata_subset.R#28) 
+      6. Failure: mudata objects subset properly (@test_mudata_subset.R#30) 
+      7. Error: recombined subsetted objects are the same as the original (@test_mudata_subset.R#72) 
+      8. Error: filter_* functions work as expected (@test_mudata_subset.R#79) 
+      9. Error: rename works when some values are factors (@test_rename.R#68) 
+      
+      Error: testthat unit tests failed
+      Execution halted
+    ```
+
+*   checking re-building of vignette outputs ... WARNING
+    ```
+    Error in re-building vignettes:
+      ...
+    Warning: Removed 85 rows containing missing values (geom_path).
+    Quitting from lines 158-171 (mudata.Rmd) 
+    Error: processing vignette 'mudata.Rmd' failed with diagnostics:
+    argument is not a character vector
+    Execution halted
+    ```
+
 ## In both
 
 *   checking dependencies in R code ... NOTE
@@ -5361,20 +4954,6 @@ Version: 0.6.0
       sub-directories of 1Mb or more:
         data   2.0Mb
         doc    2.7Mb
-    ```
-
-# nandb
-
-Version: 0.2.1
-
-## In both
-
-*   checking package dependencies ... ERROR
-    ```
-    Packages required but not available: ‘autothresholdr’ ‘EBImage’
-    
-    See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
-    manual.
     ```
 
 # nesRdata
@@ -5485,28 +5064,6 @@ Version: 0.9.0-1
 
 ## In both
 
-*   checking tests ...
-    ```
-     ERROR
-    Running the tests in ‘tests/testthat.R’ failed.
-    Last 13 lines of output:
-      testthat results ================================================================
-      OK: 195 SKIPPED: 0 FAILED: 11
-      1. Failure: ODE (@test-model68.R#64) 
-      2. Failure: ODE (@test-model68.R#65) 
-      3. Failure: ODE (@test-model68.R#66) 
-      4. Failure: ODE (@test-model68.R#68) 
-      5. Failure: ODE (@test-model68.R#69) 
-      6. Failure: ODE (@test-model68.R#71) 
-      7. Failure: ODE (@test-model68.R#72) 
-      8. Failure: ODE (@test-model68.R#73) 
-      9. Failure: ODE (@test-model68.R#76) 
-      1. ...
-      
-      Error: testthat unit tests failed
-      Execution halted
-    ```
-
 *   checking compiled code ... WARNING
     ```
     File ‘nlmixr/libs/nlmixr.so’:
@@ -5550,6 +5107,38 @@ Version: 0.1.0
       ‘RColorBrewer’ ‘XML’ ‘choroplethr’ ‘choroplethrMaps’ ‘data.table’
       ‘forcats’ ‘hurricaneexposure’ ‘plyr’
       All declared Imports should be used.
+    ```
+
+# nonmemica
+
+Version: 0.7.9
+
+## Newly broken
+
+*   checking examples ... ERROR
+    ```
+    ...
+    > ### ** Examples
+    > 
+    > library(magrittr)
+    > library(fold)
+    
+    Attaching package: ‘fold’
+    
+    The following object is masked from ‘package:stats’:
+    
+        filter
+    
+    > options(project = system.file('project/model',package='nonmemica'))
+    > 1001 %>% fold(ID,TIME,subset='MDV==0') %>% head
+    Warning in as.folded.data.frame(y) :
+      removing unique values where keys are duplicated
+    Warning in as.folded.data.frame(y) :
+      removing unique values where keys are duplicated
+    Error in `[.data.frame`(res, , c("VARIABLE", "META")) : 
+      undefined columns selected
+    Calls: %>% ... fold.character -> <Anonymous> -> meta.character -> [ -> [.data.frame
+    Execution halted
     ```
 
 # nos
@@ -5630,86 +5219,6 @@ Version: 0.1.2
     Packages unavailable to check Rd xrefs: ‘ensurer’, ‘validate’
     ```
 
-# oec
-
-Version: 2.5
-
-## In both
-
-*   checking data for non-ASCII characters ... NOTE
-    ```
-      Note: found 4 marked UTF-8 strings
-    ```
-
-# officer
-
-Version: 0.1.8
-
-## In both
-
-*   checking examples ... ERROR
-    ```
-    Running examples in ‘officer-Ex.R’ failed
-    The error most likely occurred in:
-    
-    > ### Name: slip_in_img
-    > ### Title: append an image
-    > ### Aliases: slip_in_img
-    > 
-    > ### ** Examples
-    > 
-    > library(magrittr)
-    > img.file <- file.path( Sys.getenv("R_HOME"), "doc", "html", "logo.jpg" )
-    > x <- read_docx() %>%
-    +   body_add_par("R logo: ", style = "Normal") %>%
-    +   slip_in_img(src = img.file, style = "strong", width = .3, height = .3)
-    Error: file.exists(src) is not TRUE
-    Execution halted
-    ```
-
-*   checking tests ...
-    ```
-     ERROR
-    Running the tests in ‘tests/testthat.R’ failed.
-    Last 13 lines of output:
-      6: freduce(value, `_function_list`)
-      7: withVisible(function_list[[k]](value))
-      8: function_list[[k]](value)
-      9: ph_with_img(., type = "body", src = img.file, height = 1.06, width = 1.39)
-      10: external_img(src, width = width/914400, height = height/914400)
-      11: stopifnot(file.exists(src))
-      12: stop(msg, call. = FALSE, domain = NA)
-      
-      testthat results ================================================================
-      OK: 341 SKIPPED: 1 FAILED: 2
-      1. Error: image add  (@test-docx-add.R#68) 
-      2. Error: add img into placeholder (@test-pptx-add.R#67) 
-      
-      Error: testthat unit tests failed
-      Execution halted
-    ```
-
-*   checking re-building of vignette outputs ... WARNING
-    ```
-    Error in re-building vignettes:
-      ...
-    
-    Attaching package: 'dplyr'
-    
-    The following objects are masked from 'package:stats':
-    
-        filter, lag
-    
-    The following objects are masked from 'package:base':
-    
-        intersect, setdiff, setequal, union
-    
-    Quitting from lines 180-190 (powerpoint.Rmd) 
-    Error: processing vignette 'powerpoint.Rmd' failed with diagnostics:
-    file.exists(src) is not TRUE
-    Execution halted
-    ```
-
 # OncoSimulR
 
 Version: 2.6.0
@@ -5722,73 +5231,6 @@ Version: 2.6.0
       sub-directories of 1Mb or more:
         doc    5.4Mb
         libs   4.9Mb
-    ```
-
-# openadds
-
-Version: 0.2.0
-
-## In both
-
-*   checking tests ...
-    ```
-     ERROR
-    Running the tests in ‘tests/test-all.R’ failed.
-    Last 13 lines of output:
-      > library("testthat")
-      > test_check("openadds")
-      Loading required package: openadds
-      1. Failure: oa_search works (@test-oa_search.R#39) -----------------------------
-      length(dd$city) not equal to 2.
-      1/1 mismatches
-      [1] 3 - 2 == 1
-      
-      
-      testthat results ================================================================
-      OK: 47 SKIPPED: 0 FAILED: 1
-      1. Failure: oa_search works (@test-oa_search.R#39) 
-      
-      Error: testthat unit tests failed
-      Execution halted
-    ```
-
-# opencage
-
-Version: 0.1.2
-
-## In both
-
-*   checking tests ...
-    ```
-     ERROR
-    Running the tests in ‘tests/testthat.R’ failed.
-    Last 13 lines of output:
-      3: `_f`(placename = placename, key = key, bounds = bounds, countrycode = countrycode, 
-             language = language, limit = limit, min_confidence = min_confidence, no_annotations = no_annotations, 
-             no_dedupe = no_dedupe, no_record = no_record, abbrv = abbrv)
-      4: opencage_check(temp)
-      5: stop("HTTP failure: ", req$status_code, "\n", message, call. = FALSE)
-      
-      testthat results ================================================================
-      OK: 23 SKIPPED: 0 FAILED: 4
-      1. Error: opencage_parse returns what it should for both functions (@test-opencage_parse.R#6) 
-      2. Error: opencage_parse returns what it should for both functions with several parameters (@test-opencage_parse.R#40) 
-      3. Error: opencage_parse deals well with resuls being NULL (@test-opencage_parse.R#72) 
-      4. Error: the bounds argument is well taken into account (@test-opencage_parse.R#86) 
-      
-      Error: testthat unit tests failed
-      Execution halted
-    ```
-
-*   checking re-building of vignette outputs ... WARNING
-    ```
-    Error in re-building vignettes:
-      ...
-    Quitting from lines 41-47 (opencage.Rmd) 
-    Error: processing vignette 'opencage.Rmd' failed with diagnostics:
-    HTTP failure: 403
-    Invalid or missing api key (forbidden)
-    Execution halted
     ```
 
 # opendotaR
@@ -5846,6 +5288,19 @@ Version: 1.2.2
       See the note in ?`:::` about the use of this operator.
     ```
 
+# PakPC2017
+
+Version: 0.4.0
+
+## In both
+
+*   checking dependencies in R code ... NOTE
+    ```
+    Namespaces in Imports field not imported from:
+      ‘curl’ ‘stats’
+      All declared Imports should be used.
+    ```
+
 # parlitools
 
 Version: 0.2.1
@@ -5859,61 +5314,13 @@ Version: 0.2.1
 
 # parsemsf
 
-Version: 0.1.0
+Version: 0.1.1
 
 ## In both
 
-*   checking examples ... ERROR
-    ```
-    Running examples in ‘parsemsf-Ex.R’ failed
-    The error most likely occurred in:
-    
-    > ### Name: make_area_table
-    > ### Title: Make a table of peptide areas
-    > ### Aliases: make_area_table
-    > 
-    > ### ** Examples
-    > 
-    > make_area_table(parsemsf_example("test_db.msf"))
-    Error: Condition message must be a string
-    Execution halted
-    ```
-
-*   checking tests ...
-    ```
-     ERROR
-    Running the tests in ‘tests/testthat.R’ failed.
-    Last 13 lines of output:
-      13: glubort(NULL, "The {name} package is required to {reason}.", if (install) "\nPlease install it with `install.packages(\"{name}\")`")
-      14: .abort(text)
-      15: cnd_error(type, .msg = msg, .call = sys.call(-1))
-      16: new_cnd(c(.type, "error"), ..., .msg = .msg)
-      17: stop("Condition message must be a string", call. = FALSE)
-      
-      Error: Condition message must be a string
-      testthat results ================================================================
-      OK: 0 SKIPPED: 0 FAILED: 3
-      1. Error: make_area_table creates a data frame with the correct column names (@test_make_area_table.R#16) 
-      2. Error: make_pep_table creates a data frame with the correct column names (@test_make_pep_table.R#13) 
-      3. Error: map_peptides creates a data frame with the correct column names (@test_map_peptides.R#16) 
-      
-      Error: testthat unit tests failed
-      Execution halted
-    ```
-
-*   checking re-building of vignette outputs ... WARNING
-    ```
-    Error in re-building vignettes:
-      ...
-    Quitting from lines 20-25 (introduction.Rmd) 
-    Error: processing vignette 'introduction.Rmd' failed with diagnostics:
-    Condition message must be a string
-    Execution halted
-    ```
-
 *   checking dependencies in R code ... NOTE
     ```
-    Namespace in Imports field not imported from: ‘RSQLite’
+    Namespace in Imports field not imported from: ‘dbplyr’
       All declared Imports should be used.
     ```
 
@@ -5944,6 +5351,17 @@ Version: 0.2
     GNU make is a SystemRequirements.
     ```
 
+# PCRedux
+
+Version: 0.2.5-1
+
+## In both
+
+*   checking Rd cross-references ... NOTE
+    ```
+    Package unavailable to check Rd xrefs: ‘caret’
+    ```
+
 # perccalc
 
 Version: 1.0.0
@@ -5962,6 +5380,28 @@ Version: 1.0.0
 Version: 0.1.1
 
 ## In both
+
+*   checking tests ...
+    ```
+     ERROR
+    Running the tests in ‘tests/testthat.R’ failed.
+    Last 13 lines of output:
+      8: all.equal(x, y, tolerance = tolerance, check.attributes = check.attributes, ...)
+      9: all.equal.numeric(x, y, tolerance = tolerance, check.attributes = check.attributes, 
+             ...)
+      10: stop(gettextf("'%s' must be logical", "check.attributes"), domain = NA)
+      
+      ══ testthat results  ═══════════════════════════════════════════════════════════
+      OK: 78 SKIPPED: 0 FAILED: 5
+      1. Error: when read_multipage standard type only (@test_multipage.R#79) 
+      2. Error: when read_multipage journal-paper only (@test_multipage.R#90) 
+      3. Error: when read_multipage journal-paper only (@test_multipage.R#97) 
+      4. Error: when read_multipage journal-paper only (@test_multipage.R#104) 
+      5. Error: expect_equal_scale is 10% tolerance (@test_utils.R#6) 
+      
+      Error: testthat unit tests failed
+      Execution halted
+    ```
 
 *   checking dependencies in R code ... NOTE
     ```
@@ -6041,18 +5481,18 @@ Version: 0.8.1
      ERROR
     Running the tests in ‘tests/testthat.R’ failed.
     Last 13 lines of output:
-      The following objects are masked from 'package:base':
-      
-          intersect, setdiff, setequal, union
-      
-      1. Failure: provenance (@test-provenance.R#7) ----------------------------------
-      <... isn't true.
-      A correct time is set in provenance
+      Component "loadedOnly": Component 4: Component "Package": 1 string mismatch
+      Component "loadedOnly": Component 4: Component 2: 1 string mismatch
+      Component "loadedOnly": Component 4: Component "Version": 1 string mismatch
+      Component "loadedOnly": Component 4: Component 4: 1 string mismatch
+      ...
+      Correct session information is set in provenance
       
       Provenance hash a generated on b with c.
-      testthat results ================================================================
-      OK: 1024 SKIPPED: 0 FAILED: 1
+      ══ testthat results  ═══════════════════════════════════════════════════════════
+      OK: 1023 SKIPPED: 0 FAILED: 2
       1. Failure: provenance (@test-provenance.R#7) 
+      2. Failure: provenance (@test-provenance.R#11) 
       
       Error: testthat unit tests failed
       Execution halted
@@ -6060,13 +5500,26 @@ Version: 0.8.1
 
 # PKPDmisc
 
-Version: 2.0.0
+Version: 2.1.1
 
 ## In both
 
 *   checking dependencies in R code ... NOTE
     ```
     Namespace in Imports field not imported from: ‘purrr’
+      All declared Imports should be used.
+    ```
+
+# plotrr
+
+Version: 1.0.0
+
+## In both
+
+*   checking dependencies in R code ... NOTE
+    ```
+    Namespaces in Imports field not imported from:
+      ‘dplyr’ ‘stats’
       All declared Imports should be used.
     ```
 
@@ -6129,6 +5582,64 @@ Version: 0.1.0
       All declared Imports should be used.
     ```
 
+# PPforest
+
+Version: 0.1.0
+
+## Newly broken
+
+*   checking examples ... ERROR
+    ```
+    ...
+    Warning in PPclassify2(Tree.result = x[[1]], test.data = xnew, Rule = 1) :
+      restarting interrupted promise evaluation
+    Warning in PPclassify2(Tree.result = x[[1]], test.data = xnew, Rule = 1) :
+      restarting interrupted promise evaluation
+    Warning in PPclassify2(Tree.result = x[[1]], test.data = xnew, Rule = 1) :
+      restarting interrupted promise evaluation
+    Warning in PPclassify2(Tree.result = x[[1]], test.data = xnew, Rule = 1) :
+      restarting interrupted promise evaluation
+    Warning in PPclassify2(Tree.result = x[[1]], test.data = xnew, Rule = 1) :
+      restarting interrupted promise evaluation
+    Warning in PPclassify2(Tree.result = x[[1]], test.data = xnew, Rule = 1) :
+      restarting interrupted promise evaluation
+    Warning in PPclassify2(Tree.result = x[[1]], test.data = xnew, Rule = 1) :
+      restarting interrupted promise evaluation
+    Warning in PPclassify2(Tree.result = x[[1]], test.data = xnew, Rule = 1) :
+      restarting interrupted promise evaluation
+    Warning in PPclassify2(Tree.result = x[[1]], test.data = xnew, Rule = 1) :
+      restarting interrupted promise evaluation
+    Error in do.ply(i) : task 1 failed - "object 'Type' not found"
+    Calls: PPforest ... trees_pred -> <Anonymous> -> llply -> <Anonymous> -> <Anonymous>
+    Execution halted
+    ```
+
+*   checking re-building of vignette outputs ... WARNING
+    ```
+    ...
+        nasa
+    
+    Loading required package: gridExtra
+    
+    Attaching package: 'gridExtra'
+    
+    The following object is masked from 'package:dplyr':
+    
+        combine
+    
+    Loading required package: PPtreeViz
+    Loading required package: ggplot2
+    Loading required package: partykit
+    Loading required package: grid
+    Loading required package: libcoin
+    Loading required package: mvtnorm
+    Loading required package: rpart
+    Quitting from lines 155-160 (PPforest-vignette.Rmd) 
+    Error: processing vignette 'PPforest-vignette.Rmd' failed with diagnostics:
+    object 'Type' not found
+    Execution halted
+    ```
+
 # prisonbrief
 
 Version: 0.1.0
@@ -6146,9 +5657,61 @@ Version: 1.16.1
 
 ## In both
 
+*   checking examples ... ERROR
+    ```
+    ...
+     Created on Wed Dec  9 11:27:10 2015
+    > data(dunkley2006params)
+    > dunkley2006params
+    Object of class "AnnotationParams"
+     Using the 'plants_mart' BioMart database
+     Using the 'athaliana_eg_gene' dataset
+     Using 'tair_locus' as filter
+     Created on Thu Apr 20 19:19:37 2017
+    > 
+    > try(setAnnotationParams(inputs = c("nomatch1", "nomatch2")))
+    Error in setAnnotationParams(inputs = c("nomatch1", "nomatch2")) : 
+      Couldn't find a unique species match for 'nomatch1'.
+    > setAnnotationParams(inputs = c("Homo sapiens",
+    +                         "UniProtKB/Swiss-Prot ID"))
+    Using species Homo sapiens genes (GRCh38.p5)
+    Using feature type UniProtKB/Swiss-Prot ID(s) [e.g. A0A075B6H9]
+    Connecting to Biomart...
+    Error in checkDataset(dataset = dataset, mart = mart) : 
+      The given dataset:  hsapiens_gene_ensembl , is not valid.  Correct dataset names can be obtained with the listDatasets() function.
+    Calls: setAnnotationParams -> useMart -> useDataset -> checkDataset
+    Execution halted
+    ```
+
+*   checking tests ...
+    ```
+     ERROR
+    Running the tests in ‘tests/testthat.R’ failed.
+    Last 13 lines of output:
+        Mitochondrion   0       0       0
+        PM              0       0       0
+        Plastid         0       0       0
+        Ribosome        0       0       0
+        TGN            13       0       0
+        unknown         0     428       0
+        vacuole         0       0      21
+      ══ testthat results  ═══════════════════════════════════════════════════════════
+      OK: 127 SKIPPED: 0 FAILED: 3
+      1. Error: AnnotationParams (@test_annotation.R#11) 
+      2. Error: output from orderGoAnnotations and manually ordering clusters (@test_clustDist.R#7) 
+      3. Error: filtering by min or max matrix annotations gives expected results (@test_goannotations.R#7) 
+      
+      Error: testthat unit tests failed
+      Execution halted
+    ```
+
 *   checking re-building of vignette outputs ... WARNING
     ```
     ...
+    
+    Attaching package: 'annotate'
+    
+    The following object is masked from 'package:mzR':
     
         nChrom
     
@@ -6162,13 +5725,9 @@ Version: 1.16.1
     
     This is pRolocdata version 1.14.0.
     Use 'pRolocdata()' to list available data sets.
-    Loading required namespace: GO.db
-    
-    Loading required package: GO.db
-    Retaining 84 out of 524 in GOAnnotations
-    Retaining 79 out of 84 in GOAnnotations
+    Quitting from lines 110-112 (pRoloc-goannotations.Rmd) 
     Error: processing vignette 'pRoloc-goannotations.Rmd' failed with diagnostics:
-    path for html_dependency not found: 
+    The given dataset:  mmusculus_gene_ensembl , is not valid.  Correct dataset names can be obtained with the listDatasets() function.
     Execution halted
     ```
 
@@ -6305,9 +5864,20 @@ Version: 0.2.1
       Note: found 20105 marked UTF-8 strings
     ```
 
+# PSLM2015
+
+Version: 0.2.0
+
+## In both
+
+*   checking data for non-ASCII characters ... NOTE
+    ```
+      Note: found 26 marked Latin-1 strings
+    ```
+
 # psychmeta
 
-Version: 0.1.1
+Version: 0.1.3
 
 ## In both
 
@@ -6356,13 +5926,25 @@ Version: 0.0.2
 
 # qdap
 
-Version: 2.2.8
+Version: 2.2.9
 
 ## In both
 
 *   checking Rd cross-references ... NOTE
     ```
     Package unavailable to check Rd xrefs: ‘gplots’
+    ```
+
+# qqplotr
+
+Version: 0.0.2
+
+## In both
+
+*   checking dependencies in R code ... NOTE
+    ```
+    Namespace in Imports field not imported from: ‘knitr’
+      All declared Imports should be used.
     ```
 
 # quadmesh
@@ -6495,8 +6077,8 @@ Version: 0.1.0
      ERROR
     Running the tests in ‘tests/testthat.R’ failed.
     Last 13 lines of output:
-      testthat results ================================================================
-      OK: 139 SKIPPED: 0 FAILED: 10
+      ══ testthat results  ═══════════════════════════════════════════════════════════
+      OK: 139 SKIPPED: 1 FAILED: 10
       1.  Error: gather works with R6 data.frame (@test-tidyr_reshape.R#11) 
       2.  Error: gather works with R6 data.table (@test-tidyr_reshape.R#25) 
       3.  Error: gather works with R6 tbl_df (@test-tidyr_reshape.R#38) 
@@ -6549,7 +6131,7 @@ Version: 0.9
 
 # raptr
 
-Version: 0.0.5
+Version: 0.1.1
 
 ## In both
 
@@ -6560,10 +6142,10 @@ Version: 0.0.5
 
 *   checking installed package size ... NOTE
     ```
-      installed size is 17.9Mb
+      installed size is  6.0Mb
       sub-directories of 1Mb or more:
         data   3.6Mb
-        libs  13.1Mb
+        doc    1.4Mb
     ```
 
 # Rariant
@@ -6637,63 +6219,29 @@ Version: 5.1.0
     Execution halted
     ```
 
-*   checking package dependencies ... NOTE
-    ```
-    Packages suggested but not available for checking:
-      ‘gWidgetsRGtk2’ ‘playwith’
-    ```
-
 *   checking dependencies in R code ... NOTE
     ```
     
-    (R:71248): Gtk-WARNING **: gtk_disable_setlocale() must be called before gtk_init()
+    (R:98237): Gtk-WARNING **: gtk_disable_setlocale() must be called before gtk_init()
     ```
 
 # RBesT
 
-Version: 1.2-3
+Version: 1.3-1
 
 ## In both
 
 *   checking installed package size ... NOTE
     ```
-      installed size is 27.7Mb
+      installed size is 28.6Mb
       sub-directories of 1Mb or more:
-        libs  26.4Mb
+        libs  27.3Mb
     ```
 
 *   checking dependencies in R code ... NOTE
     ```
     Namespace in Imports field not imported from: ‘lme4’
       All declared Imports should be used.
-    ```
-
-# rbison
-
-Version: 0.5.4
-
-## In both
-
-*   checking tests ...
-    ```
-     ERROR
-    Running the tests in ‘tests/test-all.R’ failed.
-    Last 13 lines of output:
-      
-      
-      3. Failure: bison_tax returns the correct ... (@test-bison_tax.R#14) -----------
-      out3$names$vernacularName not equal to "black bear".
-      Lengths differ: 6 vs 1
-      
-      
-      testthat results ================================================================
-      OK: 37 SKIPPED: 0 FAILED: 3
-      1. Failure: bison returns the correct value (@test-bison.R#16) 
-      2. Failure: bison_tax returns the correct ... (@test-bison_tax.R#12) 
-      3. Failure: bison_tax returns the correct ... (@test-bison_tax.R#14) 
-      
-      Error: testthat unit tests failed
-      Execution halted
     ```
 
 # rccmisc
@@ -6708,82 +6256,17 @@ Version: 0.3.7
       All declared Imports should be used.
     ```
 
-# rcongresso
+# RClickhouse
 
-Version: 0.2.1
-
-## In both
-
-*   checking tests ...
-    ```
-     ERROR
-    Running the tests in ‘tests/testthat.R’ failed.
-    Complete output:
-      > library(testthat)
-      > library(rcongresso)
-      > 
-      > test_check("rcongresso")
-      Error: Column `id` must be a 1d atomic vector or a list
-      In addition: Warning message:
-      Unknown or uninitialised column: 'id'. 
-      testthat results ================================================================
-      OK: 18 SKIPPED: 0 FAILED: 0
-      Execution halted
-    ```
-
-*   checking re-building of vignette outputs ... WARNING
-    ```
-    Error in re-building vignettes:
-      ...
-    
-    Attaching package: 'dplyr'
-    
-    The following objects are masked from 'package:stats':
-    
-        filter, lag
-    
-    The following objects are masked from 'package:base':
-    
-        intersect, setdiff, setequal, union
-    
-    Quitting from lines 45-50 (introducao-rcongresso.Rmd) 
-    Error: processing vignette 'introducao-rcongresso.Rmd' failed with diagnostics:
-    Column `id` must be a 1d atomic vector or a list
-    Execution halted
-    ```
-
-*   checking dependencies in R code ... NOTE
-    ```
-    Namespace in Imports field not imported from: ‘utils’
-      All declared Imports should be used.
-    ```
-
-# rcrossref
-
-Version: 0.7.0
+Version: 0.3.0
 
 ## In both
 
-*   checking tests ...
+*   checking installed package size ... NOTE
     ```
-     ERROR
-    Running the tests in ‘tests/test-all.R’ failed.
-    Last 13 lines of output:
-      3. Failure: cr_members fails correctly (@test_cr_members.R#47) -----------------
-      `warnings` does not match "500: java.lang.NumberFormatException: For input string: \"323234343434\"".
-      Actual values:
-      * 500: {"status":"error","message-type":"exception","message-version":"1.0.0","message":{"name":"class java.lang.NumberFormatException","description":"java.lang.NumberFormatException: For input string: \\"323234343434\\"","message":"For input string: \\"323234343434\\"","stack":["java.lang.NumberFormatException.forInputString(NumberFormatException.java:65)","java.lang.Integer.parseInt(Integer.java:583)","java.lang.Integer.parseInt(Integer.java:615)","cayenne.data.member$get_id_from_context.invokeStatic(member.clj:34)","cayenne.data.member$get_id_from_context.invoke(member.clj:30)","cayenne.data.member$fetch_one$fn__17569.invoke(member.clj:75)","cayenne.data.member$fetch_one.invokeStatic(member.clj:72)","cayenne.data.member$fetch_one.invoke(member.clj:71)","cayenne.api.v1.routes$member_works_resource$fn__22177$fn__22178.invoke(routes.clj:375)","liberator.core$decide.invokeStatic(core.clj:98)","liberator.core$decide.invoke(core.clj:91)","liberator.core$exists_QMARK_.invokeStatic(core.clj:406)","liberator.core$exists_QMARK_.invoke(core.clj:406)","liberator.core$decide.invokeStatic(core.clj:103)","liberator.core$decide.invoke(core.clj:91)","liberator.core$processable_QMARK_.invokeStatic(core.clj:409)","liberator.core$processable_QMARK_.invoke(core.clj:409)","liberator.core$decide.invokeStatic(core.clj:103)","liberator.core$decide.invoke(core.clj:91)","liberator.core$encoding_available_QMARK_.invokeStatic(core.clj:413)","liberator.core$encoding_available_QMARK_.invoke(core.clj:413)","liberator.core$decide.invokeStatic(core.clj:103)","liberator.core$decide.invoke(core.clj:91)","liberator.core$accept_encoding_exists_QMARK_.invokeStatic(core.clj:428)","liberator.core$accept_encoding_exists_QMARK_.invoke(core.clj:428)","liberator.core$decide.invokeStatic(core.clj:103)","liberator.core$decide.invoke(core.clj:91)","liberator.core$accept_charset_exists_QMARK_.invokeStatic(core.clj:441)","liberator.core$accept_charset_exists_QMARK_.invoke(core.clj:441)","liberator.core$decide.invokeStatic(core.clj:103)","liberator.core$decide.invoke(core.clj:91)","liberator.core$accept_language_exists_QMARK_.invokeStatic(core.clj:455)","liberator.core$accept_language_exists_QMARK_.invoke(core.clj:455)","liberator.core$decide.invokeStatic(core.clj:103)","liberator.core$decide.invoke(core.clj:91)","liberator.core$media_type_available_QMARK_.invokeStatic(core.clj:465)","liberator.core$media_type_available_QMARK_.invoke(core.clj:465)","liberator.core$decide.invokeStatic(core.clj:103)","liberator.core$decide.invoke(core.clj:91)","liberator.core$accept_exists_QMARK_.invokeStatic(core.clj:468)","liberator.core$accept_exists_QMARK_.invoke(core.clj:468)","liberator.core$decide.invokeStatic(core.clj:103)","liberator.core$decide.invoke(core.clj:91)","liberator.core$is_options_QMARK_.invokeStatic(core.clj:485)","liberator.core$is_options_QMARK_.invoke(core.clj:485)","liberator.core$decide.invokeStatic(core.clj:103)","liberator.core$decide.invoke(core.clj:91)","liberator.core$valid_entity_length_QMARK_.invokeStatic(core.clj:488)","liberator.core$valid_entity_length_QMARK_.invoke(core.clj:488)","liberator.core$decide.invokeStatic(core.clj:103)","liberator.core$decide.invoke(core.clj:91)","liberator.core$known_content_type_QMARK_.invokeStatic(core.clj:491)","liberator.core$known_content_type_QMARK_.invoke(core.clj:491)","liberator.core$decide.invokeStatic(core.clj:103)","liberator.core$decide.invoke(core.clj:91)","liberator.core$valid_content_header_QMARK_.invokeStatic(core.clj:493)","liberator.core$valid_content_header_QMARK_.invoke(core.clj:493)","liberator.core$decide.invokeStatic(core.clj:103)","liberator.core$decide.invoke(core.clj:91)","liberator.core$allowed_QMARK_.invokeStatic(core.clj:496)","liberator.core$allowed_QMARK_.invoke(core.clj:496)","liberator.core$decide.invokeStatic(core.clj:103)","liberator.core$decide.invoke(core.clj:91)","liberator.core$authorized_QMARK_.invokeStatic(core.clj:499)","liberator.core$authorized_QMARK_.invoke(core.clj:499)","liberator.core$decide.invokeStatic(core.clj:103)","liberator.core$decide.invoke(core.clj:91)","liberator.core$malformed_QMARK_.invokeStatic(core.clj:502)","liberator.core$malformed_QMARK_.invoke(core.clj:502)","liberator.core$decide.invokeStatic(core.clj:103)","liberator.core$decide.invoke(core.clj:91)","liberator.core$method_allowed_QMARK_.invokeStatic(core.clj:505)","liberator.core$method_allowed_QMARK_.invoke(core.clj:505)","liberator.core$decide.invokeStatic(core.clj:103)","liberator.core$decide.invoke(core.clj:91)","liberator.core$uri_too_long_QMARK_.invokeStatic(core.clj:508)","liberator.core$uri_too_long_QMARK_.invoke(core.clj:508)","liberator.core$decide.invokeStatic(core.clj:103)","liberator.core$decide.invoke(core.clj:91)","liberator.core$known_method_QMARK_.invokeStatic(core.clj:511)","liberator.core$known_method_QMARK_.invoke(core.clj:511)","liberator.core$decide.invokeStatic(core.clj:103)","liberator.core$decide.invoke(core.clj:91)","liberator.core$service_available_QMARK_.invokeStatic(core.clj:514)","liberator.core$service_available_QMARK_.invoke(core.clj:514)","liberator.core$run_resource.invokeStatic(core.clj:599)","liberator.core$run_resource.invoke(core.clj:597)","cayenne.api.v1.routes$member_works_resource$fn__22177.invoke(routes.clj:364)","compojure.response$eval21288$fn__21289.invoke(response.clj:47)","compojure.response$eval21210$fn__21211$G__21201__21218.invoke(response.clj:7)","compojure.core$wrap_response$fn__21880.invoke(core.clj:158)","compojure.core$wrap_route_middleware$fn__21864.invoke(core.clj:128)","compojure.core$wrap_route_info$fn__21869.invoke(core.clj:137)","compojure.core$wrap_route_matches$fn__21873.invoke(core.clj:146)","compojure.core$routing$fn__21888.invoke(core.clj:185)","clojure.core$some.invokeStatic(core.clj:2592)","clojure.core$some.invoke(core.clj:2583)","compojure.core$routing.invokeStatic(core.clj:185)","compojure.core$routing.doInvoke(core.clj:182)","clojure.lang.RestFn.applyTo(RestFn.java:139)","clojure.core$apply.invokeStatic(core.clj:648)","clojure.core$apply.invoke(core.clj:641)","compojure.core$routes$fn__21892.invoke(core.clj:192)","compojure.core$routing$fn__21888.invoke(core.clj:185)","clojure.core$some.invokeStatic(core.clj:2592)","clojure.core$some.invoke(core.clj:2583)","compojure.core$routing.invokeStatic(core.clj:185)","compojure.core$routing.doInvoke(core.clj:182)","clojure.lang.RestFn.applyTo(RestFn.java:139)","clojure.core$apply.invokeStatic(core.clj:648)","clojure.core$apply.invoke(core.clj:641)","compojure.core$routes$fn__21892.invoke(core.clj:192)","compojure.core$routing$fn__21888.invoke(core.clj:185)","clojure.core$some.invokeStatic(core.clj:2592)","clojure.core$some.invoke(core.clj:2583)","compojure.core$routing.invokeStatic(core.clj:185)","compojure.core$routing.doInvoke(core.clj:182)","clojure.lang.RestFn.applyTo(RestFn.java:139)","clojure.core$apply.invokeStatic(core.clj:648)","clojure.core$apply.invoke(core.clj:641)","compojure.core$routes$fn__21892.invoke(core.clj:192)","ring.middleware.logstash$wrap_logstash$fn__23209.invoke(logstash.clj:110)","ring.middleware.keyword_params$wrap_keyword_params$fn__24071.invoke(keyword_params.clj:36)","ring.middleware.nested_params$wrap_nested_params$fn__24119.invoke(nested_params.clj:89)","ring.middleware.params$wrap_params$fn__24035.invoke(params.clj:67)","cayenne.api.route$wrap_cors$fn__24655.invoke(route.clj:101)","metrics.ring.expose$expose_metrics_as_json$fn__23595.invoke(expose.clj:94)","metrics.ring.instrument$instrument$fn__23611$fn__23612.invoke(instrument.clj:44)","metrics.ring.instrument.proxy$java.lang.Object$Callable$7da976d4.call(Unknown Source)","com.yammer.metrics.core.Timer.time(Timer.java:91)","metrics.ring.instrument$instrument$fn__23611.invoke(instrument.clj:43)","heartbeat.ring$wrap_heartbeat$fn__23297.invoke(ring.clj:18)","cayenne.api.conneg$wrap_accept$fn__19751.invoke(conneg.clj:53)","cayenne.api.route$wrap_exception_handler$fn__24660.invoke(route.clj:110)","cayenne.api.route$wrap_ignore_trailing_slash$fn__24668.invoke(route.clj:136)","org.httpkit.server.HttpHandler.run(RingHandler.java:91)","java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)","java.util.concurrent.Future
-      * 500: {"status":"error","message-type":"exception","message-version":"1.0.0","message":{"name":"class java.lang.NumberFormatException","description":"java.lang.NumberFormatException: For input string: \\"3434343434\\"","message":"For input string: \\"3434343434\\"","stack":["java.lang.NumberFormatException.forInputString(NumberFormatException.java:65)","java.lang.Integer.parseInt(Integer.java:583)","java.lang.Integer.parseInt(Integer.java:615)","cayenne.data.member$get_id_from_context.invokeStatic(member.clj:34)","cayenne.data.member$get_id_from_context.invoke(member.clj:30)","cayenne.data.member$fetch_one$fn__17608.invoke(member.clj:75)","cayenne.data.member$fetch_one.invokeStatic(member.clj:72)","cayenne.data.member$fetch_one.invoke(member.clj:71)","cayenne.api.v1.routes$member_works_resource$fn__22216$fn__22217.invoke(routes.clj:375)","liberator.core$decide.invokeStatic(core.clj:98)","liberator.core$decide.invoke(core.clj:91)","liberator.core$exists_QMARK_.invokeStatic(core.clj:406)","liberator.core$exists_QMARK_.invoke(core.clj:406)","liberator.core$decide.invokeStatic(core.clj:103)","liberator.core$decide.invoke(core.clj:91)","liberator.core$processable_QMARK_.invokeStatic(core.clj:409)","liberator.core$processable_QMARK_.invoke(core.clj:409)","liberator.core$decide.invokeStatic(core.clj:103)","liberator.core$decide.invoke(core.clj:91)","liberator.core$encoding_available_QMARK_.invokeStatic(core.clj:413)","liberator.core$encoding_available_QMARK_.invoke(core.clj:413)","liberator.core$decide.invokeStatic(core.clj:103)","liberator.core$decide.invoke(core.clj:91)","liberator.core$accept_encoding_exists_QMARK_.invokeStatic(core.clj:428)","liberator.core$accept_encoding_exists_QMARK_.invoke(core.clj:428)","liberator.core$decide.invokeStatic(core.clj:103)","liberator.core$decide.invoke(core.clj:91)","liberator.core$accept_charset_exists_QMARK_.invokeStatic(core.clj:441)","liberator.core$accept_charset_exists_QMARK_.invoke(core.clj:441)","liberator.core$decide.invokeStatic(core.clj:103)","liberator.core$decide.invoke(core.clj:91)","liberator.core$accept_language_exists_QMARK_.invokeStatic(core.clj:455)","liberator.core$accept_language_exists_QMARK_.invoke(core.clj:455)","liberator.core$decide.invokeStatic(core.clj:103)","liberator.core$decide.invoke(core.clj:91)","liberator.core$media_type_available_QMARK_.invokeStatic(core.clj:465)","liberator.core$media_type_available_QMARK_.invoke(core.clj:465)","liberator.core$decide.invokeStatic(core.clj:103)","liberator.core$decide.invoke(core.clj:91)","liberator.core$accept_exists_QMARK_.invokeStatic(core.clj:468)","liberator.core$accept_exists_QMARK_.invoke(core.clj:468)","liberator.core$decide.invokeStatic(core.clj:103)","liberator.core$decide.invoke(core.clj:91)","liberator.core$is_options_QMARK_.invokeStatic(core.clj:485)","liberator.core$is_options_QMARK_.invoke(core.clj:485)","liberator.core$decide.invokeStatic(core.clj:103)","liberator.core$decide.invoke(core.clj:91)","liberator.core$valid_entity_length_QMARK_.invokeStatic(core.clj:488)","liberator.core$valid_entity_length_QMARK_.invoke(core.clj:488)","liberator.core$decide.invokeStatic(core.clj:103)","liberator.core$decide.invoke(core.clj:91)","liberator.core$known_content_type_QMARK_.invokeStatic(core.clj:491)","liberator.core$known_content_type_QMARK_.invoke(core.clj:491)","liberator.core$decide.invokeStatic(core.clj:103)","liberator.core$decide.invoke(core.clj:91)","liberator.core$valid_content_header_QMARK_.invokeStatic(core.clj:493)","liberator.core$valid_content_header_QMARK_.invoke(core.clj:493)","liberator.core$decide.invokeStatic(core.clj:103)","liberator.core$decide.invoke(core.clj:91)","liberator.core$allowed_QMARK_.invokeStatic(core.clj:496)","liberator.core$allowed_QMARK_.invoke(core.clj:496)","liberator.core$decide.invokeStatic(core.clj:103)","liberator.core$decide.invoke(core.clj:91)","liberator.core$authorized_QMARK_.invokeStatic(core.clj:499)","liberator.core$authorized_QMARK_.invoke(core.clj:499)","liberator.core$decide.invokeStatic(core.clj:103)","liberator.core$decide.invoke(core.clj:91)","liberator.core$malformed_QMARK_.invokeStatic(core.clj:502)","liberator.core$malformed_QMARK_.invoke(core.clj:502)","liberator.core$decide.invokeStatic(core.clj:103)","liberator.core$decide.invoke(core.clj:91)","liberator.core$method_allowed_QMARK_.invokeStatic(core.clj:505)","liberator.core$method_allowed_QMARK_.invoke(core.clj:505)","liberator.core$decide.invokeStatic(core.clj:103)","liberator.core$decide.invoke(core.clj:91)","liberator.core$uri_too_long_QMARK_.invokeStatic(core.clj:508)","liberator.core$uri_too_long_QMARK_.invoke(core.clj:508)","liberator.core$decide.invokeStatic(core.clj:103)","liberator.core$decide.invoke(core.clj:91)","liberator.core$known_method_QMARK_.invokeStatic(core.clj:511)","liberator.core$known_method_QMARK_.invoke(core.clj:511)","liberator.core$decide.invokeStatic(core.clj:103)","liberator.core$decide.invoke(core.clj:91)","liberator.core$service_available_QMARK_.invokeStatic(core.clj:514)","liberator.core$service_available_QMARK_.invoke(core.clj:514)","liberator.core$run_resource.invokeStatic(core.clj:599)","liberator.core$run_resource.invoke(core.clj:597)","cayenne.api.v1.routes$member_works_resource$fn__22216.invoke(routes.clj:364)","compojure.response$eval21327$fn__21328.invoke(response.clj:47)","compojure.response$eval21249$fn__21250$G__21240__21257.invoke(response.clj:7)","compojure.core$wrap_response$fn__21919.invoke(core.clj:158)","compojure.core$wrap_route_middleware$fn__21903.invoke(core.clj:128)","compojure.core$wrap_route_info$fn__21908.invoke(core.clj:137)","compojure.core$wrap_route_matches$fn__21912.invoke(core.clj:146)","compojure.core$routing$fn__21927.invoke(core.clj:185)","clojure.core$some.invokeStatic(core.clj:2592)","clojure.core$some.invoke(core.clj:2583)","compojure.core$routing.invokeStatic(core.clj:185)","compojure.core$routing.doInvoke(core.clj:182)","clojure.lang.RestFn.applyTo(RestFn.java:139)","clojure.core$apply.invokeStatic(core.clj:648)","clojure.core$apply.invoke(core.clj:641)","compojure.core$routes$fn__21931.invoke(core.clj:192)","compojure.core$routing$fn__21927.invoke(core.clj:185)","clojure.core$some.invokeStatic(core.clj:2592)","clojure.core$some.invoke(core.clj:2583)","compojure.core$routing.invokeStatic(core.clj:185)","compojure.core$routing.doInvoke(core.clj:182)","clojure.lang.RestFn.applyTo(RestFn.java:139)","clojure.core$apply.invokeStatic(core.clj:648)","clojure.core$apply.invoke(core.clj:641)","compojure.core$routes$fn__21931.invoke(core.clj:192)","compojure.core$routing$fn__21927.invoke(core.clj:185)","clojure.core$some.invokeStatic(core.clj:2592)","clojure.core$some.invoke(core.clj:2583)","compojure.core$routing.invokeStatic(core.clj:185)","compojure.core$routing.doInvoke(core.clj:182)","clojure.lang.RestFn.applyTo(RestFn.java:139)","clojure.core$apply.invokeStatic(core.clj:648)","clojure.core$apply.invoke(core.clj:641)","compojure.core$routes$fn__21931.invoke(core.clj:192)","ring.middleware.logstash$wrap_logstash$fn__23248.invoke(logstash.clj:110)","ring.middleware.keyword_params$wrap_keyword_params$fn__24110.invoke(keyword_params.clj:36)","ring.middleware.nested_params$wrap_nested_params$fn__24158.invoke(nested_params.clj:89)","ring.middleware.params$wrap_params$fn__24074.invoke(params.clj:67)","cayenne.api.route$wrap_cors$fn__24694.invoke(route.clj:101)","metrics.ring.expose$expose_metrics_as_json$fn__23634.invoke(expose.clj:94)","metrics.ring.instrument$instrument$fn__23650$fn__23651.invoke(instrument.clj:44)","metrics.ring.instrument.proxy$java.lang.Object$Callable$7da976d4.call(Unknown Source)","com.yammer.metrics.core.Timer.time(Timer.java:91)","metrics.ring.instrument$instrument$fn__23650.invoke(instrument.clj:43)","heartbeat.ring$wrap_heartbeat$fn__23336.invoke(ring.clj:18)","cayenne.api.conneg$wrap_accept$fn__19790.invoke(conneg.clj:53)","cayenne.api.route$wrap_exception_handler$fn__24699.invoke(route.clj:110)","cayenne.api.route$wrap_ignore_trailing_slash$fn__24707.invoke(route.clj:136)","org.httpkit.server.HttpHandler.run(RingHandler.java:91)","java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)","java.util.concurrent.FutureTask
-      
-      
-      testthat results ================================================================
-      OK: 218 SKIPPED: 0 FAILED: 3
-      1. Failure: DOIs with no agency found still work, at least some do (@test_cr_cn.R#38) 
-      2. Failure: cr_members fails correctly (@test_cr_members.R#43) 
-      3. Failure: cr_members fails correctly (@test_cr_members.R#47) 
-      
-      Error: testthat unit tests failed
-      Execution halted
+      installed size is  9.7Mb
+      sub-directories of 1Mb or more:
+        libs   9.5Mb
     ```
 
 # rcv
@@ -6802,28 +6285,6 @@ Version: 0.2.1
 Version: 0.8.1
 
 ## In both
-
-*   checking tests ...
-    ```
-     ERROR
-    Running the tests in ‘tests/testthat.R’ failed.
-    Last 13 lines of output:
-      2: In checkSkipLoopCntxt(a, cntxt, breakOK) :
-        closing unused connection 4 (/home/muelleki/git/R/dplyr/revdep/checks/rdrop2/new/rdrop2.Rcheck/tests/testthat/rdrop2_package_test_b300d02b-fd51-4ee6-9c5e-ea58e097960c_rdrop2_package_test_drop.png)
-      3: In checkSkipLoopCntxt(a, cntxt, breakOK) :
-        closing unused connection 3 (/home/muelleki/git/R/dplyr/revdep/checks/rdrop2/new/rdrop2.Rcheck/tests/testthat/rdrop2_package_test_b1e9bd54-d694-4b30-91b7-9703e85ebb10_file-ops.csv)
-      4: In inherits(x, "factor") :
-        closing unused connection 8 (/home/muelleki/git/R/dplyr/revdep/checks/rdrop2/new/rdrop2.Rcheck/tests/testthat/rdrop2_package_test_aa7c5330-af59-47a4-8a2b-fdb175cd3541_share.csv)
-      5: In inherits(x, "factor") :
-        closing unused connection 7 (/home/muelleki/git/R/dplyr/revdep/checks/rdrop2/new/rdrop2.Rcheck/tests/testthat/rdrop2_package_test_5abe876b-01a1-4f24-b878-34d06daf8c96_delete.csv)
-      6: In inherits(x, "factor") :
-        closing unused connection 6 (/home/muelleki/git/R/dplyr/revdep/checks/rdrop2/new/rdrop2.Rcheck/tests/testthat/rdrop2_package_test_678ca208-5c06-4dcc-b7a6-391db9674494_move.csv)
-      7: In inherits(x, "factor") :
-        closing unused connection 5 (/home/muelleki/git/R/dplyr/revdep/checks/rdrop2/new/rdrop2.Rcheck/tests/testthat/rdrop2_package_test_793b2ceb-6ccd-4963-88d1-b48c4fcdbb7c_iris-test-copy.csv)
-      8: In inherits(x, "factor") :
-        closing unused connection 4 (/home/muelleki/git/R/dplyr/revdep/checks/rdrop2/new/rdrop2.Rcheck/tests/testthat/rdrop2_package_test_b52cccf1-be04-49ec-8cc6-983cb9f82c5e_test-drop_download.csv)
-      Execution halted
-    ```
 
 *   checking dependencies in R code ... NOTE
     ```
@@ -6853,38 +6314,10 @@ Version: 0.3.0
 
 *   checking installed package size ... NOTE
     ```
-      installed size is  7.4Mb
+      installed size is  7.5Mb
       sub-directories of 1Mb or more:
         doc    2.5Mb
         libs   4.8Mb
-    ```
-
-# REDCapR
-
-Version: 0.9.8
-
-## In both
-
-*   checking tests ...
-    ```
-     ERROR
-    Running the tests in ‘tests/test-all.R’ failed.
-    Last 13 lines of output:
-      testthat results ================================================================
-      OK: 551 SKIPPED: 0 FAILED: 33
-      1. Failure: All Records -Raw (@test-metadata-read.R#115) 
-      2. Failure: All Records -Raw and DAG (@test-metadata-read.R#161) 
-      3. Failure: All Records -label and DAG (@test-metadata-read.R#214) 
-      4. Failure: All Records -label (@test-metadata-read.R#266) 
-      5. Failure: All Records -Default (@test-read-batch-simple.R#70) 
-      6. Failure: All Records -Default (@test-read-batch-simple.R#85) 
-      7. Failure: All Records -Raw (@test-read-batch-simple.R#130) 
-      8. Failure: All Records -Raw (@test-read-batch-simple.R#145) 
-      9. Failure: All Records -Raw and DAG (@test-read-batch-simple.R#191) 
-      1. ...
-      
-      Error: testthat unit tests failed
-      Execution halted
     ```
 
 # replyr
@@ -6892,11 +6325,6 @@ Version: 0.9.8
 Version: 0.9.0
 
 ## In both
-
-*   checking package dependencies ... NOTE
-    ```
-    Package suggested but not available for checking: ‘magick’
-    ```
 
 *   checking dependencies in R code ... NOTE
     ```
@@ -6923,28 +6351,6 @@ Version: 0.4.2
 
 ## In both
 
-*   checking tests ...
-    ```
-     ERROR
-    Running the tests in ‘tests/test-all.R’ failed.
-    Last 13 lines of output:
-      testthat results ================================================================
-      OK: 91 SKIPPED: 0 FAILED: 15
-      1. Failure: ed_search_adv fails well (@test-ed_search_adv.R#58) 
-      2. Failure: ed_search_adv fails well (@test-ed_search_adv.R#59) 
-      3. Error: griddap returns the correct class (@test-griddap.r#6) 
-      4. Error: griddap fixes incorrect user inputs (@test-griddap.r#24) 
-      5. Error: griddap fields parameter works, and fails correctly (@test-griddap.r#65) 
-      6. Failure: griddap fails well, in addition to above failure tests (@test-griddap.r#85) 
-      7. Failure: griddap fails well, in addition to above failure tests (@test-griddap.r#86) 
-      8. Failure: griddap fails well, in addition to above failure tests (@test-griddap.r#89) 
-      9. Error: info returns the correct (@test-info.R#6) 
-      1. ...
-      
-      Error: testthat unit tests failed
-      Execution halted
-    ```
-
 *   checking package dependencies ... NOTE
     ```
     Package which this enhances but not available for checking: ‘taxize’
@@ -6959,6 +6365,18 @@ Version: 2.1.2
 *   checking data for non-ASCII characters ... NOTE
     ```
       Note: found 44 marked UTF-8 strings
+    ```
+
+# rhmmer
+
+Version: 0.1.0
+
+## In both
+
+*   checking dependencies in R code ... NOTE
+    ```
+    Namespace in Imports field not imported from: ‘dplyr’
+      All declared Imports should be used.
     ```
 
 # rmapzen
@@ -6977,94 +6395,40 @@ Version: 0.3.3
 
 # rmcfs
 
-Version: 1.2.6
+Version: 1.2.8
 
 ## In both
 
-*   checking installed package size ... NOTE
+*   checking re-building of vignette outputs ... WARNING
     ```
-      installed size is  5.2Mb
-      sub-directories of 1Mb or more:
-        java   4.5Mb
-    ```
-
-# rmonad
-
-Version: 0.3.0
-
-## In both
-
-*   checking dependencies in R code ... NOTE
-    ```
-    Namespace in Imports field not imported from: ‘R6’
-      All declared Imports should be used.
+    Error in re-building vignettes:
+      ...
+    Error: processing vignette 'jss2621.ltx' failed with diagnostics:
+    Running 'texi2dvi' on 'jss2621.ltx' failed.
+    LaTeX errors:
+    ! LaTeX Error: File `algorithmicx.sty' not found.
+    
+    Type X to quit or <RETURN> to proceed,
+    or enter new name. (Default extension: sty)
+    
+    ! Emergency stop.
+    <read *> 
+             
+    l.12 \usepackage
+                    {algpseudocode}^^M
+    !  ==> Fatal error occurred, no output PDF file produced!
+    Execution halted
     ```
 
 # RNeXML
 
-Version: 2.0.7
+Version: 2.0.8
 
 ## In both
 
 *   checking package dependencies ... NOTE
     ```
     Packages suggested but not available for checking: ‘rrdf’ ‘Sxslt’
-    ```
-
-# RNHANES
-
-Version: 1.1.0
-
-## In both
-
-*   checking tests ...
-    ```
-     ERROR
-    Running the tests in ‘tests/testthat.R’ failed.
-    Last 13 lines of output:
-      Content type 'text/html; charset=utf-8' length 504270 bytes (492 KB)
-      ==================================================
-      downloaded 492 KB
-      
-      testthat results ================================================================
-      OK: 112 SKIPPED: 0 FAILED: 6
-      1. Failure: nhanes_search on variables passes spot check (@test_search.R#13) 
-      2. Failure: nhanes_search on variables passes spot check (@test_search.R#14) 
-      3. Failure: nhanes_search on files passes spot check (@test_search.R#20) 
-      4. Failure: nhanes_search on files passes spot check (@test_search.R#21) 
-      5. Failure: fuzzy search works on files (@test_search.R#33) 
-      6. Failure: fuzzy search works on files (@test_search.R#34) 
-      
-      Error: testthat unit tests failed
-      Execution halted
-    ```
-
-# rnoaa
-
-Version: 0.7.0
-
-## In both
-
-*   checking tests ...
-    ```
-     ERROR
-    Running the tests in ‘tests/testthat.R’ failed.
-    Last 13 lines of output:
-      testthat results ================================================================
-      OK: 176 SKIPPED: 1 FAILED: 11
-      1. Failure: buoys fails well (@test-buoy.R#74) 
-      2. Error: check_response returns an error (@test-check_response.r#7) 
-      3. Error: check_response returns the correct error messages (@test-check_response.r#26) 
-      4. Error: ncdc returns the correct ... (@test-ncdc.r#8) 
-      5. Error: ncdc_datacats returns the correct ... (@test-ncdc_datacats.r#7) 
-      6. Error: ncdc_datasets returns the correct class (@test-ncdc_datasets.r#7) 
-      7. Error: ncdc_datatypes returns the correct class (@test-ncdc_datatypes.r#7) 
-      8. Error: ncdc_locs returns the correct class (@test-ncdc_locs.r#7) 
-      9. Error: ncdc_locs_cats returns the correct ... (@test-ncdc_locs_cats.r#7) 
-      1. ...
-      
-      Error: testthat unit tests failed
-      Execution halted
     ```
 
 # rODE
@@ -7093,13 +6457,13 @@ Version: 0.1.0
 
 # ropenaq
 
-Version: 0.2.2
+Version: 0.2.4
 
 ## In both
 
 *   checking re-building of vignette outputs ... WARNING
     ```
-    Error in re-building vignettes:
+    ...
       ...
     
     Attaching package: 'dplyr'
@@ -7112,9 +6476,14 @@ Version: 0.2.2
     
         intersect, setdiff, setequal, union
     
-    Quitting from lines 34-48 (using_openair_package_with_openaq_data.Rmd) 
+    Loading required package: viridisLite
+    Loading required package: sp
+    ### Welcome to rworldmap ###
+    For a short introduction type : 	 vignette('rworldmap')
+    Warning: Ignoring unknown aesthetics: x, y
+    Quitting from lines 61-65 (using_openair_package_with_openaq_data.Rmd) 
     Error: processing vignette 'using_openair_package_with_openaq_data.Rmd' failed with diagnostics:
-    uh oh, the OpenAQ API seems to be having some issues, try again later
+    No data to plot - check year chosen
     Execution halted
     ```
 
@@ -7138,7 +6507,7 @@ Version: 0.2.2
       20: error(name_info(column_name, data_name), " cannot include missing values") at /tmp/RtmpHtcmq3/R.INSTALL6285486ea706/datacheckr/R/check-vector-value.R:7
       21: stop(..., call. = FALSE) at /tmp/RtmpHtcmq3/R.INSTALL6285486ea706/datacheckr/R/utils.R:20
       
-      testthat results ================================================================
+      ══ testthat results  ═══════════════════════════════════════════════════════════
       OK: 1 SKIPPED: 0 FAILED: 1
       1. Error: download_pdo (@test-download-pdo.R#4) 
       
@@ -7180,45 +6549,9 @@ Version: 1.0.0
       All declared Imports should be used.
     ```
 
-# rscorecard
-
-Version: 0.5.0
-
-## In both
-
-*   checking re-building of vignette outputs ... WARNING
-    ```
-    Error in re-building vignettes:
-      ...
-    Quitting from lines 22-29 (introduction.Rmd) 
-    Error: processing vignette 'introduction.Rmd' failed with diagnostics:
-    Missing API key; ?sc_key for details
-    Execution halted
-    ```
-
 # rsoi
 
 Version: 0.3.0
-
-## Newly fixed
-
-*   checking examples ... ERROR
-    ```
-    Running examples in ‘rsoi-Ex.R’ failed
-    The error most likely occurred in:
-    
-    > ### Name: download_enso
-    > ### Title: Download Southern Oscillation Index and Oceanic Nino Index data
-    > ### Aliases: download_enso
-    > 
-    > ### ** Examples
-    > 
-    > enso <- download_enso()
-    Error in open.connection(con, "rb") : 
-      Timeout was reached: Resolving timed out after 10000 milliseconds
-    Calls: download_enso ... structure -> read_connection -> open -> open.connection
-    Execution halted
-    ```
 
 ## In both
 
@@ -7226,34 +6559,6 @@ Version: 0.3.0
     ```
     Namespace in Imports field not imported from: ‘utils’
       All declared Imports should be used.
-    ```
-
-# rsparkling
-
-Version: 0.2.2
-
-## In both
-
-*   checking tests ...
-    ```
-     ERROR
-    Running the tests in ‘tests/testthat.R’ failed.
-    Last 13 lines of output:
-      7: compareVersion(currentRow$spark, "2.0")
-      
-      testthat results ================================================================
-      OK: 1 SKIPPED: 0 FAILED: 8
-      1. Error: Test transformation from h2o frame to data frame (@test_transforms.R#5) 
-      2. Error: Test transformation of a spark data_frame of bools to an h2o frame of bools (@test_transforms.R#17) 
-      3. Error: Test transformation of a spark data_frame of complex types to an h2o frame of complex types (@test_transforms.R#29) 
-      4. Error: Test transformation of a spark data_frame of float types to an h2o frame of floats (@test_transforms.R#43) 
-      5. Error: Test transformation of a spark data_frame of int types to an h2o frame of ints (@test_transforms.R#54) 
-      6. Error: Test transformation of a spark data_frame of str types to an h2o frame of str (@test_transforms.R#65) 
-      7. Error: Test transformation from dataframe to h2o frame (@test_transforms.R#76) 
-      8. Error: Test transformation from dataframe to h2o frame (@test_transforms.R#86) 
-      
-      Error: testthat unit tests failed
-      Execution halted
     ```
 
 # RSSL
@@ -7342,34 +6647,6 @@ Version: 1.6.0
     Packages unavailable to check Rd xrefs: ‘RTCGA.clinical’, ‘RTCGA.mutations’, ‘RTCGA.CNV’, ‘RTCGA.RPPA’, ‘RTCGA.mRNA’, ‘RTCGA.miRNASeq’, ‘RTCGA.methylation’
     ```
 
-# rtimes
-
-Version: 0.5.0
-
-## In both
-
-*   checking tests ...
-    ```
-     ERROR
-    Running the tests in ‘tests/test-all.R’ failed.
-    Last 13 lines of output:
-      6: Filter(Negate(is.null), x)
-      7: unlist(lapply(x, f))
-      8: lapply(x, f)
-      9: check_key(key)
-      10: stop("need an API key for ", y, call. = FALSE)
-      
-      testthat results ================================================================
-      OK: 2 SKIPPED: 0 FAILED: 4
-      1. Error: returns the correct stuff (@test-as_search.R#8) 
-      2. Error: returns the correct stuff (@test-geo_search.R#8) 
-      3. Failure: fails well (@test-geo_search.R#48) 
-      4. Error: fails well (@test-geo_search.R#50) 
-      
-      Error: testthat unit tests failed
-      Execution halted
-    ```
-
 # rtimicropem
 
 Version: 1.3
@@ -7394,9 +6671,22 @@ Version: 0.1.0
       All declared Imports should be used.
     ```
 
-# rvertnet
+# RtutoR
 
-Version: 0.6.2
+Version: 1.0
+
+## In both
+
+*   checking dependencies in R code ... NOTE
+    ```
+    Namespaces in Imports field not imported from:
+      ‘DT’ ‘rmarkdown’
+      All declared Imports should be used.
+    ```
+
+# ruler
+
+Version: 0.1.0
 
 ## In both
 
@@ -7405,18 +6695,18 @@ Version: 0.6.2
      ERROR
     Running the tests in ‘tests/testthat.R’ failed.
     Last 13 lines of output:
-      grepl("Bufo debilis", aa$data$scientificname) isn't true.
+      ── 1. Failure: print.exposure passes tibble options (@test-exposure.R#364)  ────
+      `print\(input_print_exposure, width_packs_info = 30, width_report = 30\)` does not match "Packs info.*2 more var.*Tidy data validation report.*3 more var".
+      Actual value: "  Exposure\\n\\nPacks info:\\n# A tibble: 30 x 4\\n   name   type   fun    remo…\\n   <chr>  <chr>  <list> <lgl>\\n 1 data_… data_… <S3: … F    \\n 2 data_… data_… <S3: … F    \\n 3 data_… data_… <S3: … F    \\n 4 data_… data_… <S3: … F    \\n 5 data_… data_… <S3: … F    \\n 6 data_… data_… <S3: … F    \\n 7 data_… data_… <S3: … F    \\n 8 data_… data_… <S3: … F    \\n 9 data_… data_… <S3: … F    \\n10 data_… data_… <S3: … F    \\n# \.\.\. with 20 more rows\\n\\nTidy data validation report:\\n# A tibble: 60 x 5\\n   pack    rule   var      id\\n   <chr>   <chr>  <chr> <int>\\n 1 data_p… nrow_… \.all      0\\n 2 data_p… nrow_… \.all      0\\n 3 data_p… nrow_… \.all      0\\n 4 data_p… nrow_… \.all      0\\n 5 data_p… nrow_… \.all      0\\n 6 data_p… nrow_… \.all      0\\n 7 data_p… nrow_… \.all      0\\n 8 data_p… nrow_… \.all      0\\n 9 data_p… nrow_… \.all      0\\n10 data_p… nrow_… \.all      0\\n# \.\.\. with 50 more rows, and\\n#   1 more variable:\\n#   value <lgl>"
       
+      ── 2. Failure: print.exposure passes tibble options (@test-exposure.R#369)  ────
+      `print\(\.\.\.\)` does not match "Packs info.*2 more var.*\\.\\.\\..*Tidy data validation report.*3 more var.*\\.\\.\\.".
+      Actual value: "  Exposure\\n\\nPacks info:\\n# A tibble: 30 x 4\\n   name   type   fun    remo…\\n   <chr>  <chr>  <list> <lgl>\\n 1 data_… data_… <S3: … F    \\n 2 data_… data_… <S3: … F    \\n 3 data_… data_… <S3: … F    \\n 4 data_… data_… <S3: … F    \\n 5 data_… data_… <S3: … F    \\n 6 data_… data_… <S3: … F    \\n 7 data_… data_… <S3: … F    \\n 8 data_… data_… <S3: … F    \\n 9 data_… data_… <S3: … F    \\n10 data_… data_… <S3: … F    \\n# \.\.\. with 20 more rows\\n\\nTidy data validation report:\\n# A tibble: 60 x 5\\n   pack    rule   var      id\\n   <chr>   <chr>  <chr> <int>\\n 1 data_p… nrow_… \.all      0\\n 2 data_p… nrow_… \.all      0\\n 3 data_p… nrow_… \.all      0\\n 4 data_p… nrow_… \.all      0\\n 5 data_p… nrow_… \.all      0\\n 6 data_p… nrow_… \.all      0\\n 7 data_p… nrow_… \.all      0\\n 8 data_p… nrow_… \.all      0\\n 9 data_p… nrow_… \.all      0\\n10 data_p… nrow_… \.all      0\\n# \.\.\. with 50 more rows, and\\n#   1 more variable:\\n#   value <lgl>"
       
-      3. Failure: vert_id works (@test-vert_id.R#33) ---------------------------------
-      any(grepl("Bufo", aa$data$scientificname)) isn't true.
-      
-      
-      testthat results ================================================================
-      OK: 107 SKIPPED: 0 FAILED: 3
-      1. Failure: searchbyterm works correctly (@test-searchbyterm.R#12) 
-      2. Failure: vert_id works (@test-vert_id.R#15) 
-      3. Failure: vert_id works (@test-vert_id.R#33) 
+      ══ testthat results  ═══════════════════════════════════════════════════════════
+      OK: 303 SKIPPED: 0 FAILED: 2
+      1. Failure: print.exposure passes tibble options (@test-exposure.R#364) 
+      2. Failure: print.exposure passes tibble options (@test-exposure.R#369) 
       
       Error: testthat unit tests failed
       Execution halted
@@ -7431,6 +6721,61 @@ Version: 0.6-1
 *   checking package dependencies ... NOTE
     ```
     Package suggested but not available for checking: ‘SnakeCharmR’
+    ```
+
+# saeSim
+
+Version: 0.9.0
+
+## Newly broken
+
+*   checking examples ... ERROR
+    ```
+    Running examples in ‘saeSim-Ex.R’ failed
+    The error most likely occurred in:
+    
+    > ### Name: sim_agg
+    > ### Title: Aggregation component
+    > ### Aliases: sim_agg
+    > 
+    > ### ** Examples
+    > 
+    > # Aggregating the population:
+    > sim_base_lm() %>% sim_agg()
+    # data.frame [100 × 4]
+        idD      x        e     y
+    ```
+
+*   checking tests ...
+    ```
+     ERROR
+    Running the tests in ‘tests/test-all.R’ failed.
+    Last 13 lines of output:
+      
+      
+      [[1]]
+      [1] 1
+      
+      
+      ══ testthat results  ═══════════════════════════════════════════════════════════
+      OK: 120 SKIPPED: 0 FAILED: 4
+      1. Error: sim_comp and comp_var (@test-sim_comp.R#12) 
+      2. Error: Attributes are preserved (@test-sim_sample.R#11) 
+      3. Error: Basic sampling functionality (@test-sim_sample.R#25) 
+      4. Error: applying the sampling functions correctly (@test-sim_sample.R#37) 
+      
+      Error: testthat unit tests failed
+      Execution halted
+    ```
+
+*   checking re-building of vignette outputs ... WARNING
+    ```
+    Error in re-building vignettes:
+      ...
+    Quitting from lines 252-255 (Introduction.Rmd) 
+    Error: processing vignette 'Introduction.Rmd' failed with diagnostics:
+    Column `w` is of unsupported type NULL
+    Execution halted
     ```
 
 # SanFranBeachWater
@@ -7453,9 +6798,9 @@ Version: 1.0.0
 
 *   checking installed package size ... NOTE
     ```
-      installed size is  6.9Mb
+      installed size is  7.0Mb
       sub-directories of 1Mb or more:
-        libs   6.3Mb
+        libs   6.4Mb
     ```
 
 *   checking dependencies in R code ... NOTE
@@ -7525,42 +6870,24 @@ Version: 1.3.4
 
 # seplyr
 
-Version: 0.1.5
+Version: 0.5.0
 
 ## In both
+
+*   checking re-building of vignette outputs ... WARNING
+    ```
+    Error in re-building vignettes:
+      ...
+    Quitting from lines 48-60 (mutate.Rmd) 
+    Error: processing vignette 'mutate.Rmd' failed with diagnostics:
+    object 'd' not found
+    Execution halted
+    ```
 
 *   checking dependencies in R code ... NOTE
     ```
     Namespace in Imports field not imported from: ‘datasets’
       All declared Imports should be used.
-    ```
-
-# sergeant
-
-Version: 0.5.2
-
-## In both
-
-*   checking tests ...
-    ```
-     ERROR
-    Running the tests in ‘tests/testthat.R’ failed.
-    Last 13 lines of output:
-      2: httr::POST(sprintf("%s/query.json", drill_server), encode = "json", body = list(queryType = "SQL", 
-             query = query))
-      3: request_perform(req, hu$handle$handle)
-      4: request_fetch(req$output, req$url, handle)
-      5: request_fetch.write_memory(req$output, req$url, handle)
-      6: curl::curl_fetch_memory(url, handle = handle)
-      
-      testthat results ================================================================
-      OK: 1 SKIPPED: 0 FAILED: 3
-      1. Error: Core dbplyr ops work (@test-sergeant.R#12) 
-      2. Failure: REST API works (@test-sergeant.R#25) 
-      3. Error: REST API works (@test-sergeant.R#27) 
-      
-      Error: testthat unit tests failed
-      Execution halted
     ```
 
 # Seurat
@@ -7663,6 +6990,18 @@ Version: 0.2.1
         www   9.7Mb
     ```
 
+# shinyaframe
+
+Version: 1.0.1
+
+## In both
+
+*   checking dependencies in R code ... NOTE
+    ```
+    Namespace in Imports field not imported from: ‘shiny’
+      All declared Imports should be used.
+    ```
+
 # shinyHeatmaply
 
 Version: 0.1.0
@@ -7724,7 +7063,19 @@ Version: 3.6.4
       installed size is 12.3Mb
       sub-directories of 1Mb or more:
         doc    1.0Mb
-        libs  10.9Mb
+        libs  11.0Mb
+    ```
+
+# SimRVPedigree
+
+Version: 0.1.0
+
+## In both
+
+*   checking dependencies in R code ... NOTE
+    ```
+    Namespace in Imports field not imported from: ‘dplyr’
+      All declared Imports should be used.
     ```
 
 # sjlabelled
@@ -7745,7 +7096,7 @@ Version: 1.0.5
 
 # sjmisc
 
-Version: 2.6.2
+Version: 2.6.3
 
 ## In both
 
@@ -7773,7 +7124,7 @@ Version: 2.4.0
 
 # sjstats
 
-Version: 0.12.0
+Version: 0.13.0
 
 ## In both
 
@@ -7782,33 +7133,23 @@ Version: 0.12.0
     Packages unavailable to check Rd xrefs: ‘sjPlot’, ‘MuMIn’, ‘piecewiseSEM’
     ```
 
+# skimr
+
+Version: 1.0
+
+## In both
+
+*   checking dependencies in R code ... NOTE
+    ```
+    Namespace in Imports field not imported from: ‘knitr’
+      All declared Imports should be used.
+    ```
+
 # solrium
 
 Version: 1.0.0
 
 ## In both
-
-*   checking tests ...
-    ```
-     ERROR
-    Running the tests in ‘tests/test-all.R’ failed.
-    Last 13 lines of output:
-      testthat results ================================================================
-      OK: 193 SKIPPED: 0 FAILED: 26
-      1. Error: add works with a list and data.frame (@test-add.R#6) 
-      2. Error: add works with new interface (@test-add.R#30) 
-      3. Error: collections works - no collections (@test-collections.R#5) 
-      4. Error: collections works - with some collections (@test-collections.R#19) 
-      5. Error: collections works - new way of using (@test-collections.R#33) 
-      6. Error: core_create works (@test-core_create.R#6) 
-      7. Error: delete by  (@test-delete.R#6) 
-      8. Error: delete by many ids (@test-delete.R#36) 
-      9. Error: ping works (@test-ping.R#4) 
-      1. ...
-      
-      Error: testthat unit tests failed
-      Execution halted
-    ```
 
 *   checking Rd cross-references ... NOTE
     ```
@@ -7864,28 +7205,6 @@ Version: 1.0.1
 
 ## In both
 
-*   checking tests ...
-    ```
-     ERROR
-    Running the tests in ‘tests/testthat.R’ failed.
-    Last 13 lines of output:
-      
-      
-      testthat results ================================================================
-      OK: 18 SKIPPED: 0 FAILED: 8
-      1. Failure: HaldDP model construction (@testHaldDP.R#106) 
-      2. Failure: HaldDP model construction (@testHaldDP.R#108) 
-      3. Failure: HaldDP model construction (@testHaldDP.R#109) 
-      4. Failure: HaldDP model construction (@testHaldDP.R#110) 
-      5. Failure: HaldDP model construction (@testHaldDP.R#116) 
-      6. Failure: Test time/location data structures (@testHaldDPTimeLoc.R#107) 
-      7. Failure: Prior and init (@testHaldDPTimeLoc.R#194) 
-      8. Failure: Prior and init (@testHaldDPTimeLoc.R#195) 
-      
-      Error: testthat unit tests failed
-      Execution halted
-    ```
-
 *   checking dependencies in R code ... NOTE
     ```
     Namespaces in Imports field not imported from:
@@ -7925,35 +7244,9 @@ Version: 0.1.0
       All declared Imports should be used.
     ```
 
-# sparklyr
-
-Version: 0.6.4
-
-## In both
-
-*   checking tests ...
-    ```
-     ERROR
-    Running the tests in ‘tests/testthat.R’ failed.
-    Complete output:
-      > Sys.setenv("R_TESTS" = "")
-      > library(testthat)
-      > library(sparklyr)
-      > 
-      > if (identical(Sys.getenv("NOT_CRAN"), "true")) {
-      +   test_check("sparklyr")
-      +   on.exit({ spark_disconnect_all() ; livy_service_stop() })
-      + }
-      Error in if (is.na(a)) return(-1L) : argument is of length zero
-      Calls: test_check ... spark_install_find -> spark_versions -> lapply -> FUN -> compareVersion
-      testthat results ================================================================
-      OK: 0 SKIPPED: 0 FAILED: 0
-      Execution halted
-    ```
-
 # sparseHessianFD
 
-Version: 0.3.3.1
+Version: 0.3.3.2
 
 ## In both
 
@@ -7977,6 +7270,18 @@ Version: 0.3.3.1
     !  ==> Fatal error occurred, no output PDF file produced!
     Calls: buildVignettes -> texi2pdf -> texi2dvi
     Execution halted
+    ```
+
+# SpatialBall
+
+Version: 0.1.0
+
+## In both
+
+*   checking dependencies in R code ... NOTE
+    ```
+    Namespace in Imports field not imported from: ‘lubridate’
+      All declared Imports should be used.
     ```
 
 # SpatialEpiApp
@@ -8018,14 +7323,54 @@ Version: 0.5.3
 
 ## In both
 
-*   checking package dependencies ... ERROR
+*   checking whether package ‘stacomiR’ can be installed ... ERROR
     ```
-    Package required but not available: ‘gWidgetsRGtk2’
-    
-    See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
-    manual.
+    Installation failed.
+    See ‘/home/muelleki/git/R/dplyr/revdep/checks/stacomiR/new/stacomiR.Rcheck/00install.out’ for details.
     ```
 
+## Installation
+
+### Devel
+
+```
+* installing *source* package ‘stacomiR’ ...
+** package ‘stacomiR’ successfully unpacked and MD5 sums checked
+** R
+** data
+*** moving datasets to lazyload DB
+** inst
+** preparing package for lazy loading
+R session is headless; GTK+ not initialized.
+
+(R:101229): Gtk-WARNING **: gtk_disable_setlocale() must be called before gtk_init()
+Error : .onLoad failed in loadNamespace() for 'cairoDevice', details:
+  call: fun(libname, pkgname)
+  error: GDK display not found - please make sure X11 is running
+ERROR: lazy loading failed for package ‘stacomiR’
+* removing ‘/home/muelleki/git/R/dplyr/revdep/checks/stacomiR/new/stacomiR.Rcheck/stacomiR’
+
+```
+### CRAN
+
+```
+* installing *source* package ‘stacomiR’ ...
+** package ‘stacomiR’ successfully unpacked and MD5 sums checked
+** R
+** data
+*** moving datasets to lazyload DB
+** inst
+** preparing package for lazy loading
+R session is headless; GTK+ not initialized.
+
+(R:101239): Gtk-WARNING **: gtk_disable_setlocale() must be called before gtk_init()
+Error : .onLoad failed in loadNamespace() for 'cairoDevice', details:
+  call: fun(libname, pkgname)
+  error: GDK display not found - please make sure X11 is running
+ERROR: lazy loading failed for package ‘stacomiR’
+* removing ‘/home/muelleki/git/R/dplyr/revdep/checks/stacomiR/old/stacomiR.Rcheck/stacomiR’
+
+```
 # statesRcontiguous
 
 Version: 0.1.0
@@ -8076,16 +7421,21 @@ Version: 0.3.0
     ```
      ERROR
     Running the tests in ‘tests/testthat.R’ failed.
-    Complete output:
-      > library(testthat)
-      > library(statisticalModeling)
-      Loading required package: ggplot2
+    Last 13 lines of output:
       > 
       > test_check("statisticalModeling")
-      Error: gwm() has been removed from `mosaic'.  
+      ── 1. Error: (unknown) (@test_models.R#5)  ─────────────────────────────────────
+      gwm() has been removed from `mosaic'.  
           It will be replaced by better tools in `mosaicModel'.
-      testthat results ================================================================
-      OK: 21 SKIPPED: 0 FAILED: 0
+      1: mosaic::gwm(sex ~ domhand + biggerfoot, data = mosaicData::KidsFeet) at testthat/test_models.R:5
+      2: .Defunct(msg = "gwm() has been removed from `mosaic'.  \n    It will be replaced by better tools in `mosaicModel'.")
+      3: stop(paste(msg, collapse = ""), call. = FALSE, domain = NA)
+      
+      ══ testthat results  ═══════════════════════════════════════════════════════════
+      OK: 21 SKIPPED: 1 FAILED: 1
+      1. Error: (unknown) (@test_models.R#5) 
+      
+      Error: testthat unit tests failed
       Execution halted
     ```
 
@@ -8121,28 +7471,13 @@ Version: 0.1.1
 
 # stplanr
 
-Version: 0.1.9
+Version: 0.2.2
 
 ## In both
 
-*   checking examples ... ERROR
+*   checking package dependencies ... NOTE
     ```
-    Running examples in ‘stplanr-Ex.R’ failed
-    The error most likely occurred in:
-    
-    > ### Name: geo_code
-    > ### Title: Convert text strings into points on the map
-    > ### Aliases: geo_code
-    > 
-    > ### ** Examples
-    > 
-    > address = "LS7 3HB"
-    > geo_code(address = address)
-          lon       lat 
-    -1.534372 53.819472 
-    > geo_code(address = address, return_all = TRUE)
-    Error: is.data.frame(x) is not TRUE
-    Execution halted
+    Package which this enhances but not available for checking: ‘tmap’
     ```
 
 # subSeq
@@ -8190,41 +7525,15 @@ Version: 1.0.2
 
 # survminer
 
-Version: 0.4.0
+Version: 0.4.1
 
 ## In both
 
-*   checking examples ... ERROR
-    ```
-    ...
-    LUNG no event    0.004340703 0.007643672 0.007643672 0.007643672
-    OV no event      0.004994699 0.007767270 0.008089927 0.008089927
-    BRCA death       0.003828336 0.005337151 0.005930541 0.005930541
-    LUNG death       0.006637210 0.007337434 0.007337434 0.007337434
-    OV death         0.004504398 0.005133510 0.005133510 0.005133510
-    BRCA progression 0.004378377 0.006110680 0.006110680 0.006110680
-    LUNG progression 0.006700958 0.008631668 0.009219678 0.009771658
-    OV progression   0.005033271 0.006681731 0.006681731 0.006681731
-    
-    > ggcompetingrisks(fit)
-    > ggcompetingrisks(fit, multiple_panels = FALSE)
-    > ggcompetingrisks(fit, conf.int = TRUE)
-    > ggcompetingrisks(fit, multiple_panels = FALSE, conf.int = TRUE)
-    > 
-    > # handles survfitms objects
-    > library(survival)
-    > df <- data.frame(time = ss, group = gg, status = cc, strt)
-    > fit2 <- survfit(Surv(time, status, type="mstate") ~ 1, data=df)
-    > ggcompetingrisks(fit2)
-    Error: Aesthetics must be either length 1 or the same as the data (300): x, y, fill
-    Execution halted
-    ```
-
 *   checking installed package size ... NOTE
     ```
-      installed size is  5.6Mb
+      installed size is  5.2Mb
       sub-directories of 1Mb or more:
-        doc   5.3Mb
+        doc   4.9Mb
     ```
 
 # sweep
@@ -8328,16 +7637,25 @@ Version: 1.6.0
     contains 'methods').
     ```
 
-# tadaatoolbox
+# syuzhet
 
-Version: 0.14.0
+Version: 1.0.4
 
 ## In both
 
-*   checking Rd cross-references ... NOTE
+*   checking installed package size ... NOTE
     ```
-    Package unavailable to check Rd xrefs: ‘rmdformats’
+      installed size is  5.0Mb
+      sub-directories of 1Mb or more:
+        R         1.2Mb
+        extdata   3.1Mb
     ```
+
+# tadaatoolbox
+
+Version: 0.15.0
+
+## In both
 
 *   checking data for non-ASCII characters ... NOTE
     ```
@@ -8346,100 +7664,15 @@ Version: 0.14.0
 
 # taxa
 
-Version: 0.1.0
+Version: 0.2.0
 
 ## In both
-
-*   checking examples ... ERROR
-    ```
-    ...
-      4 data sets:
-        info:
-          # A tibble: 4 x 4
-              name n_legs dangerous taxon_id
-            <fctr>  <dbl>     <lgl>    <chr>
-          1    cat      4     FALSE        n
-          2   mole      4     FALSE        o
-          3 tomato      0     FALSE        q
-          # ... with 1 more rows
-        phylopic_ids:  e148eabb-f138-43c6-b1e4-5cda2180485a ... 63604565-0406-460b-8cb8-1abe954b3f3a
-        foods: a list with 6 items
-        And 1 more data sets: abund
-      1 functions:
-     reaction
-    > 
-    > # Remove taxa whose obserservation were filtered out
-    > filter_obs(ex_taxmap, "info", dangerous == FALSE, drop_taxa = TRUE)
-    Error in names(selection) <- self$taxon_ids() : 
-      'names' attribute [17] must be the same length as the vector [2]
-    Calls: filter_obs ... filter_obs.Taxmap -> <Anonymous> -> <Anonymous> -> <Anonymous>
-    Execution halted
-    ```
-
-*   checking tests ...
-    ```
-     ERROR
-    Running the tests in ‘tests/testthat.R’ failed.
-    Last 13 lines of output:
-      testthat results ================================================================
-      OK: 317 SKIPPED: 0 FAILED: 31
-      1. Error: NSE values can be found (@test--taxmap.R#214) 
-      2. Error: All valid NSE values can be found (@test--taxmap.R#224) 
-      3. Error: Mapping between table observations and the edge list works (@test--taxmap.R#233) 
-      4. Error: Mapping between a subset of observations and the edge list works (@test--taxmap.R#242) 
-      5. Error: Mapping non-recursivly between observations and the edge list works (@test--taxmap.R#247) 
-      6. Error: Mapping simplification between observations and the edge list works (@test--taxmap.R#253) 
-      7. Error: Mapping observations in external tables (@test--taxmap.R#259) 
-      8. Error: Default taxon filtering works (@test--taxmap.R#271) 
-      9. Error: Subtaxa can be included when filtering taxa (@test--taxmap.R#279) 
-      1. ...
-      
-      Error: testthat unit tests failed
-      Execution halted
-    ```
-
-*   checking re-building of vignette outputs ... WARNING
-    ```
-    Error in re-building vignettes:
-      ...
-    Quitting from lines 258-259 (taxa-vignette.Rmd) 
-    Error: processing vignette 'taxa-vignette.Rmd' failed with diagnostics:
-    'names' attribute [14] must be the same length as the vector [2]
-    Execution halted
-    ```
 
 *   checking dependencies in R code ... NOTE
     ```
     Namespaces in Imports field not imported from:
       ‘knitr’ ‘lazyeval’ ‘rlang’
       All declared Imports should be used.
-    ```
-
-# taxizedb
-
-Version: 0.1.4
-
-## In both
-
-*   checking tests ...
-    ```
-     ERROR
-    Running the tests in ‘tests/test-all.R’ failed.
-    Last 13 lines of output:
-      > library(testthat)
-      > test_check("taxizedb")
-      Loading required package: taxizedb
-      1. Failure: db_load fails as expected - more (@test-db_load.R#33) --------------
-      error$message does not match "Failed to connect".
-      Actual value: "\nmysql not found on your computer\nInstall the missing tool(s) and try again"
-      
-      
-      testthat results ================================================================
-      OK: 59 SKIPPED: 0 FAILED: 1
-      1. Failure: db_load fails as expected - more (@test-db_load.R#33) 
-      
-      Error: testthat unit tests failed
-      Execution halted
     ```
 
 # tbl2xts
@@ -8463,23 +7696,23 @@ Version: 2.5.9
 *   checking examples ... ERROR
     ```
     ...
-    |NA                          |NA                                  |NA                   |NA                           |
-    |NA                          |NA                                  |NA                   |NA                           |
-    |NA                          |NA                                  |NA                   |NA                           |
-    |NA                          |NA                                  |NA                   |NA                           |
-    |NA                          |NA                                  |NA                   |NA                           |
-    |NA                          |NA                                  |NA                   |NA                           |
-    |NA                          |NA                                  |NA                   |NA                           |
-    |NA                          |NA                                  |NA                   |NA                           |
-    |NA                          |NA                                  |NA                   |NA                           |
-    |NA                          |NA                                  |NA                   |NA                           |
-    |NA                          |NA                                  |NA                   |NA                           |
-    |NA                          |NA                                  |NA                   |NA                           |
-    |NA                          |NA                                  |NA                   |NA                           |
-    |NA                          |NA                                  |NA                   |NA                           |
-    |NA                          |NA                                  |NA                   |NA                           |
-    |NA                          |NA                                  |NA                   |NA                           |
-    |NA                          |NA                                  |NA                   |NA                           |
+    |NA                          |NA                             |NA                   |NA                           |
+    |Thymic Epithelial Neoplasms |Neuroepitheliomatous Neoplasms |Basal Cell Neoplasms |Ductal and Lobular Neoplasms |
+    |NA                          |NA                             |NA                   |NA                           |
+    |NA                          |NA                             |NA                   |NA                           |
+    |NA                          |NA                             |NA                   |NA                           |
+    |NA                          |NA                             |NA                   |NA                           |
+    |NA                          |NA                             |NA                   |NA                           |
+    |NA                          |NA                             |NA                   |NA                           |
+    |NA                          |NA                             |NA                   |NA                           |
+    |NA                          |NA                             |NA                   |NA                           |
+    |NA                          |NA                             |NA                   |NA                           |
+    |NA                          |NA                             |NA                   |NA                           |
+    |NA                          |NA                             |NA                   |NA                           |
+    |NA                          |NA                             |NA                   |NA                           |
+    |NA                          |NA                             |NA                   |NA                           |
+    |NA                          |NA                             |NA                   |NA                           |
+    |NA                          |NA                             |NA                   |NA                           |
     Error in checkProjectInput(project) : 
       Please set a valid project argument from the column id above. Project TCGA-ACC was not found.
     Calls: GDCquery -> checkProjectInput
@@ -8491,17 +7724,17 @@ Version: 2.5.9
      ERROR
     Running the tests in ‘tests/testthat.R’ failed.
     Last 13 lines of output:
-      testthat results ================================================================
-      OK: 114 SKIPPED: 0 FAILED: 16
+      ══ testthat results  ═══════════════════════════════════════════════════════════
+      OK: 123 SKIPPED: 0 FAILED: 15
       1. Error: TCGAanalyze_survival creates pdf (@test-analyse.R#4) 
-      2. Error: Results from TCGAanalyze_DEA and DMR in starburst plot are correct (@test-analyse.R#195) 
-      3. Error: GDCdownload API method for two files is working  (@test-prepare-download.R#4) 
-      4. Error: GDCdownload API method for one files is working  (@test-prepare-download.R#20) 
-      5. Error: GDCprepare accepts more than one project (@test-prepare-download.R#50) 
-      6. Error: Accecpts more than one platform (@test-prepare-download.R#68) 
-      7. Error: GDCquery can filter by data.category (@test-query.R#5) 
-      8. Error: GDCquery accepts more than one project (@test-query.R#11) 
-      9. Error: GDCquery can filter by sample.type (@test-query.R#23) 
+      2. Error: GDCdownload API method for two files is working  (@test-prepare-download.R#4) 
+      3. Error: GDCdownload API method for one files is working  (@test-prepare-download.R#20) 
+      4. Error: GDCprepare accepts more than one project (@test-prepare-download.R#50) 
+      5. Error: Accecpts more than one platform (@test-prepare-download.R#68) 
+      6. Error: GDCquery can filter by data.category (@test-query.R#5) 
+      7. Error: GDCquery accepts more than one project (@test-query.R#11) 
+      8. Error: GDCquery can filter by sample.type (@test-query.R#23) 
+      9. Error: GDCquery can filter by barcode (@test-query.R#46) 
       1. ...
       
       Error: testthat unit tests failed
@@ -8723,6 +7956,48 @@ Version: 1.0-8
         rda    3.8Mb
     ```
 
+# theseus
+
+Version: 0.1.0
+
+## In both
+
+*   checking dependencies in R code ... NOTE
+    ```
+    Namespaces in Imports field not imported from:
+      ‘gridExtra’ ‘splancs’ ‘tidyverse’
+      All declared Imports should be used.
+    ```
+
+*   checking Rd cross-references ... NOTE
+    ```
+    Packages unavailable to check Rd xrefs: ‘DESeq2’, ‘dada2’
+    ```
+
+# tidyhydat
+
+Version: 0.3.1
+
+## In both
+
+*   checking data for non-ASCII characters ... NOTE
+    ```
+      Note: found 7 marked UTF-8 strings
+    ```
+
+# tidyinftheo
+
+Version: 0.2.1
+
+## In both
+
+*   checking dependencies in R code ... NOTE
+    ```
+    Namespaces in Imports field not imported from:
+      ‘tibble’ ‘tidyverse’
+      All declared Imports should be used.
+    ```
+
 # tidyjson
 
 Version: 0.2.2
@@ -8766,20 +8041,20 @@ Version: 0.5.3
      ERROR
     Running the tests in ‘tests/testthat.R’ failed.
     Last 13 lines of output:
+         })
+      9: expr_type_of(.x)
+      10: typeof(x)
+      11: duplicate(quo)
       
-      
-      testthat results ================================================================
-      OK: 179 SKIPPED: 0 FAILED: 3
+      ══ testthat results  ═══════════════════════════════════════════════════════════
+      OK: 149 SKIPPED: 2 FAILED: 5
       1. Failure: Test returns tibble with correct rows and columns. (@test_tq_get_key_stats.R#15) 
       2. Failure: Test returns tibble with correct rows and columns. (@test_tq_get_key_stats.R#17) 
       3. Failure: Test returns tibble with correct rows and columns. (@test_tq_get_key_stats.R#19) 
+      4. Error: Test error on invalid data inputs. (@test_tq_mutate.R#142) 
+      5. Error: Test error on invalid data inputs. (@test_tq_transmute.R#121) 
       
       Error: testthat unit tests failed
-      In addition: Warning messages:
-      1: In download.file(url, destfile = tmp, quiet = TRUE) :
-        cannot open URL 'http://download.finance.yahoo.com/d/quotes.csv?s=AAPL&f=aa2a5bb4b6c1c4dd1ee7e8e9f6ghjj1j2j4j5j6kk3k4k5ll1mm3m4m5m6m7m8nopp2p5p6qrr1r5r6r7s6s7t8vwxy&e=.csv': HTTP status was '403 Forbidden'
-      2: x = 'AAPL', get = 'key.stats': Error in download.file(url, destfile = tmp, quiet = TRUE): cannot open URL 'http://download.finance.yahoo.com/d/quotes.csv?s=AAPL&f=aa2a5bb4b6c1c4dd1ee7e8e9f6ghjj1j2j4j5j6kk3k4k5ll1mm3m4m5m6m7m8nopp2p5p6qrr1r5r6r7s6s7t8vwxy&e=.csv'
-       
       Execution halted
     ```
 
@@ -8839,34 +8114,6 @@ Version: 1.2.2
       All declared Imports should be used.
     ```
 
-# tidytext
-
-Version: 0.1.4
-
-## In both
-
-*   checking tests ...
-    ```
-     ERROR
-    Running the tests in ‘tests/testthat.R’ failed.
-    Last 13 lines of output:
-      data argument must either be a dfmSparse (from quanteda) or a table with document and term columns
-      1: augment(stm_model, inaug) at testthat/test-stm-tidiers.R:57
-      2: augment.STM(stm_model, inaug)
-      3: stop("data argument must either be a dfmSparse ", "(from quanteda) or a table with document and term columns")
-      
-      testthat results ================================================================
-      OK: 198 SKIPPED: 0 FAILED: 5
-      1. Error: Can cast tables into a sparse dfm (@test-sparse-casters.R#79) 
-      2. Failure: Can tidy dfm from quanteda (@test-sparse-tidiers.R#34) 
-      3. Failure: Can tidy dfm from quanteda (@test-sparse-tidiers.R#35) 
-      4. Failure: Can tidy dfm from quanteda (@test-sparse-tidiers.R#36) 
-      5. Error: can augment an stm output (@test-stm-tidiers.R#57) 
-      
-      Error: testthat unit tests failed
-      Execution halted
-    ```
-
 # tidyverse
 
 Version: 1.2.1
@@ -8878,6 +8125,19 @@ Version: 1.2.1
     Namespaces in Imports field not imported from:
       ‘dbplyr’ ‘reprex’ ‘rlang’
       All declared Imports should be used.
+    ```
+
+# tidyxl
+
+Version: 1.0.0
+
+## In both
+
+*   checking installed package size ... NOTE
+    ```
+      installed size is 11.4Mb
+      sub-directories of 1Mb or more:
+        libs  10.6Mb
     ```
 
 # tilegramsR
@@ -9013,7 +8273,7 @@ Version: 0.1.0
 
 # tmap
 
-Version: 1.10
+Version: 1.11
 
 ## In both
 
@@ -9023,6 +8283,20 @@ Version: 1.10
       sub-directories of 1Mb or more:
         data   1.5Mb
         doc    3.3Mb
+    ```
+
+# togglr
+
+Version: 0.1.3
+
+## In both
+
+*   checking package dependencies ... ERROR
+    ```
+    Package required but not available: ‘keyring’
+    
+    See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
+    manual.
     ```
 
 # toxplot
@@ -9095,9 +8369,8 @@ Version: 3.4.3
      ERROR
     Running the tests in ‘tests/testthat.R’ failed.
     Last 13 lines of output:
-      Calls: test_check ... <Anonymous> -> lapply -> FUN -> cbind -> cbind -> data.frame
-      testthat results ================================================================
-      OK: 130 SKIPPED: 0 FAILED: 9
+      ══ testthat results  ═══════════════════════════════════════════════════════════
+      OK: 381 SKIPPED: 0 FAILED: 35
       1. Error: allOK (@test_analyze2DTPP.R#14) 
       2. Error: allOK_scientific_drug_concentration_format (@test_analyze2DTPP.R#37) 
       3. Error: warning_deprecated_fct_arg (@test_analyze2DTPP.R#62) 
@@ -9107,6 +8380,7 @@ Version: 3.4.3
       7. Error: NPARC_allok_files (@test_analyzeTPPTR.R#94) 
       8. Error: meltCurves_allOK_no_conditions (@test_analyzeTPPTR.R#153) 
       9. Error: testApplyCoeffs (@test_applyCoeffs.R#9) 
+      1. ...
       
       Error: testthat unit tests failed
       Execution halted
@@ -9199,9 +8473,15 @@ Version: 0.8-7
 
 # ukbtools
 
-Version: 0.9.0
+Version: 0.10.0
 
 ## In both
+
+*   checking dependencies in R code ... NOTE
+    ```
+    Namespace in Imports field not imported from: ‘plyr’
+      All declared Imports should be used.
+    ```
 
 *   checking data for non-ASCII characters ... NOTE
     ```
@@ -9249,35 +8529,34 @@ Version: 0.3.1
 
 *   checking installed package size ... NOTE
     ```
-      installed size is 15.5Mb
+      installed size is 15.6Mb
       sub-directories of 1Mb or more:
         libs  14.1Mb
     ```
 
 # vcfR
 
-Version: 1.5.0
+Version: 1.6.0
 
 ## In both
 
 *   checking installed package size ... NOTE
     ```
-      installed size is 11.3Mb
+      installed size is  9.5Mb
       sub-directories of 1Mb or more:
-        doc    3.0Mb
-        libs   7.5Mb
+        libs   7.9Mb
     ```
 
 # vdmR
 
-Version: 0.2.4
+Version: 0.2.5
 
 ## In both
 
 *   checking dependencies in R code ... NOTE
     ```
     Namespaces in Imports field not imported from:
-      ‘maptools’ ‘rgeos’
+      ‘Rdpack’ ‘maptools’ ‘rgeos’
       All declared Imports should be used.
     ```
 
@@ -9345,24 +8624,35 @@ Version: 0.2.0
 
 *   checking installed package size ... NOTE
     ```
-      installed size is 46.9Mb
+      installed size is 47.0Mb
       sub-directories of 1Mb or more:
         libs  46.2Mb
     ```
 
 # wallace
 
-Version: 0.6.4
+Version: 1.0.2
 
 ## In both
 
 *   checking dependencies in R code ... NOTE
     ```
     Namespaces in Imports field not imported from:
-      ‘DT’ ‘ENMeval’ ‘RColorBrewer’ ‘devtools’ ‘dismo’ ‘dplyr’ ‘maptools’
-      ‘raster’ ‘rgdal’ ‘rgeos’ ‘rmarkdown’ ‘shinyBS’ ‘shinyjs’
-      ‘shinythemes’ ‘spThin’ ‘spocc’
+      ‘DT’ ‘ENMeval’ ‘RColorBrewer’ ‘dismo’ ‘dplyr’ ‘leaflet.extras’
+      ‘maptools’ ‘raster’ ‘rgdal’ ‘rgeos’ ‘shinyjs’ ‘shinythemes’ ‘spThin’
+      ‘spocc’
       All declared Imports should be used.
+    ```
+
+# whereport
+
+Version: 0.1
+
+## In both
+
+*   checking data for non-ASCII characters ... NOTE
+    ```
+      Note: found 4102 marked UTF-8 strings
     ```
 
 # widyr
@@ -9438,6 +8728,38 @@ Version: 1.1.1
       All declared Imports should be used.
     ```
 
+# woeR
+
+Version: 0.1.1
+
+## In both
+
+*   checking examples ... ERROR
+    ```
+    ...
+    > ### Title: Weight of Evidence based segmentation of a variable
+    > ### Aliases: woe_binning
+    > 
+    > ### ** Examples
+    > 
+    > library(smbinning)
+    Loading required package: sqldf
+    Loading required package: gsubfn
+    Loading required package: proto
+    Loading required package: RSQLite
+    Loading required package: partykit
+    Loading required package: grid
+    Loading required package: libcoin
+    Loading required package: mvtnorm
+    Loading required package: rpart
+    Loading required package: Formula
+    > data("chileancredit")
+    > woe_binning(chileancredit, "CuDDAmtAvg12M", "FlagGB", initial_bins = 10)
+    Error in woe_binning(chileancredit, "CuDDAmtAvg12M", "FlagGB", initial_bins = 10) : 
+      Parameters variable/dv not found in the datatset.
+    Execution halted
+    ```
+
 # wordbankr
 
 Version: 0.2.0
@@ -9450,7 +8772,7 @@ Version: 0.2.0
       ...
     Quitting from lines 27-31 (wordbankr.Rmd) 
     Error: processing vignette 'wordbankr.Rmd' failed with diagnostics:
-    Condition message must be a string
+    The dbplyr package is required to communicate with database backends.
     Execution halted
     ```
 
@@ -9500,46 +8822,46 @@ Version: 1.6.0
      ERROR
     Running the tests in ‘tests/testthat.R’ failed.
     Last 13 lines of output:
-          colMaxs, colMins, colRanges, rowMaxs, rowMins, rowRanges
-      
-      The following object is masked from 'package:base':
-      
-          apply
       
           Welcome to 'XBSeq'.
       > 
       > test_check("XBSeq")
       estimating parameters using MLE for group one 
       estimating parameters using MLE for group two 
-      Error: XBplot(XB, Samplenum = "Sample_54_WT") did not throw an error.
-      testthat results ================================================================
-      OK: 0 SKIPPED: 0 FAILED: 0
+      ── 1. Failure: (unknown) (@test_XBplot.R#6)  ───────────────────────────────────
+      `XBplot(XB, Samplenum = "Sample_54_WT")` did not throw an error.
+      
+      ══ testthat results  ═══════════════════════════════════════════════════════════
+      OK: 19 SKIPPED: 0 FAILED: 1
+      1. Failure: (unknown) (@test_XBplot.R#6) 
+      
+      Error: testthat unit tests failed
       Execution halted
     ```
 
 *   checking re-building of vignette outputs ... WARNING
     ```
     ...
-    Attaching package: 'DESeq'
+    The following objects are masked from 'package:Biobase':
     
-    The following object is masked from 'package:XBSeq':
+        anyMissing, rowMedians
     
-        fitInfo
     
-    The following objects are masked from 'package:DESeq2':
+    Attaching package: 'DelayedArray'
     
-        estimateSizeFactorsForMatrix, getVarianceStabilizedData,
-        varianceStabilizingTransformation
+    The following objects are masked from 'package:matrixStats':
     
-    Warning in block_exec(params) :
-      failed to tidy R code in chunk <unnamed-chunk-19>
-    reason: Error in loadNamespace(name) : there is no package called 'formatR'
+        colMaxs, colMins, colRanges, rowMaxs, rowMins, rowRanges
     
-    Warning: Transformation introduced infinite values in continuous x-axis
-    Warning: Removed 17 rows containing missing values (geom_point).
-    Warning: Removed 2 rows containing missing values (geom_point).
+    The following object is masked from 'package:base':
+    
+        apply
+    
+        Welcome to 'XBSeq'.
+    Warning: The 'python' engine in knitr requires the reticulate package. If you do not want to use the reticulate package, set the chunk option python.reticulate = FALSE.
+    Quitting from lines 58-60 (XBSeq.Rmd) 
     Error: processing vignette 'XBSeq.Rmd' failed with diagnostics:
-    path for html_dependency not found: 
+    there is no package called 'reticulate'
     Execution halted
     ```
 
@@ -9589,6 +8911,78 @@ Version: 0.1.0
 *   checking dependencies in R code ... NOTE
     ```
     Namespace in Imports field not imported from: ‘tibble’
+      All declared Imports should be used.
+    ```
+
+# xpose
+
+Version: 0.4.0
+
+## Newly broken
+
+*   checking examples ... ERROR
+    ```
+    ...
+       ID     SEX    MED1   MED2   DOSE   AMT    SS    II  TIME   TAD IPRED   CWRES
+       <fctr> <fctr> <fctr> <fct> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl>   <dbl>
+     1 110    1      0      1       200   100     0     0 0     0     0      0     
+     2 110    1      0      1       200     0     0     0 1.00  1.00  0.214 -2.83  
+     3 110    1      0      1       200     0     0     0 1.50  1.50  0.296 -1.62  
+     4 110    1      0      1       200     0     0     0 2.00  2.00  0.349  1.10  
+     5 110    1      0      1       200     0     0     0 4.00  4.00  0.392  0.585 
+     6 110    1      0      1       200     0     0     0 6.00  6.00  0.329 -0.0262
+     7 110    1      0      1       200     0     0     0 8.00  8.00  0.249  0.0940
+     8 112    1      1      1       200   100     0     0 0     0     0      0     
+     9 112    1      1      1       200     0     0     0 0.500 0.500 0.556  0.0341
+    10 112    1      1      1       200     0     0     0 1.00  1.00  0.712 -0.417 
+    # ... with 540 more rows, and 19 more variables: CPRED <dbl>, IWRES <dbl>,
+    #   EVID <dbl>, A1 <dbl>, A2 <dbl>, DV <dbl>, PRED <dbl>, RES <dbl>,
+    #   WRES <dbl>, CLCR <dbl>, AGE <dbl>, WT <dbl>, KA <dbl>, CL <dbl>, V <dbl>,
+    #   ALAG1 <dbl>, ETA1 <dbl>, ETA2 <dbl>, ETA3 <dbl>
+    > 
+    > # Tip to list available tables in the xpdb
+    > print(xpdb_ex_pk)
+    Error: distinct() does not support columns of type `list`
+    Execution halted
+    ```
+
+*   checking re-building of vignette outputs ... WARNING
+    ```
+    Error in re-building vignettes:
+      ...
+    Quitting from lines 33-34 (access_xpdb_data.Rmd) 
+    Error: processing vignette 'access_xpdb_data.Rmd' failed with diagnostics:
+    distinct() does not support columns of type `list`
+    Execution halted
+    ```
+
+## In both
+
+*   checking tests ...
+    ```
+     ERROR
+    Running the tests in ‘tests/testthat.R’ failed.
+    Last 13 lines of output:
+      27: NextMethod()
+      28: distinct.data.frame(.data, !(!(!dots)), .keep_all = .keep_all)
+      29: distinct_vars(.data, quos(...), .keep_all = .keep_all)
+      30: list_cols_error(.data, keep)
+      31: abort("distinct() does not support columns of type `list`")
+      
+      ══ testthat results  ═══════════════════════════════════════════════════════════
+      OK: 427 SKIPPED: 0 FAILED: 4
+      1. Error: (unknown) (@test-console_outputs.R#4) 
+      2. Error: (unknown) (@test-edits.R#17) 
+      3. Error: (unknown) (@test-vpc.R#17) 
+      4. Error: (unknown) (@test-xpdb_access.R#4) 
+      
+      Error: testthat unit tests failed
+      Execution halted
+    ```
+
+*   checking dependencies in R code ... NOTE
+    ```
+    Namespace in Imports field not imported from: ‘gridExtra’
       All declared Imports should be used.
     ```
 
