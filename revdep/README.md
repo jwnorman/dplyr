@@ -9,7 +9,7 @@
 |language |(EN)                         |
 |collate  |en_US.UTF-8                  |
 |tz       |Zulu                         |
-|date     |2018-01-01                   |
+|date     |2018-01-08                   |
 
 # Dependencies
 
@@ -33,35 +33,32 @@
 |rlang      |0.1.6    |0.1.6      |   |
 |tibble     |1.4.1    |1.4.1      |   |
 |tidyselect |NA       |0.2.3      |*  |
-|utf8       |1.1.2    |1.1.2      |   |
+|utf8       |1.1.2    |1.1.3      |*  |
 
 # Revdeps
 
-## Couldn't check (3)
+## Couldn't check (4)
 
-|package                              |version |error |warning |note |
-|:------------------------------------|:-------|:-----|:-------|:----|
-|[cdcfluview](problems.md#cdcfluview) |0.7.0   |1     |        |     |
-|[loon](problems.md#loon)             |1.1.0   |1     |        |     |
-|[stacomiR](problems.md#stacomir)     |0.5.3   |1     |        |     |
+|package                                        |version |error |warning |note |
+|:----------------------------------------------|:-------|:-----|:-------|:----|
+|[cdcfluview](problems.md#cdcfluview)           |0.7.0   |1     |        |     |
+|[loon](problems.md#loon)                       |1.1.0   |1     |        |     |
+|[neuropsychology](problems.md#neuropsychology) |0.5.0   |1     |        |     |
+|[stacomiR](problems.md#stacomir)               |0.5.3   |1     |        |     |
 
-## Broken (19)
+## Broken (15)
 
 |package                                                  |version |error    |warning  |note |
 |:--------------------------------------------------------|:-------|:--------|:--------|:----|
 |[assertr](problems.md#assertr)                           |2.0.2.2 |__+1__   |         |     |
-|[biobroom](problems.md#biobroom)                         |1.8.0   |         |__+1__   |2    |
+|[biobroom](problems.md#biobroom)                         |1.8.0   |1        |1 __+1__ |2    |
 |[breathtestcore](problems.md#breathtestcore)             |0.4.0   |__+1__   |         |1    |
 |[desctable](problems.md#desctable)                       |0.1.0   |__+1__   |__+1__   |     |
 |[DiagrammeR](problems.md#diagrammer)                     |0.9.2   |__+2__   |         |     |
-|[fold](problems.md#fold)                                 |0.2.4   |__+1__   |         |     |
 |[IHWpaper](problems.md#ihwpaper)                         |1.4.0   |         |1 __+1__ |2    |
 |[InformativeCensoring](problems.md#informativecensoring) |0.3.4   |__+1__   |__+1__   |     |
 |[keyholder](problems.md#keyholder)                       |0.1.1   |__+1__   |         |     |
 |[mrgsolve](problems.md#mrgsolve)                         |0.8.10  |__+1__   |         |1    |
-|[mudata2](problems.md#mudata2)                           |1.0.0   |__+2__   |__+1__   |1    |
-|[neuropsychology](problems.md#neuropsychology)           |0.5.0   |__+1__   |         |1    |
-|[nonmemica](problems.md#nonmemica)                       |0.7.9   |__+1__   |         |     |
 |[PPforest](problems.md#ppforest)                         |0.1.0   |__+1__   |__+1__   |     |
 |[saeSim](problems.md#saesim)                             |0.9.0   |__+2__   |__+1__   |     |
 |[sf](problems.md#sf)                                     |0.5-5   |__+1__   |1        |1    |
@@ -126,7 +123,7 @@
 |[billboard](problems.md#billboard)                           |0.1.0    |         |         |2    |
 |binford                                                      |0.1.0    |         |         |     |
 |binomen                                                      |0.1.2    |         |         |     |
-|[biobroom](problems.md#biobroom)                             |1.8.0    |         |__+1__   |2    |
+|[biobroom](problems.md#biobroom)                             |1.8.0    |1        |1 __+1__ |2    |
 |[bioCancer](problems.md#biocancer)                           |1.4.0    |         |1        |2    |
 |[BiocFileCache](problems.md#biocfilecache)                   |1.0.1    |         |1        |     |
 |bioinactivation                                              |1.2.1    |         |         |     |
@@ -326,7 +323,7 @@
 |[flora](problems.md#flora)                                   |0.3.0    |         |         |1    |
 |[flowWorkspace](problems.md#flowworkspace)                   |3.24.4   |         |         |7    |
 |foghorn                                                      |1.0.0    |         |         |     |
-|[fold](problems.md#fold)                                     |0.2.4    |__+1__   |         |     |
+|fold                                                         |0.2.4    |         |         |     |
 |ForecastFramework                                            |0.9.0    |         |         |     |
 |forestmodel                                                  |0.4.3    |         |         |     |
 |forwards                                                     |0.1.0    |         |         |     |
@@ -567,7 +564,7 @@
 |[MSnID](problems.md#msnid)                                   |1.10.0   |         |         |1    |
 |mtconnectR                                                   |1.1.0    |         |         |     |
 |mudata                                                       |0.1.1    |         |         |     |
-|[mudata2](problems.md#mudata2)                               |1.0.0    |__+2__   |__+1__   |1    |
+|[mudata2](problems.md#mudata2)                               |1.0.0    |1        |         |2    |
 |muir                                                         |0.1.0    |         |         |     |
 |mvMonitoring                                                 |0.1.0    |         |         |     |
 |[myTAI](problems.md#mytai)                                   |0.6.0    |         |         |1    |
@@ -586,7 +583,7 @@
 |NetworkRiskMeasures                                          |0.1.2    |         |         |     |
 |neurobase                                                    |1.13.2   |         |         |     |
 |neurohcp                                                     |0.6      |         |         |     |
-|[neuropsychology](problems.md#neuropsychology)               |0.5.0    |__+1__   |         |1    |
+|[neuropsychology](problems.md#neuropsychology)               |0.5.0    |1        |         |     |
 |[NFP](problems.md#nfp)                                       |0.99.2   |         |         |2    |
 |[nlmixr](problems.md#nlmixr)                                 |0.9.0-1  |         |1        |2    |
 |NLMR                                                         |0.1.0    |         |         |     |
@@ -595,7 +592,7 @@
 |nmfem                                                        |1.0.0    |         |         |     |
 |[noaastormevents](problems.md#noaastormevents)               |0.1.0    |         |         |2    |
 |nofrills                                                     |0.2.1    |         |         |     |
-|[nonmemica](problems.md#nonmemica)                           |0.7.9    |__+1__   |         |     |
+|nonmemica                                                    |0.7.9    |         |         |     |
 |[nos](problems.md#nos)                                       |1.1.0    |         |         |1    |
 |notifyme                                                     |0.3.0    |         |         |     |
 |NPC                                                          |1.1.0    |         |         |     |

@@ -360,6 +360,54 @@ Version: 1.8.0
 
 ## In both
 
+*   checking tests ...
+    ```
+     ERROR
+    Running the tests in ‘tests/testthat.R’ failed.
+    Last 13 lines of output:
+      
+      
+      Attaching package: 'DelayedArray'
+      
+      The following objects are masked from 'package:matrixStats':
+      
+          colMaxs, colMins, colRanges, rowMaxs, rowMins, rowRanges
+      
+      The following object is masked from 'package:base':
+      
+          apply
+      
+      Error: package or namespace load failed for 'DESeq2' in loadNamespace(j <- imp[[1L]], c(lib.loc, .libPaths()), versionCheck = vI[[j]]):
+       there is no package called 'AnnotationDbi'
+      Execution halted
+    ```
+
+*   checking re-building of vignette outputs ... WARNING
+    ```
+    ...
+    
+    The following object is masked from 'package:dplyr':
+    
+        count
+    
+    
+    Attaching package: 'DelayedArray'
+    
+    The following objects are masked from 'package:matrixStats':
+    
+        colMaxs, colMins, colRanges, rowMaxs, rowMins, rowRanges
+    
+    The following object is masked from 'package:base':
+    
+        apply
+    
+    Quitting from lines 134-139 (biobroom_vignette.Rmd) 
+    Error: processing vignette 'biobroom_vignette.Rmd' failed with diagnostics:
+    package or namespace load failed for 'DESeq2' in loadNamespace(j <- imp[[1L]], c(lib.loc, .libPaths()), versionCheck = vI[[j]]):
+     there is no package called 'AnnotationDbi'
+    Execution halted
+    ```
+
 *   checking dependencies in R code ... NOTE
     ```
     'library' or 'require' call to ‘DESeq2’ in package code.
@@ -2234,38 +2282,6 @@ Version: 3.24.4
 *   checking for GNU extensions in Makefiles ... NOTE
     ```
     GNU make is a SystemRequirements.
-    ```
-
-# fold
-
-Version: 0.2.4
-
-## Newly broken
-
-*   checking examples ... ERROR
-    ```
-    ...
-    1   VARIABLE   META   ID   TIME
-    > 
-    > # another example
-    > x <- Theoph
-    > x %<>% mutate(
-    +   conc_LABEL = 'theophylline concentration',
-    +   conc_GUIDE = 'mg/L',
-    +   Time_LABEL = 'time since drug administration',
-    +   Time_GUIDE = 'hr',
-    +   Time_HALF = Time / 2 # to demonstrate variant attribute of key column
-    + )
-    > x %<>% fold(Subject, Time)
-    Warning in as.folded.data.frame(d, sort = sort, ...) :
-      removing unique values where keys are duplicated
-    > x %>% unfold %>% head
-    Warning in is.na(x$META) :
-      is.na() applied to non-(list or vector) of type 'NULL'
-    Error in y[sapply(y, function(i) nrow(i) > 0)] : 
-      invalid subscript type 'list'
-    Calls: %>% ... _fseq -> freduce -> <Anonymous> -> unfold -> unfold.folded
-    Execution halted
     ```
 
 # fourierin
@@ -4872,68 +4888,34 @@ Version: 1.10.0
 
 Version: 1.0.0
 
-## Newly broken
-
-*   checking examples ... ERROR
-    ```
-    ...
-    
-    > ns_climate %>% 
-    +   select_locations(sable_island = starts_with("SABLE"),
-    +                    nappan = starts_with("NAPPAN"), 
-    +                    baddeck = starts_with("BADDECK")) %>% 
-    +   select_params(ends_with("temp")) %>%
-    +   filter_data(month(date) == 6) %>% 
-    +   autoplot()
-    Warning: Unknown or uninitialised column: 'param'.
-    Warning: Unknown or uninitialised column: 'location'.
-    Warning: Unknown or uninitialised column: 'dataset'.
-    Not all values were found: SABLE ISLAND 6454, NAPPAN CDA 6414, BADDECK 6297
-    Warning: Unknown or uninitialised column: 'param'.
-    Warning: Unknown or uninitialised column: 'location'.
-    Warning: Unknown or uninitialised column: 'dataset'.
-    Warning: Unknown or uninitialised column: 'param'.
-    Warning: Unknown or uninitialised column: 'location'.
-    Warning: Unknown or uninitialised column: 'dataset'.
-    Error in long_plot_base(.data, ...) : .data contains no data
-    Calls: %>% ... autoplot -> autoplot.mudata -> long_ggplot -> long_plot_base
-    Execution halted
-    ```
+## In both
 
 *   checking tests ...
     ```
      ERROR
     Running the tests in ‘tests/test-all.R’ failed.
     Last 13 lines of output:
-      OGR: Unsupported geometry type
+      ── 2. Error: generate_type_str works with sqlite sources (@test_types.R#341)  ──
+      The dbplyr package is required to communicate with database backends.
+      1: dplyr::src_sqlite(sql_file, create = TRUE) at testthat/test_types.R:341
+      2: check_dbplyr()
+      3: check_pkg("dbplyr", "communicate with database backends", install = FALSE)
+      4: glubort(NULL, "The {name} package is required to {reason}.", if (install) "\nPlease install it with `install.packages(\"{name}\")`" else "")
+      5: .abort(text)
+      
       ══ testthat results  ═══════════════════════════════════════════════════════════
-      OK: 830 SKIPPED: 0 FAILED: 9
-      1. Error: read/write JSON functions work (@test_mudata.io.R#141) 
-      2. Error: read/write directory functions work (@test_mudata.io.R#435) 
-      3. Failure: mudata objects subset properly (@test_mudata_subset.R#14) 
-      4. Failure: mudata objects subset properly (@test_mudata_subset.R#23) 
-      5. Failure: mudata objects subset properly (@test_mudata_subset.R#28) 
-      6. Failure: mudata objects subset properly (@test_mudata_subset.R#30) 
-      7. Error: recombined subsetted objects are the same as the original (@test_mudata_subset.R#72) 
-      8. Error: filter_* functions work as expected (@test_mudata_subset.R#79) 
-      9. Error: rename works when some values are factors (@test_rename.R#68) 
+      OK: 886 SKIPPED: 0 FAILED: 2
+      1. Error: (unknown) (@test_mudata_remote.R#6) 
+      2. Error: generate_type_str works with sqlite sources (@test_types.R#341) 
       
       Error: testthat unit tests failed
       Execution halted
     ```
 
-*   checking re-building of vignette outputs ... WARNING
+*   checking package dependencies ... NOTE
     ```
-    Error in re-building vignettes:
-      ...
-    Warning: Removed 85 rows containing missing values (geom_path).
-    Quitting from lines 158-171 (mudata.Rmd) 
-    Error: processing vignette 'mudata.Rmd' failed with diagnostics:
-    argument is not a character vector
-    Execution halted
+    Package suggested but not available for checking: ‘dbplyr’
     ```
-
-## In both
 
 *   checking dependencies in R code ... NOTE
     ```
@@ -5003,43 +4985,57 @@ Version: 1.2.0
 
 Version: 0.5.0
 
-## Newly broken
-
-*   checking examples ... ERROR
-    ```
-    ...
-    > require(psych)
-    Loading required package: psych
-    
-    Attaching package: ‘psych’
-    
-    The following object is masked from ‘package:neuropsychology’:
-    
-        describe
-    
-    The following objects are masked from ‘package:ggplot2’:
-    
-        %+%, alpha
-    
-    > 
-    > df <- select_numeric(personality)
-    > fa <- psych::fa(df)
-    > 
-    > fa_loadings(fa)$max
-    Error in typeof(x) : argument "vars" is missing, with no default
-    Calls: fa_loadings ... vars_select_eval -> scoped_vars -> poke_vars -> is_null -> typeof
-    Execution halted
-    ```
-
 ## In both
 
-*   checking dependencies in R code ... NOTE
+*   checking whether package ‘neuropsychology’ can be installed ... ERROR
     ```
-    Namespaces in Imports field not imported from:
-      ‘htmlTable’ ‘lme4’ ‘stringi’
-      All declared Imports should be used.
+    Installation failed.
+    See ‘/home/muelleki/git/R/dplyr/revdep/checks/neuropsychology/new/neuropsychology.Rcheck/00install.out’ for details.
     ```
 
+## Installation
+
+### Devel
+
+```
+* installing *source* package ‘neuropsychology’ ...
+** package ‘neuropsychology’ successfully unpacked and MD5 sums checked
+** R
+** data
+*** moving datasets to lazyload DB
+Warning: namespace ‘caret’ is not available and has been replaced
+by .GlobalEnv when processing object ‘models’
+Warning: namespace ‘caret’ is not available and has been replaced
+by .GlobalEnv when processing object ‘models’
+** inst
+** preparing package for lazy loading
+Error in loadNamespace(j <- i[[1L]], c(lib.loc, .libPaths()), versionCheck = vI[[j]]) : 
+  there is no package called ‘dimRed’
+ERROR: lazy loading failed for package ‘neuropsychology’
+* removing ‘/home/muelleki/git/R/dplyr/revdep/checks/neuropsychology/new/neuropsychology.Rcheck/neuropsychology’
+
+```
+### CRAN
+
+```
+* installing *source* package ‘neuropsychology’ ...
+** package ‘neuropsychology’ successfully unpacked and MD5 sums checked
+** R
+** data
+*** moving datasets to lazyload DB
+Warning: namespace ‘caret’ is not available and has been replaced
+by .GlobalEnv when processing object ‘models’
+Warning: namespace ‘caret’ is not available and has been replaced
+by .GlobalEnv when processing object ‘models’
+** inst
+** preparing package for lazy loading
+Error: package or namespace load failed for ‘tidyverse’ in loadNamespace(j <- i[[1L]], c(lib.loc, .libPaths()), versionCheck = vI[[j]]):
+ there is no package called ‘purrr’
+Error : package ‘tidyverse’ could not be loaded
+ERROR: lazy loading failed for package ‘neuropsychology’
+* removing ‘/home/muelleki/git/R/dplyr/revdep/checks/neuropsychology/old/neuropsychology.Rcheck/neuropsychology’
+
+```
 # NFP
 
 Version: 0.99.2
@@ -5107,38 +5103,6 @@ Version: 0.1.0
       ‘RColorBrewer’ ‘XML’ ‘choroplethr’ ‘choroplethrMaps’ ‘data.table’
       ‘forcats’ ‘hurricaneexposure’ ‘plyr’
       All declared Imports should be used.
-    ```
-
-# nonmemica
-
-Version: 0.7.9
-
-## Newly broken
-
-*   checking examples ... ERROR
-    ```
-    ...
-    > ### ** Examples
-    > 
-    > library(magrittr)
-    > library(fold)
-    
-    Attaching package: ‘fold’
-    
-    The following object is masked from ‘package:stats’:
-    
-        filter
-    
-    > options(project = system.file('project/model',package='nonmemica'))
-    > 1001 %>% fold(ID,TIME,subset='MDV==0') %>% head
-    Warning in as.folded.data.frame(y) :
-      removing unique values where keys are duplicated
-    Warning in as.folded.data.frame(y) :
-      removing unique values where keys are duplicated
-    Error in `[.data.frame`(res, , c("VARIABLE", "META")) : 
-      undefined columns selected
-    Calls: %>% ... fold.character -> <Anonymous> -> meta.character -> [ -> [.data.frame
-    Execution halted
     ```
 
 # nos
@@ -8965,9 +8929,9 @@ Version: 0.4.0
     Last 13 lines of output:
       27: NextMethod()
       28: distinct.data.frame(.data, !(!(!dots)), .keep_all = .keep_all)
-      29: distinct_vars(.data, quos(...), .keep_all = .keep_all)
+      29: distinct_vars(.data, named_quos(...), .keep_all = .keep_all)
       30: list_cols_error(.data, keep)
-      31: abort("distinct() does not support columns of type `list`")
+      31: stop("distinct() does not support columns of type `list`", call. = FALSE)
       
       ══ testthat results  ═══════════════════════════════════════════════════════════
       OK: 427 SKIPPED: 0 FAILED: 4
