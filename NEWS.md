@@ -16,6 +16,8 @@
 
 ## Changes
 
+* Bumped Rcpp dependency to 0.12.15 to avoid imperfect detection of `NA` values in hybrid evaluation fixed in RcppCore/Rcpp#790 (#2919).
+
 * Summaries of summaries (such as `summarise(b = sum(a), c = sum(b))`) are now
   computed using standard evaluation for simplicity and correctness, but
   slightly slower (#3233).
@@ -49,6 +51,8 @@
 
 * `select()` and `vars()` now treat `NULL` as empty inputs (#3023).
 
+* Fix `summarise()` for empty data frames with zero columns (#3071).
+
 * Add error for `distinct()` if any of the selected columns are of type `list` (#3088, @foo-bar-baz-qux).
 
 * `sample_n()` and `sample_frac()` on grouped data frame are now faster especially for those with large number of groups (#3193, @saurfang).
@@ -58,6 +62,8 @@
 * Corrected error message when calling `cbind()` with an object of wrong length (#3085).
 
 *  Fix `row_number()` and `ntile()` ordering to use the locale-dependent ordering functions in R when dealing with character vectors, rather than always using the C-locale ordering function in C (#2792, @foo-bar-baz-qux).
+
+*  `distinct()` now supports renaming columns (#3234).
 
 * Better error message when joining data frames with duplicate column names. Joining such data frames with a semi- or anti-join now gives a warning, which may be converted to an error in future versions (#3243).
 

@@ -2,17 +2,18 @@ context("hybrid")
 
 test_that("hybrid evaluation environment is cleaned up (#2358)", {
   # Can't use pipe here, f and g should have top-level parent.env()
-  df <- data_frame(x = 1)
+  df <- data_frame(`_foo` = 1)
   df <- mutate(df, f = list(function() {}))
   df <- mutate(df, g = list(quo(.)))
   df <- mutate(df, h = list(~.))
 
-  expect_environments_clean(df$f[[1]])
-  expect_environments_clean(df$g[[1]])
-  expect_environments_clean(df$h[[1]])
+  expect_environments_clean(env_parent(df$f[[1]]))
+  expect_environments_clean(env_parent(df$g[[1]]))
+  expect_environments_clean(env_parent(df$h[[1]]))
 
-  # Avoids "Empty test" message
-  expect_true(TRUE)
+  expect_false(env_has(df$f[[1]], "_foo", inherit = TRUE))
+  expect_false(env_has(df$g[[1]], "_foo", inherit = TRUE))
+  expect_false(env_has(df$h[[1]], "_foo", inherit = TRUE))
 })
 
 test_that("n() and n_distinct() work", {
@@ -105,22 +106,22 @@ test_that("min() and max() work", {
   )
   check_hybrid_result(
     min(a), a = c(1:5, NA),
-    expected = NA_real_,
+    expected = is.na,
     test_eval = FALSE
   )
   check_hybrid_result(
     max(a), a = c(1:5, NA),
-    expected = NA_real_,
+    expected = is.na,
     test_eval = FALSE
   )
   check_hybrid_result(
     min(a), a = c(NA, 1:5),
-    expected = NA_real_,
+    expected = is.na,
     test_eval = FALSE
   )
   check_hybrid_result(
     max(a), a = c(NA, 1:5),
-    expected = NA_real_,
+    expected = is.na,
     test_eval = FALSE
   )
 
@@ -361,11 +362,23 @@ test_that("mean(), var(), sd() and sum() work", {
     expected = 3
   )
   check_hybrid_result(
+    mean(a), a = as.numeric(1:5),
+    expected = 3
+  )
+  check_hybrid_result(
     var(a), a = 1:3,
     expected = 1
   )
   check_hybrid_result(
+    var(a), a = as.numeric(1:3),
+    expected = 1
+  )
+  check_hybrid_result(
     sd(a), a = 1:3,
+    expected = 1
+  )
+  check_hybrid_result(
+    sd(a), a = as.numeric(1:3),
     expected = 1
   )
   check_hybrid_result(
@@ -379,11 +392,27 @@ test_that("mean(), var(), sd() and sum() work", {
 
   check_hybrid_result(
     mean(a), a = c(1:5, NA),
-    expected = NA_real_
+    expected = is.na
+  )
+  check_hybrid_result(
+    mean(a), a = as.numeric(c(1:5, NA)),
+    expected = is.na
   )
   check_hybrid_result(
     var(a), a = c(1:3, NA),
-    expected = NA_real_
+    expected = is.na
+  )
+  check_hybrid_result(
+    var(a), a = as.numeric(c(1:3, NA)),
+    expected = is.na
+  )
+  check_hybrid_result(
+    sd(a), a = c(1:3, NA),
+    expected = is.na
+  )
+  check_hybrid_result(
+    sd(a), a = as.numeric(c(1:3, NA)),
+    expected = is.na
   )
   check_hybrid_result(
     sum(a), a = c(1:5, NA),
@@ -391,7 +420,40 @@ test_that("mean(), var(), sd() and sum() work", {
   )
   check_hybrid_result(
     sum(a), a = c(as.numeric(1:5), NA),
-    expected = NA_real_
+    expected = is.na
+  )
+
+  check_hybrid_result(
+    mean(a, na.rm = TRUE), a = c(1:5, NA),
+    expected = 3
+  )
+  check_hybrid_result(
+    mean(a, na.rm = TRUE), a = as.numeric(c(1:5, NA)),
+    expected = 3
+  )
+  check_hybrid_result(
+    var(a, na.rm = TRUE), a = c(1:3, NA),
+    expected = 1
+  )
+  check_hybrid_result(
+    var(a, na.rm = TRUE), a = as.numeric(c(1:3, NA)),
+    expected = 1
+  )
+  check_hybrid_result(
+    sd(a, na.rm = TRUE), a = c(1:3, NA),
+    expected = 1
+  )
+  check_hybrid_result(
+    sd(a, na.rm = TRUE), a = as.numeric(c(1:3, NA)),
+    expected = 1
+  )
+  check_hybrid_result(
+    sum(a, na.rm = TRUE), a = c(1:5, NA),
+    expected = 15L
+  )
+  check_hybrid_result(
+    sum(a, na.rm = TRUE), a = c(as.numeric(1:5), NA),
+    expected = 15
   )
 
   check_not_hybrid_result(
@@ -499,7 +561,7 @@ test_that("row_number(), ntile(), min_rank(), percent_rank(), dense_rank(), and 
 test_that("hybrid handlers don't nest", {
   check_not_hybrid_result(
     mean(lag(a)), a = 1:5,
-    expected = NA_real_
+    expected = is.na
   )
   check_not_hybrid_result(
     mean(row_number()), a = 1:5,
@@ -687,15 +749,15 @@ test_that("constant folding and argument matching in hybrid evaluator (#2299)", 
   skip("Currently failing")
   check_hybrid_result(
     mean(a, na.rm = (1 == 0)), a = c(1:5, NA),
-    expected = NA_real_
+    expected = is.na
   )
   check_hybrid_result(
     var(a, na.rm = (1 == 0)), a = c(1:3, NA),
-    expected = NA_real_
+    expected = is.na
   )
   check_hybrid_result(
     sd(a, na.rm = (1 == 0)), a = c(1:3, NA),
-    expected = NA_real_
+    expected = is.na
   )
   check_hybrid_result(
     sum(a, na.rm = (1 == 0)), a = c(1:5, NA),
@@ -703,7 +765,7 @@ test_that("constant folding and argument matching in hybrid evaluator (#2299)", 
   )
   check_hybrid_result(
     sum(a, na.rm = (1 == 0)), a = c(as.numeric(1:5), NA),
-    expected = NA_real_
+    expected = is.na
   )
 
   check_hybrid_result(
@@ -800,7 +862,7 @@ test_that("simple handlers supports quosured symbols", {
 test_that("%in% handler supports quosured symbols", {
   `%in%` <- bad_hybrid_handler
   expect_identical(
-    pull(mutate(mtcars, UQ(quo(cyl)) %in% 4)),
+    pull(mutate(mtcars, !!quo(cyl) %in% 4)),
     base::`%in%`(mtcars$cyl, 4)
   )
 })
