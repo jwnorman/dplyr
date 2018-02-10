@@ -39,7 +39,8 @@ if (length(revdep_todo()) == 0) {
 options(repos = revdepcheck:::get_repos(bioc = TRUE))
 
 todo <- revdep_todo()
-withr::with_temp_libpaths(action = "replace", {
+dir.create("revdep/warmup_lib", showWarnings = FALSE)
+withr::with_libpaths("revdep/warmup_lib", action = "replace", {
   crancache::install_packages(c(
     todo,
     "pillar"
