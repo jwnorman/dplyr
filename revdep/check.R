@@ -54,7 +54,7 @@ repos <- paste0(
 
 names(repos) <- c("CRAN", "Bioc", "other")
 
-options(repos = repos)
+options(repos = repos, pkgType = "binary")
 
 N <- 100
 for (i in seq_len(N)) {
