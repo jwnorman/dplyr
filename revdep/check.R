@@ -41,10 +41,8 @@ options(repos = revdepcheck:::get_repos(bioc = TRUE))
 todo <- revdep_todo()
 dir.create("revdep/warmup_lib", showWarnings = FALSE)
 withr::with_libpaths("revdep/warmup_lib", action = "replace", {
-  crancache::install_packages(c(
-    todo,
-    "pillar"
-  ))
+  crancache::update_packages()
+  crancache::install_packages(setdiff(todo, rownames(installed.packages())))
 
   remotes::install_local(".")
 })
