@@ -64,7 +64,7 @@ for (i in seq_len(N)) {
       bioc = TRUE,
       dependencies = character(),
       quiet = FALSE,
-      num_workers = 24,
+      num_workers = 40,
       timeout = as.difftime(60, units = "mins")
     )
   )
